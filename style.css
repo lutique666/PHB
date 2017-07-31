@@ -1,0 +1,120 @@
+@media (min-width: 200px) and (max-width: 1200px) {
+.spells{
+ width: calc(100% - 50px) 
+
+}
+.classes{
+ width: calc(100% - 50px)
+ 
+}
+}
+
+@media (min-width: 1200px) and (max-width: 4000px) {
+.spells{
+ width: 1200px 
+
+}
+.classes{
+ width: 1200px
+ 
+}
+}
+
+#suggestion{
+background-color: #D0D0D0;
+position:absolute;
+z-index:999;
+display: none;
+font-size: 150%
+
+}
+
+#picture{
+position:relative;
+z-index:999;
+display: block;
+}
+
+A:link{
+text-decoration: none;
+}
+
+h1{
+font-size: 90%
+}
+
+.table-of-contents {
+z-index: 2;
+position: relative;
+}
+
+.info {
+z-index: 1;
+position: relative;
+}
+
+.circle0{
+display: block;
+text-align: center;
+font-size: 13px;
+}
+
+.circle0-des{
+display: none;
+test-align: justify;
+font-size: 13px;
+}
+
+.circle1-des{
+display: block;
+test-align: justify;
+font-size: 13px;
+}
+
+.spells{
+border: 2px; /* Параметры границы */
+padding: 10px; /* Поля вокруг текста */
+border-style: solid;
+border-collapse: collapse;
+
+}
+
+.classes{
+border: 2px; /* Параметры границы */
+padding: 10px; /* Поля вокруг текста */
+border-style: solid;
+border-collapse: collapse;
+
+}
+
+table table{
+margin-left: 35px;
+margin-right: 35px;
+font-size: 12px;
+}
+
+table {
+margin-left:25px;
+margin-right:25px;
+}
+
+tr td
+{
+margin-left: 0px;
+margin-right: 0px;
+}
+
+TD H1 {
+font-size: 13px;
+}
+
+p{
+padding: 0px 10px 0px 0px;
+    margin-top: 1px; /* Отступ сверху */
+    margin-bottom: 1px; /* Отступ снизу */
+text-indent: 2.5em; /* Отступ первой строки */
+text-align: justify; /* Выравнивание по ширине */	
+
+}
+
+
