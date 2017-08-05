@@ -6,7 +6,7 @@ var suggestion;
 var current_display_table; //Текущая отображаемая таблица спеллов
 var current_display_class; //Текущий отображаемый класс
 var current_display_spell; //Текущий отображаемый спелл
-var current_display_level='1'; //Текущий отображаемый уровень
+var current_display_level=1; //Текущий отображаемый уровень
 
 function pagename() {
 var title = document.getElementsByTagName("title")[0].innerHTML;
