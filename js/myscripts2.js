@@ -83,8 +83,6 @@ level_number = (levelus.slice(levelus.length-1,levelus.length))
 current_display_table.style.display = 'none';
 current_display_table = document.getElementById(class_name+level_number)
 current_display_table.style.display = 'block';
-console.log(current_display_level)
-console.log(level_number)
 	
 document.getElementsByClassName('clean')[current_display_level].style.backgroundColor = 'white';
 current_display_level = Number(level_number)
