@@ -6,6 +6,7 @@ var suggestion;
 var current_display_table; //Текущая отображаемая таблица спеллов
 var current_display_class; //Текущий отображаемый класс
 var current_display_spell; //Текущий отображаемый спелл
+var current_display_level='1'; //Текущий отображаемый уровень
 
 function pagename() {
 var title = document.getElementsByTagName("title")[0].innerHTML;
@@ -37,6 +38,7 @@ current_display_class.style.backgroundColor = 'white';
 current_display_class = document.getElementById(classus)
 current_display_class.style.backgroundColor = 'orange';
 
+
 var y = document.getElementsByClassName('clean');
 for (var j=0; j<y.length; j++){
 y[j].style.display = 'block';
@@ -65,7 +67,10 @@ else
 
 }
 
-
+document.getElementsByClassName('clean')[current_display_level].style.backgroundColor = 'white';
+current_display_level = Number(level_number)
+document.getElementsByClassName('clean')[current_display_level].style.backgroundColor = 'orange';	
+	
 class_name=classus;
 ChangeLevel(level_number);
 Search('111111111');
@@ -81,6 +86,7 @@ current_display_table.style.display = 'none';
 current_display_table = document.getElementById(class_name+level_number)
 current_display_table.style.display = 'block';
 
+	
 Search('111111111');
 ChangeTitle();
 }
