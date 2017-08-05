@@ -86,7 +86,7 @@ current_display_table.style.display = 'block';
 console.log(current_display_level)
 	
 document.getElementsByClassName('clean')[current_display_level].style.backgroundColor = 'white';
-current_display_level = Number(levelus)
+current_display_level = Number(level_number)
 document.getElementsByClassName('clean')[current_display_level].style.backgroundColor = 'orange';	
 	
 Search('111111111');
