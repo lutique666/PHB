@@ -1,57 +1,41 @@
-﻿var level_number = '1';
+var level_number = '1';
 var class_name = 'bard';
 var spellname = document.getElementsByClassName('spellname');
 var des = document.getElementsByClassName('circle0-des');
-var current_display
+var suggestion;
+var current_display_table; //Текущая отображаемая таблица спеллов
+var current_display_class; //Текущий отображаемый класс
+var current_display_spell; //Текущий отображаемый спелл
 
 function pagename() {
 var title = document.getElementsByTagName("title")[0].innerHTML;
-document.getElementById('page-name').innerHTML = title
-current_display = document.getElementById(class_name+level_number);
-
+document.getElementById('page-name').innerHTML = title;
+current_display_table = document.getElementById(class_name+level_number);
+current_display_spell = document.getElementsByClassName('spellname')[0];
+current_display_class = document.getElementById('bard');
+suggestion = document.getElementById('suggestion')
 }
 
 
-function Description(Switch) {
-	var x = document.getElementsByClassName(Switch.className);
-	var y = document.getElementsByClassName(Switch.className+'-des');
-	for (var i=0; i<x.length; i++){
-     	if (x[i].innerHTML == Switch.innerHTML)
-	{
-	    y[i].style.display = 'block';
-	    x[i].style.backgroundColor = 'orange';
-	}
-	else
-	{
-	    y[i].style.display = 'none';
-	    x[i].style.backgroundColor = 'white';
-	}
-	}
-}
 
 
 function Content(id) {
-	var x = document.getElementById('suggestion');
-	if (x.style.display == 'block')
+	if (suggestion.style.display == 'block')
     {
-    	x.style.display = 'none';
+    	suggestion.style.display = 'none';
     }
     else
     {
-    	x.style.display = 'block';
+    	suggestion.style.display = 'block';
     }
 
 }
 
 function ChangeClass(classus) {
 
-
-var x = document.getElementsByClassName('classes');
-for (var i=0; i<x.length; i++){
-	x[i].style.backgroundColor = 'white';
-}
-
-document.getElementById(classus).style.backgroundColor = 'orange';
+current_display_class.style.backgroundColor = 'white';
+current_display_class = document.getElementById(classus)
+current_display_class.style.backgroundColor = 'orange';
 
 var y = document.getElementsByClassName('clean');
 for (var j=0; j<y.length; j++){
@@ -91,14 +75,11 @@ ChangeTitle();
 
 
 function ChangeLevel(levelus) {
-var y = document.getElementsByClassName('clean');
-for (var j=0; j<y.length; j++){
-y[j].style.backgroundColor = 'white';
-}
+
 level_number = (levelus.slice(levelus.length-1,levelus.length))
-window.current_display.style.display = 'none';
-window.current_display = document.getElementById(class_name+level_number)
-window.current_display.style.display = 'block';
+current_display_table.style.display = 'none';
+current_display_table = document.getElementById(class_name+level_number)
+current_display_table.style.display = 'block';
 
 Search('111111111');
 ChangeTitle();
@@ -118,10 +99,6 @@ else {
 }
 
 for (var i=0; i<spellname.length; i++) {
-var new_string=des[i].innerHTML.replace(/<span style="background-color:yellow">/g, '');
-des[i].innerHTML = new_string;
-
-
 
 if (spellname[i].innerHTML.indexOf(html.toUpperCase()) == 0) {
 des[i].style.display = 'block';
