@@ -1,15 +1,6 @@
 ﻿var des = document.getElementsByClassName('circle0-des');
 var spellname = document.getElementsByClassName('spellname');
 
-if(characterCode == 13)
-{
-   return false;
-   SearchString();
-}
-else
-{
-    return true;
-}
 
 function pagename() {
 var title = document.getElementsByTagName("title")[0].innerHTML;
