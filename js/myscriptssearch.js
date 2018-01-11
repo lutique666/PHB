@@ -1,4 +1,4 @@
-﻿var des = document.getElementsByClassName('circle0-des');
+var des = document.getElementsByClassName('circle0-des');
 var spellname = document.getElementsByClassName('spellname');
 
 
