@@ -3,6 +3,7 @@ var spellname = document.getElementsByClassName('spellname');
 
 if(characterCode == 13)
 {
+   return false;
    SearchString();
 }
 else
