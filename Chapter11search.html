@@ -21,7 +21,7 @@
 </div>
 
 
-<form onkeypress="return event.keyCode != 13">
+<form onkeypress="return event.keyCode != 13; SearchString();">
 <br>
   <p>Поиск по названию заклинаний<br></p>
   <p><input size="50" type="search" id="neadlestring" onchange="SearchString()" onsubmit="SearchString()" /><input type="button" value="Найти" onclick="return false; SearchString()" ontouch="return false; SearchString()"/></p>
