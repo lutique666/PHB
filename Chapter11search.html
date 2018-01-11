@@ -1,10 +1,18 @@
 ﻿<html>
  <head>
+  
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <title>Глава 11: Заклинания</title>
  <link rel="stylesheet" href="css/style-spells.css">
  <script src="js/myscriptssearch.js"></script>
-
+ <script language="JavaScript">
+    function TriggeredKey(e)
+    {
+        var keycode;
+        if (window.event) keycode = window.event.keyCode;
+        if (window.event.keyCode = 13 ) return false;
+    }
+    </script>
 
  </head>
 <body onload="pagename();">
@@ -21,7 +29,7 @@
 </div>
 
 
-<form onkeypress="return event.keyCode != 13; SearchString();">
+<form>
 <br>
   <p>Поиск по названию заклинаний<br></p>
   <p><input size="50" type="search" id="neadlestring" onchange="SearchString()" onsubmit="SearchString()" /><input type="button" value="Найти" onclick="return false; SearchString()" ontouch="return false; SearchString()"/></p>
