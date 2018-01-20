@@ -1,55 +1,102 @@
 <html>
-  
+  <p>&nbsp;</p>
   <script>
-   rollf = Math.floor(Math.random() * 10);
+   rollf = Math.floor(Math.random() * 8);
   console.log(rollf);
+//1-4    
+var trash = ["Клочек бумаги", "Пергамент с непонятной запиской", "Пергамент со списком покупой", "Пергамент со списком задач", "Лента", "Моток ниток", "Сломанный солдатик", "Дешевая Пуговица", "Странная кнопка", "Пара старых носков", "Старая стеклянная шахматная фигура", "Серебряная ложка с выгравированной на ручке буквой «М»", "Два игрушечных солдатика, один без головы", "Пустая серебряная табакерка с надписью на поверхности «грёзы»", "Золотая оправа монокля без линзы", "Механическая канарейка в гномьей лампе"];
+var handkerchief = ["прекрасный шелковый платок", " хлопковый носовой платок", "кружевной платок", "обычный носовой платок", "полосатый носовой платок", "пятнистый носовой платок"];
 
-var message = (rollf == 0) ? 'Клочок бумаги или пергамент с непонятной запиской' :
-  (rollf == 1) ? 'Пергамент со списком мирских предметов или заданий, написанных на нем.' :
-  (rollf == 2) ? 'Лента или нить.' :
-  'Какой необычный возраст!';
-    console.log(rollf);
-    console.log(message);
+
+
+if (rollf <= 3)
+{
+  item = trash[Math.floor(Math.random() *  trash.length)];
+}
+else if (rollf == 4)
+{
+ item = 'Чистый ' + handkerchief[Math.floor(Math.random() * handkerchief.length)];
+}
+else if (rollf == 5)
+{
+ item = 'Грязный ' + handkerchief[Math.floor(Math.random() * handkerchief.length)];
+}
+else if (rollf >= 6)
+{
+ 
+ rolls = Math.floor(Math.random() * 12)
+ console.log(rolls)
+    if (rolls == 0)
+    {
+      item = Math.floor(Math.random() * 5) + Math.floor(Math.random() * 5) + 2 + ' медь';
+    } 
+    else if (rolls == 1)
+    {
+      item = Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) +  Math.floor(Math.random() * 6) + 3 + ' медь';
+    }
+    else if (rolls == 2)
+    {
+      item = Math.floor(Math.random() * 6) + 1 + ' серебро '; 
+    } 
+    else if (rolls == 3)
+    {
+      item = Math.floor(Math.random() * 6) + 1 + ' серебро ' + Math.floor(Math.random() * 10 + 1) + ' медь'; 
+    } 
+    else if (rolls == 4)
+    {
+      item = Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) +  2 + ' серебро '; 
+    } 
+    else if (rolls == 5)
+    {
+      item = Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) +  2 + ' серебро ' + Math.floor(Math.random() * 10 + 1) + ' медь'; 
+    }  
+    else if (rolls == 6)
+    {
+      item = Math.floor(Math.random() * 4) + 1 + ' золото'; 
+    }
+    else if (rolls == 7)
+    {
+      item = Math.floor(Math.random() * 4) + 1 + ' золото ' + Math.floor(Math.random() * 10) + ' серебро '; 
+    }
+    else if (rolls == 8)
+    {
+      item = Math.floor(Math.random() * 4) + Math.floor(Math.random() * 4) + 2 + ' золото ' + Math.floor(Math.random() * 10) + ' серебро '; 
+    } 
+    else if (rolls == 9)
+    {
+      tmp = Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + 5; 
+      item = 'Драгоценный камень стоимостью: ' + tmp + ' золотых'
+    }  
+    else if (rolls == 10)
+    {
+      tmp = Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  +  Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + Math.floor(Math.random() * 11)  + 10; 
+      item = 'Ювелирное изделие: ' + tmp + ' золотых'
+    }
+    else if (rolls >= 11)
+    {
+        rollf = Math.floor(Math.random() * 7);
+        if (rollf <= 3)
+        {
+          item = trash[Math.floor(Math.random() *  trash.length)];
+        }
+        else if (rollf == 4)
+        {
+         item = 'Чистый ' + handkerchief[Math.floor(Math.random() * handkerchief.length)];
+        }
+        else if (rollf == 5)
+        {
+         item = 'Грязный ' + handkerchief[Math.floor(Math.random() * handkerchief.length)];
+        }
+      tmp = Math.floor(Math.random() * 5) + Math.floor(Math.random() * 5) +  2
+      item = item + ' и ' + tmp + ' золотых'
+    }         
+}
+
+var elements = document.getElementsByTagName('p');
+elements[0].innerHTML = item
+
   </script>
+
+
+
   
-  
-<p>d10 On a successful pickpocket check, the thief finds...</p>
-<p>1) Клочок бумаги или пергамент с непонятной запиской.</p>
-<p>2) Пергамент со списком мирских предметов или заданий, написанных на нем.</p>
-<p>3) Лента или нить.</p>
-<p>4) Странная кнопка или сломанная вещь.</p>
-<p>5) Чистый носовой платок</p>
-<p>6) Грязненный носовой платок </p>
-<p>7-8)Некоторая добыча (roll d12).</p>
-<p>9-10)Некоторая добыча (roll d12) и снова сверните на эту таблицу с помощью d6.</p>
-<p>&nbsp;</p>
-<p>d6 Ключ ...</p>
-<p>1) Маленький латунный ключ.</p>
-<p>2) Большой латунный ключ.</p>
-<p>3) Тонкий латунный ключ.</p>
-<p>4) Тяжелый железный ключ.</p>
-<p>5) Длинный и тонкий железный ключ.</p>
-<p>6) Изготовлен из необычного материала.</p>
-<p>&nbsp;</p>
-<p>d6 Носовой платок ...</p>
-<p>1) Прекрасный шелковый платок.</p>
-<p>2) Простой хлопковый носовой платок.</p>
-<p>3) Кружевной платок.</p>
-<p>4) Носовой платок.</p>
-<p>5) Полосатый носовой платок.</p>
-<p>6) Пятнистый носовой платок.</p>
-<p>&nbsp;</p>
-<p>d12 The thief scores...</p>
-<p>1) 2d4 медь</p>
-<p>2) 3d6 медь</p>
-<p>3) 1d6 серебро</p>
-<p>4) 1d6 серебро плюс 1d10 медь.</p>
-<p>5) 2d6 серебро.</p>
-<p>6) 2d6 серебро плюс 1d10 медь.</p>
-<p>7) 1d4 золото.</p>
-<p>8) 1d4 золото плюс 1d10 серебро.</p>
-<p>9) 2d4 золото плюс 1d10 серебро.</p>
-<p>10) Драгоценный камень или маленький кусочек ювелирных изделий стоимостью 5d10 золото.</p>
-<p>11) Жемчуг или небольшой кусочек ювелирных изделий стоимостью 10d10 золото.</p>
-<p>12) 1d6 золото и снова сверните на эту таблицу.</p>
-  </html>
