@@ -69,7 +69,27 @@ else if (rollf >= 6)
     else if (rolls == 9)
     {
       tmp = Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + 5; 
-      item = 'Драгоценный камень стоимостью: ' + tmp + ' золотых'
+      if (tmp <= 10)
+      {
+         stone = 'Ограненный аквамарин'
+      }
+      else if (tmp <= 20)
+      {
+         stone = 'Ограненный Бежурил'
+      }
+      else if (tmp <= 30)
+      {
+         stone = 'Ограненный гранат'
+      }
+      else if (tmp <= 40)
+      {
+         stone = 'Ограненный рубин'
+      }
+      else 
+      {
+         stone = 'Ограненный брилиант'
+      }
+      item = 'Драгоценный камень: ' + stone + ' стоимостью ' + tmp + ' золотых'
     }  
     else if (rolls == 10)
     {
