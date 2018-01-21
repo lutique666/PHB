@@ -94,7 +94,43 @@ else if (rollf >= 6)
     else if (rolls == 10)
     {
       tmp = Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  +  Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + 10; 
-      item = 'Ювелирное изделие: ' + tmp + ' золотых'
+      if (tmp < 20)
+      {
+         stone = 'серебрянное кольцо'
+      }
+      else if (tmp < 30)
+      {
+         stone = 'серебряный браслет'
+      }
+      else if (tmp < 40)
+      {
+         stone = 'золотое кольцо'
+      }
+      else if (tmp < 50)
+      {
+         stone = 'серебрянная подвеска'
+      }
+      else if (tmp < 60)
+      {
+         stone = 'платиновое кольцо'
+      }
+      else if (tmp < 70)
+      {
+         stone = 'золотой браслет'
+      }
+      else if (tmp < 80)
+      {
+         stone = 'золотая подвеска'
+      }
+      else if (tmp < 90)
+      {
+         stone = 'платиновый браслет'
+      } 
+      else
+      {
+         stone = 'платиновая подвеска'
+      }  
+      item = 'Ювелирное изделие: ' + stone + ' c ' + gems + ' стоимостью ' + tmp + ' золотых'
     }
     else if (rolls >= 11)
     {
