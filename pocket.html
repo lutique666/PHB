@@ -1,6 +1,8 @@
 <html>
+  <button ontouch="loot()" onclick="loot()">Мне повезет!</button>
   <p>&nbsp;</p>
   <script>
+function loot() {    
    rollf = Math.floor(Math.random() * 8);
   console.log(rollf);
 //1-4    
@@ -94,7 +96,7 @@ else if (rollf >= 6)
 
 var elements = document.getElementsByTagName('p');
 elements[0].innerHTML = item
-
+}
   </script>
 
 
