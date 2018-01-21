@@ -71,7 +71,7 @@ else if (rollf >= 6)
       tmp = Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + Math.floor(Math.random() * 10)  + 5; 
       if (tmp <= 10)
       {
-         stone = 'Ограненный аквамарин'
+         stone = 'Ограненный Аквамарин'
       }
       else if (tmp <= 20)
       {
@@ -79,15 +79,15 @@ else if (rollf >= 6)
       }
       else if (tmp <= 30)
       {
-         stone = 'Ограненный гранат'
+         stone = 'Ограненный Гранат'
       }
       else if (tmp <= 40)
       {
-         stone = 'Ограненный рубин'
+         stone = 'Ограненный Рубин'
       }
       else 
       {
-         stone = 'Ограненный брилиант'
+         stone = 'Ограненный Брилиант'
       }
       item = 'Драгоценный камень: ' + stone + ' стоимостью ' + tmp + ' золотых'
     }  
@@ -129,8 +129,29 @@ else if (rollf >= 6)
       else
       {
          stone = 'платиновая подвеска'
-      }  
-      item = 'Ювелирное изделие: ' + stone + ' c ' + gems + ' стоимостью ' + tmp + ' золотых'
+      } 
+      
+      if ( tmp % 10 <= 2 )
+      {
+        gem = ''    
+      }
+      else if ( tmp % 10 <= 4 )
+      {
+        gem = 'с сапфирами'    
+      }
+      else if ( tmp % 10 <= 6 )
+      {
+        gem = 'с изумрудами'    
+      }
+      else if ( tmp % 10 <=  8)
+      {
+        gem = 'с рубинами'    
+      }
+      else
+      {
+        gem = 'с брилиантами'  
+      }
+      item = 'Ювелирное изделие: ' + stone + gem + ' стоимостью ' + tmp + ' золотых'
     }
     else if (rolls >= 11)
     {
