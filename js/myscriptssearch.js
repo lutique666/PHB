@@ -35,7 +35,7 @@ var check=document.getElementById('searchall').checked;
 console.log(check);
 
 if (check === true) {
-  desl[i]=des[i].toLowerCase()
+  var desl=des[i].innerHTML.toLowerCase()
   if ((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) ||  (desl[i].innerHTML.indexOf(neadlestring.toLowerCase()) >= 0))  {
     new_string=new_string.replace(new RegExp(neadlestring, 'g'), replaceser);
     new_string=new_string.replace(neadlestring.toUpperCase(), '<span style="background-color:yellow">'+neadlestring.toUpperCase()+'</span>');
