@@ -24,8 +24,9 @@ function Content(id) {
 function SearchString() {
 
 var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
+var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
 console.log(neadlestring);
-
+console.log(neadlestringex);
 for (var i=0; i<des.length; i++) 
 {
 var new_string=des[i].innerHTML.replace(/<span style="background-color:yellow">/g, '');
@@ -35,7 +36,7 @@ var check=document.getElementById('searchall').checked;
 console.log(check);
 
 if (check === true) {
-  if ((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0))  {
+  if ((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0))  {
     new_string=new_string.replace(new RegExp(neadlestring, 'g'), replaceser);
     new_string=new_string.replace(neadlestring.toUpperCase(), '<span style="background-color:yellow">'+neadlestring.toUpperCase()+'</span>');
     des[i].innerHTML=new_string;
