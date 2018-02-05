@@ -61,7 +61,7 @@ test-align: justify;
 font-size: 13px;
 }
 
-.spells,.classes,.classspell,.selection1{
+.spells,.classes,.selection1{
 border: 1px; /* Ïàðàìåòðû ãðàíèöû */
 padding: 10px; /* Ïîëÿ âîêðóã òåêñòà */
 border-style: solid;
@@ -72,7 +72,10 @@ border-collapse: collapse;
 
 .classspell {
 	font-size: 8px;
-	padding: 5px;
+border: 1px; /* Ïàðàìåòðû ãðàíèöû */
+padding: 3px; /* Ïîëÿ âîêðóã òåêñòà */
+border-style: solid;
+border-collapse: collapse;
 }
 .spells, .classspell {
 	padding: 0px;
