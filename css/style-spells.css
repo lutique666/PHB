@@ -72,6 +72,7 @@ border-collapse: collapse;
 
 .classspell {
 	font-size: 7px;
+	padding: 5px;
 }
 .spells, .classspell {
 	padding: 0px;
