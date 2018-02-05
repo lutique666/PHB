@@ -66,10 +66,13 @@ border: 1px; /* Ïàðàìåòðû ãðàíèöû */
 padding: 10px; /* Ïîëÿ âîêðóã òåêñòà */
 border-style: solid;
 border-collapse: collapse;
-font-siza: 80%;
+
 
 }
 
+.classspell {
+	font-size: 70%;
+}
 .spells, .classspell {
 	padding: 0px;
 }
