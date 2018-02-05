@@ -74,7 +74,7 @@ border: 1px; /* Параметры границы */
 padding: 2px; /* Поля вокруг текста */
 border-style: solid;
 border-collapse: collapse;
-width: 100px; 
+min-width: 100px; 
 
 }
 
