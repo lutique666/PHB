@@ -4,6 +4,7 @@
 }
  .classes {
   min-width: calc(100%/12)
+  max-width: calc(100%/12)
   font-size: 9px;
  }
 }
