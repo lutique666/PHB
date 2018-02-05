@@ -61,15 +61,17 @@ test-align: justify;
 font-size: 13px;
 }
 
-.spells,.classes,.selection1, .classspell{
-border: 1px; /* Ïàðàìåòðû ãðàíèöû */
-padding: 10px; /* Ïîëÿ âîêðóã òåêñòà */
+.spells,.classes,.classspell,.selection1{
+border: 1px; /* Параметры границы */
+padding: 10px; /* Поля вокруг текста */
 border-style: solid;
 border-collapse: collapse;
 
-
 }
 
+.spells, .classspell {
+	padding: 0px;
+}
 
 .classspell {
 	border: 0px;
@@ -96,10 +98,10 @@ margin-right: 0px;
 
 p{
 padding: 0px 10px 0px 0px;
-    margin-top: 1px; /* Îòñòóï ñâåðõó */
-    margin-bottom: 1px; /* Îòñòóï ñíèçó */
-text-indent: 2.5em; /* Îòñòóï ïåðâîé ñòðîêè */
-text-align: justify; /* Âûðàâíèâàíèå ïî øèðèíå */	
+    margin-top: 1px; /* Отступ сверху */
+    margin-bottom: 1px; /* Отступ снизу */
+text-indent: 2.5em; /* Отступ первой строки */
+text-align: justify; /* Выравнивание по ширине */	
 
 }
 
