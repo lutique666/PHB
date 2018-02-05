@@ -62,10 +62,11 @@ font-size: 13px;
 }
 
 .spells,.classes,.classspell,.selection1{
-border: 1px; /* Параметры границы */
-padding: 10px; /* Поля вокруг текста */
+border: 1px; /* ГЏГ Г°Г Г¬ГҐГІГ°Г» ГЈГ°Г Г­ГЁГ¶Г» */
+padding: 10px; /* ГЏГ®Г«Гї ГўГ®ГЄГ°ГіГЈ ГІГҐГЄГ±ГІГ  */
 border-style: solid;
 border-collapse: collapse;
+font-siza: 80%;
 
 }
 
@@ -98,10 +99,10 @@ margin-right: 0px;
 
 p{
 padding: 0px 10px 0px 0px;
-    margin-top: 1px; /* Отступ сверху */
-    margin-bottom: 1px; /* Отступ снизу */
-text-indent: 2.5em; /* Отступ первой строки */
-text-align: justify; /* Выравнивание по ширине */	
+    margin-top: 1px; /* ГЋГІГ±ГІГіГЇ Г±ГўГҐГ°ГµГі */
+    margin-bottom: 1px; /* ГЋГІГ±ГІГіГЇ Г±Г­ГЁГ§Гі */
+text-indent: 2.5em; /* ГЋГІГ±ГІГіГЇ ГЇГҐГ°ГўГ®Г© Г±ГІГ°Г®ГЄГЁ */
+text-align: justify; /* Г‚Г»Г°Г ГўГ­ГЁГўГ Г­ГЁГҐ ГЇГ® ГёГЁГ°ГЁГ­ГҐ */	
 
 }
 
