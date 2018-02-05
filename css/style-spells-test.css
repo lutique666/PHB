@@ -3,7 +3,7 @@
  width: calc(100% - 50px) 
 }
  .classes {
-  min-width: 100%/12 
+  min-width: calc(100%/12) 
  }
 }
 
