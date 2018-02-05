@@ -1,15 +1,16 @@
-@media (min-width: 200px) and (max-width: 1200px) {
+@media (min-width: 200px) and (max-width: 1450px) {
 .spells, .classes, .class19, .classspell, .selection1 {
  width: calc(100% - 50px) 
 }
  .classes {
-  min-width: calc(100%/12) 
+  min-width: calc(100%/12)
+  font-size: 9px;
  }
 }
 
-@media (min-width: 1200px) and (max-width: 4000px) {
+@media (min-width: 1400px) and (max-width: 4000px) {
 .spells, .classes, .class19, .classspell, .selection1 {
- width: 1300px;
+ width: 1400px;
 }
 }
 
