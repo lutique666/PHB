@@ -2,11 +2,6 @@
 .spells, .classes, .class19, .classspell, .selection1 {
  width: calc(100% - 50px) 
 }
- .classes {
-  min-width: calc(100%/12)
-  max-width: calc(100%/12)
-  font-size: 9px;
- }
 }
 
 @media (min-width: 1400px) and (max-width: 4000px) {
@@ -79,7 +74,8 @@ border: 1px; /* Параметры границы */
 padding: 2px; /* Поля вокруг текста */
 border-style: solid;
 border-collapse: collapse;
-
+  min-width: 8%
+  max-width: 9%
 
 }
 
@@ -94,6 +90,8 @@ border: 1px; /* Параметры границы */
 padding: 0px; /* Поля вокруг текста */
 border-style: solid;
 border-collapse: collapse;
+  min-width: 100%
+
 
 }
 
