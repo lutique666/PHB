@@ -34,7 +34,6 @@ div.spellclass {
 
 .divTableCell {
   display: table-cell;
-
 }
 
 .divTableBody {
@@ -99,14 +98,15 @@ div.spellclass {
   display: none;
 }
 
-.TableCell {
+.TableCell2 {
   border: 1px solid #AAAAAA;
   padding: 1px 1px;
   text-align: center;
   font-size: 1em;
+
 }
 
-.TableCell:hover {
+.TableCell2:hover {
   text-align: center;
   cursor: pointer;
 }
@@ -115,7 +115,7 @@ div.spellclass {
   display: table-row;
 }
 
-.TableCell {
+.TableCell2 {
   display: table-cell;
   vertical-align: middle;
   width: 20em;
