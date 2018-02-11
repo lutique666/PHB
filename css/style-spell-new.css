@@ -1,0 +1,124 @@
+div.spellclass {
+  position: relative;
+  margin: 0 auto;
+  top: 8.5em;
+  font-family: Ubuntu Mono;
+  width: 99%;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+  padding-top: 1em;
+}
+
+.spellclass .divTableCell {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+
+.spellclass .divTableBody .divTableCell {
+  font-size: 25px;
+}
+
+.spellclass .divTableCell:hover {
+  cursor: pointer;
+}
+
+.spellclass {
+  display: table;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableCell {
+  display: table-cell;
+}
+
+.divTableBody {
+  display: table-row-group;
+}
+
+.numbers div {
+  position: relative;
+  margin: 0 auto;
+  top: 9em;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.numbers p {
+  font: 2em Ubuntu Mono;
+}
+
+.hide {
+  display: none;
+}
+
+.circle, .circle2 {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border: 2px solid #666;
+  color: #000000;
+  text-align: center;
+  font: 1.5em Ubuntu Mono;
+  letter-spacing: 3px;
+  cursor: pointer;
+
+}
+
+.white_content {
+  display: none;
+}
+
+.spelllist a {
+  text-decoration: none;
+  color: #000000;
+  padding: 2px 2px 2px 2px;
+}
+
+.spelllist a:hover {
+  text-decoration: none;
+  color: #ff9625;
+}
+#bard0Table, #bard1Table, #bard2Table, #bard3Table, #bard4Table, #bard5Table, #bard6Table, #bard7Table, #bard8Table, #bard9Table, #wizard0Table, #wizard1Table, #wizard2Table, #wizard3Table, #wizard4Table, #wizard5Table, #wizard6Table, #wizard7Table, #wizard8Table, #wizard9Table, #druid0Table, #druid1Table, #druid2Table, #druid3Table, #druid4Table, #druid5Table, #druid6Table, #druid7Table, #druid8Table, #druid9Table, #cleric0Table, #cleric1Table, #cleric2Table, #cleric3Table, #cleric4Table, #cleric5Table, #cleric6Table, #cleric7Table, #cleric8Table, #cleric9Table, #warlock0Table, #warlock1Table, #warlock2Table, #warlock3Table, #warlock4Table, #warlock5Table, #warlock6Table, #warlock7Table, #warlock8Table, #warlock9Table, #paladin1Table, #paladin2Table, #paladin3Table, #paladin4Table, #paladin5Table, #ranger1Table, #ranger2Table, #ranger3Table, #ranger4Table, #ranger5Table, #sorcerer0Table, #sorcerer1Table, #sorcerer2Table, #sorcerer3Table, #sorcerer4Table, #sorcerer5Table, #sorcerer6Table, #sorcerer7Table, #sorcerer8Table, #sorcerer9Table {
+  position: relative;
+  margin: 0 auto;
+  top: 10em;
+  font-family: Ubuntu Mono;
+  width: 99%;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+  display: none;
+}
+
+.TableCell {
+  border: 1px solid #AAAAAA;
+  padding: 1px 1px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.TableCell:hover {
+  text-align: center;
+  cursor: pointer;
+}
+
+.TableRow {
+  display: table-row;
+}
+
+.TableCell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.TableBody {
+  display: table-row-group;
+}
