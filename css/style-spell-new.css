@@ -34,8 +34,7 @@ div.spellclass {
 
 .divTableCell {
   display: table-cell;
-  width: 20em;
-  height: 2em;
+
 }
 
 .divTableBody {
@@ -119,6 +118,8 @@ div.spellclass {
 .TableCell {
   display: table-cell;
   vertical-align: middle;
+  width: 20em;
+  height: 2em;
 }
 
 .TableBody {
