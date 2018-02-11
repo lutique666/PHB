@@ -14,8 +14,6 @@ div.spellclass {
 .spellclass .divTableCell {
   border: 1px solid #AAAAAA;
   padding: 3px 2px;
-      width: 20em;
-    height: 2em;
 }
 
 .spellclass .divTableBody .divTableCell {
@@ -36,6 +34,8 @@ div.spellclass {
 
 .divTableCell {
   display: table-cell;
+  width: 20em;
+  height: 2em;
 }
 
 .divTableBody {
