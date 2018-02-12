@@ -1,4 +1,4 @@
-﻿var level_number = '1';
+﻿var level_number = '0';
 var class_name = 'bard';
 var spellname = document.getElementsByClassName('spellname');
 var des = document.getElementsByClassName('featherlight-inner');
