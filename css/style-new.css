@@ -155,10 +155,10 @@ html, body {
   }
   .featherlight-content {
     position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
+    top: 7.5%;
+    left: 7.5%;
+    width: 85%;
+    height: 85%;
     padding: 5px;
     text-align: left;
     font-size: 0.8em;
