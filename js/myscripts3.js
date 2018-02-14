@@ -1,4 +1,4 @@
-﻿var level_number = '0';
+var level_number = '0';
 var class_name = 'bard';
 var spellname = document.getElementsByClassName('spellname');
 var des = document.getElementsByClassName('featherlight-inner');
@@ -7,12 +7,47 @@ var current_display_table; //Текущая отображаемая табли�
 var current_display_class; //Текущий отображаемый класс
 var current_display_spell; //Текущий отображаемый спелл
 var current_display_level=1; //Текущий отображаемый уровень
+var check = 0
+var table_of_contents = '<a href="">Введение</a>'
+
+
+/*ПОЖАЛУЙСТА ПОФИКСИТЕ ЭТО*/
+function hidelight() {
+    if (check != 1)
+    {
+    document.getElementById('lightbox').style.display='none'        
+    }
+    else
+    {
+        check = 0
+    }
+}
+
+
+/*И ЭТО. Клик на диве идет сквозь элемент*/
+function showlight() {
+    check = 1
+}
+
+
+function openNav() {
+	document.getElementById("navigation").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("navigation").style.width = "0%";
+}
+
+
+
+
 
 function pagename() {
 
 current_display_table = document.getElementById(class_name+level_number+'Table');
 current_display_spell = document.getElementsByClassName('spellname')[0];
 current_display_class = document.getElementById('bard');
+document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents
 
 }
 
