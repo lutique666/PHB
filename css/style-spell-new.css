@@ -95,6 +95,7 @@ div.spellclass {
   vertical-align: middle;
   border-collapse: collapse;
   display: none;
+  bottom: 8em;
 }
 
 .TableCell2 {
