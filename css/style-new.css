@@ -1,12 +1,22 @@
-﻿html, body {
+html, body {
   margin: 0;
 }
 
 #head {
   margin: 0;
-  position: absolute;
-  width: 100%;
+  ;position: absolute;
+  ;width: 100%;
+  ;height: auto;
+  ;position: relative;
+  margin: 0 auto;
+  font-family: Ubuntu Mono;
+  width: 90%;
   height: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+  padding-top: 1em;
+
 }
 
 .title p {
@@ -121,13 +131,14 @@
     overflow: hidden;
   }
   .featherlight {
+    
     display: none;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2147483647;
+    z-index: 2007483647;
     text-align: center;
     white-space: wrap;
     background: #333;
@@ -152,7 +163,7 @@
     text-align: left;
     font-size: 0.8em;
     background-color: white;
-    z-index: 1002;
+    z-index: 2147483647;
     overflow: auto;
   }
   .featherlight-content h2, h3 {
@@ -163,6 +174,8 @@
   }
   .featherlight link.featherlight-inner, .featherlight script.featherlight-inner, .featherlight style.featherlight-inner {
     display: none;
+     
+
   }
   .featherlight-close-icon {
     position: absolute;
