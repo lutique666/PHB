@@ -8,6 +8,7 @@ var current_display_class; //Текущий отображаемый класс
 var current_display_spell; //Текущий отображаемый спелл
 var current_display_level=1; //Текущий отображаемый уровень
 var check = 0
+var found = 0
 var table_of_contents = '<a href="Chapter00.html">Введение</a><i>Часть 1: Создание Персонажа</i><a href="Chapter01.html">Глава 1: Создание Персонажа</a><a href="Chapter02.html">Глава 2: Расы</a><a href="Chapter03.html">Глава 3: Классы</a><a href="Chapter04.html">Глава 4: Личность и Предыстория</a><a href="Chapter05.html">Глава 5: Снаряжение</a><a href="Chapter06.html">Глава 6: Индивидуальные Опции</a><a href="Chapter07.html">Глава 7: Использование Характеристик</a> <i>Часть 2: Играя в Игру</i><a href="Chapter08.html">Глава 8: Приключения</a><a href="Chapter09.html">Глава 9: Сражение</a> <i>Часть 3: Правила Магии</i><a href="Chapter10.html">Глава 10: Использование Заклинаний</a><a href="Chapter11.html">Глава 11: Заклинания</a><a href="Chapter11test.html">Глава 11: Заклинания из различных дополнений (тест)</a><a href="Chapter11zen.html">Глава 11: Дизигн</a><a href="Chapter11search.html">Глава 11: Поиск по Заклинаниям</a><i>Приложения</i><a href="Attachment01.html">Приложение A: Состояния</a><a href="Attachment02.html">Приложение Б: Боги Мультивселенной</a><a href="Attachment03.html">Приложение В: Планы Существования</a><a href="Attachment04.html">Приложение Г: Параметры Существ</a><i>Разное</i><a href="pocket.html">Генератор краж носовых платков</a>'
 
 /*ПОЖАЛУЙСТА ПОФИКСИТЕ ЭТО*/
@@ -180,6 +181,7 @@ document.getElementById('lightbox').style.display='block'
 }
 
 function SearchString() {
+found = 0
 document.getElementById('lightbox').style.display='block'
 ;var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
 ;var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
@@ -197,6 +199,7 @@ if (check === true) {
     ;new_string=new_string.replace(neadlestring.toUpperCase(), '<span style="background-color:yellow">'+neadlestring.toUpperCase()+'</span>');
     ;des[i].innerHTML=new_string;
     des[i].style.display = 'block';
+    found+=1
   } 
   else {
     des[i].style.display = 'none';
@@ -217,6 +220,15 @@ else {
 }
 }
 }
+
+if (found == 0)
+	{
+		document.getElementById("nothing").style.display="block";
+	}
+else
+	{
+		document.getElementById("nothing").style.display="none";
+	}
 
 }
 
