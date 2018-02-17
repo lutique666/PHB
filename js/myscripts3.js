@@ -183,8 +183,8 @@ document.getElementById('lightbox').style.display='block'
 function SearchString() {
 found = 0
 document.getElementById('lightbox').style.display='block'
-;var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
-;var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
+var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
+var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
 
 for (var i=0; i<des.length; i++) 
 {
