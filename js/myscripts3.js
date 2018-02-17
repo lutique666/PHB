@@ -43,6 +43,7 @@ function openBook() {
   document.getElementById("searchbook").style.display = "none";
   document.getElementById("main").style.display = "block";
   document.getElementById("searchform").style.display = "block";
+  document.getElementById("nothing").style.display="none";
 
 }
 
@@ -180,9 +181,16 @@ des[i].style.display = 'none';
 document.getElementById('lightbox').style.display='block'
 }
 
+
+
+
+
 function SearchString() {
 found = 0
-document.getElementById('lightbox').style.display='block'
+
+document.getElementById('lightbox').style.display='block';
+
+
 var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
 var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
 
@@ -228,8 +236,7 @@ if (found == 0)
 else
 	{
 		document.getElementById("nothing").style.display="none";
-	}
-
+}
 }
 
 
