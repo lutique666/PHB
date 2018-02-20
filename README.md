@@ -5,7 +5,7 @@ PlayerHandBook
 1) Вся "Книга Игрока" Студия фэнтези «PHantom». https://vk.com/phantom_st http://phantom-studio.ru/
 2) Все материалы из "Руководства Ксанатара по Всему" https://vk.com/dungeons_ru https://www.dungeonsanddragons.ru/
 3) Переводы заклинаний из других источников: Айвендил (https://vk.com/ayvendil) и еще куча людей, которых я добавлю позже.
-P.S. Спасибо Qpheliax за ДИЗИГН и красивые иконки.
+4) P.S. Спасибо Qpheliax за ДИЗИГН и красивые иконки.
 <p><a href="Chapter00.html">Введение</a></p>
 <p><i>Часть 1: Создание Персонажа</i></p>
 <p><a href="Chapter01.html">Глава 1: Создание Персонажа</a></p>
