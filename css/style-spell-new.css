@@ -80,6 +80,8 @@ div.spellclass {
   padding: 2px 2px 2px 2px;
 }
 
+.featherlight-inner span { background-color:yellow; }
+
 .spelllist a:hover {
   text-decoration: none;
   color: #ff9625;
