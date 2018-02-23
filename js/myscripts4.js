@@ -1,4 +1,4 @@
-﻿var level_number = '0';
+var level_number = '0';
 var class_name = 'bard';
 var spellname = document.getElementsByClassName('spellname');
 var des = document.getElementsByClassName('featherlight-inner');
@@ -90,7 +90,14 @@ var table_of_contents = '<a href="Chapter00.html">Введение</a><i>Час�
 function hidelight() {
     if (check != 1)
     {
-    document.getElementById('lightbox').style.display='none'        
+    document.getElementById('lightbox').style.display='none'
+    if (found>0)
+    	{
+    		for (var i=0; i<des.length; i++) {
+    		des[i].innerHTML = des[i].innerHTML.replace(/<span>/g, '');
+    		}
+    	}
+
     }
     else
     {
@@ -119,11 +126,7 @@ function openBook() {
   document.getElementById("main").style.display = "block";
   document.getElementById("searchform").style.display = "block";
   document.getElementById("nothing").style.display="none";
-	for (var i=0; i<des.length; i++) 
-	{
-		var new_string=des[i].innerHTML.replace(/<span style="background-color:yellow">/g, '');
-		des[i].innerHTML=new_string;
-	}
+
 
 }
 
@@ -282,30 +285,32 @@ found = 0
 
 document.getElementById('lightbox').style.display='block';
 
-
+var check=document.getElementById('searchall').checked;
 var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
 var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
 
+replaceser = '<span>'+neadlestring+'</span>';
+replaceser2 = '<span>'+neadlestringex+'</span>';
+
 for (var i=0; i<des.length; i++) 
 {
-var new_string=des[i].innerHTML.replace(/<span style="background-color:yellow">/g, '');
-replaceser = '<span style="background-color:yellow">'+neadlestring+'</span>';
-replaceser2 = '<span style="background-color:yellow">'+neadlestringex+'</span>';
+des[i].innerHTML = des[i].innerHTML.replace(/<span>/g, '');
+new_string = des[i].innerHTML
 
-var check=document.getElementById('searchall').checked;
 
 if (check === true) {
   if ((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0))  {
-	new_string=new_string.replace(new RegExp(neadlestring, 'g'), replaceser);
-	new_string=new_string.replace(new RegExp(neadlestringex, 'g'), replaceser2);
-    new_string=new_string.replace(neadlestring.toUpperCase(), '<span style="background-color:yellow">'+neadlestring.toUpperCase()+'</span>');
-    des[i].innerHTML=new_string;
+	var new_string=new_string.replace(new RegExp(neadlestring, 'g'), replaceser);
+	var new_string=new_string.replace(new RegExp(neadlestringex, 'g'), replaceser2);
+    var new_string=new_string.replace(neadlestring.toUpperCase(), '<span>'+neadlestring.toUpperCase()+'</span>');
     des[i].style.display = 'block';
     found+=1
+    console.log(i)
   } 
   else {
     des[i].style.display = 'none';
   }
+  	des[i].innerHTML=new_string;
 } 
 
 else {
@@ -324,6 +329,11 @@ else {
 }
 }
 
+
+
+
+
+
 if (found == 0)
 	{
 		document.getElementById("nothing").style.display="block";
@@ -333,6 +343,7 @@ else
 		document.getElementById("nothing").style.display="none";
 }
 }
+
 
 
 
