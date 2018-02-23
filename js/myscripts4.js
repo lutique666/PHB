@@ -1,16 +1,15 @@
-var level_number = '0';
-var class_name = 'bard';
+var level_number = '0'; //Дефолтное значение
+var class_name = 'bard'; //Дефолтное значение
 var spellname = document.getElementsByClassName('spellname');
 var des = document.getElementsByClassName('featherlight-inner');
-var suggestion;
+var suggestion;				//Бывшее оглавлене
 var current_display_table; //Текущая отображаемая таблица спеллов
 var current_display_class; //Текущий отображаемый класс
 var current_display_spell; //Текущий отображаемый спелл
 var current_display_level=1; //Текущий отображаемый уровень
-var check = 0;
-var found = 0;
-var array = [];
-var content;
+var check = 0;	//Переменная для прокликивания
+var found = []; //Массив для забивки того, что найдено и подсвечено поиском. И дальнейшего удаления спанов.
+var content;	//Переменная в которой собирается таблица спеллов из массивов ниже.
 
 var bard0=['Волшебная рука (КИ)', 'Дружба (КИ)', 'Защита от оружия (КИ)', 'Злая насмешка (КИ)', 'Малая иллюзия (КИ)', 'Меткий удар (КИ)', 'Пляшущие огоньки (КИ)', 'Починка (КИ)', 'Свет (КИ)', 'Сообщение (КИ)', 'Фокусы (КИ)', 'Раскат Грома (XGE)'];
 var bard1=['Безмолвный образ (КИ)', 'Волна грома (КИ)', 'Героизм (КИ)', 'Диссонирующий шёпот (КИ)', 'Дружба с животными (КИ)', 'Жуткий смех Таши (КИ)', 'Лечащее слово (КИ)', 'Лечение ран (КИ)', 'Маскировка (КИ)', 'Невидимое письмо* (КИ)', 'Невидимый слуга* (КИ)', 'Обнаружение магии* (КИ)', 'Огонь фей (КИ)', 'Опознание* (КИ)', 'Очарование личности (КИ)', 'Падение пёрышком (КИ)', 'Понимание языков* (КИ)', 'Порча (КИ)', 'Разговор с животными* (КИ)', 'Скороход (КИ)', 'Усыпление (КИ)', 'Дрожь Земли (XGE)'];
@@ -87,16 +86,19 @@ var wizard9=['Врата (КИ)', 'Заточение (КИ)', 'Исполнен
 var table_of_contents = '<a href="Chapter00.html">Введение</a><i>Часть 1: Создание Персонажа</i><a href="Chapter01.html">Глава 1: Создание Персонажа</a><a href="Chapter02.html">Глава 2: Расы</a><a href="Chapter03.html">Глава 3: Классы</a><a href="Chapter04.html">Глава 4: Личность и Предыстория</a><a href="Chapter05.html">Глава 5: Снаряжение</a><a href="Chapter06.html">Глава 6: Индивидуальные Опции</a><a href="Chapter07.html">Глава 7: Использование Характеристик</a> <i>Часть 2: Играя в Игру</i><a href="Chapter08.html">Глава 8: Приключения</a><a href="Chapter09.html">Глава 9: Сражение</a> <i>Часть 3: Правила Магии</i><a href="Chapter10.html">Глава 10: Использование Заклинаний</a><a href="Chapter11.html">Глава 11: Заклинания</a><a href="Chapter11test.html">Глава 11: Заклинания из различных дополнений (тест)</a><a href="Chapter11zen.html">Глава 11: Дизигн</a><a href="Chapter11search.html">Глава 11: Поиск по Заклинаниям</a><i>Приложения</i><a href="Attachment01.html">Приложение A: Состояния</a><a href="Attachment02.html">Приложение Б: Боги Мультивселенной</a><a href="Attachment03.html">Приложение В: Планы Существования</a><a href="Attachment04.html">Приложение Г: Параметры Существ</a><i>Разное</i><a href="pocket.html">Генератор краж носовых платков</a>'
 
 /*ПОЖАЛУЙСТА ПОФИКСИТЕ ЭТО*/
+/*Скрытие лайт бокса. */
 function hidelight() {
     if (check != 1)
     {
     document.getElementById('lightbox').style.display='none'
-    if (found>0)
+    if (found.length > 0)
     	{
-    		for (var i=0; i<des.length; i++) {
-    		des[i].innerHTML = des[i].innerHTML.replace(/<span>/g, '');
-		found = 0
-    		}
+    		for (var i=0; i<found.length; i++) {
+    		console.log(des[found[i]].innerHTML)
+    		des[found[i]].innerHTML = des[found[i]].innerHTML.replace(/<span>/g, '');
+			console.log(des[found[i]].innerHTML)
+			}
+    		found = [];
     	}
 
     }
@@ -107,7 +109,7 @@ function hidelight() {
 }
 
 
-/*И ЭТО. Клик на диве идет сквозь элемент*/
+/*И ЭТО. Клик на диве идет сквозь элемент. Для закрытия по клику за пределом описания. При клике на описание, клик проходит сквозь див, но это кастыль это фиксит*/
 function showlight() {
     check = 1
 }
@@ -172,7 +174,7 @@ function ChangeClass(classus) {
 
 current_display_class.style.backgroundColor = 'white';
 current_display_class = document.getElementById(classus)
-current_display_class.style.backgroundColor = 'orange';
+
 
 
 
@@ -209,10 +211,10 @@ ChangeLevel(level_number);
 
 
 function ChangeLevel(levelus) {
-
+current_display_class.style.backgroundColor = 'orange';
 level_number = levelus
 
-	
+
 document.getElementsByClassName('circle')[current_display_level].style.backgroundColor = 'white';
 document.getElementsByClassName('circle2')[current_display_level].style.backgroundColor = 'white';
 
@@ -232,7 +234,7 @@ else
     document.getElementsByClassName('circle')[current_display_level].style.backgroundColor = 'orange';	
 }
 
-console.log(eval(class_name+current_display_level))
+//console.log(eval(class_name+current_display_level))
 
 
 var content = '<div class="TableBody"><div class="TableRow">'
@@ -305,8 +307,7 @@ if (check === true) {
 	var new_string=new_string.replace(new RegExp(neadlestringex, 'g'), replaceser2);
     var new_string=new_string.replace(neadlestring.toUpperCase(), '<span>'+neadlestring.toUpperCase()+'</span>');
     des[i].style.display = 'block';
-    found+=1
-    console.log(i)
+    found.push(i)
   } 
   else {
     des[i].style.display = 'none';
@@ -321,7 +322,8 @@ if (neadlestring.length == 0)
 else {
   if ((spellname[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (spellname[i].innerHTML.indexOf(neadlestring) >= 0)) {
     des[i].style.display = 'block';
-    found+=1
+    
+
   } 
   else  {
     des[i].style.display = 'none';
@@ -335,7 +337,7 @@ else {
 
 
 
-if (found == 0)
+if (found.length == 0)
 	{
 		document.getElementById("nothing").style.display="block";
 	}
