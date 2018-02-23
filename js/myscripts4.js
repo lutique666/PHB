@@ -94,9 +94,7 @@ function hidelight() {
     if (found.length > 0)
     	{
     		for (var i=0; i<found.length; i++) {
-    		console.log(des[found[i]].innerHTML)
     		des[found[i]].innerHTML = des[found[i]].innerHTML.replace(/<span>/g, '');
-			console.log(des[found[i]].innerHTML)
 			}
     		found = [];
     	}
@@ -297,7 +295,6 @@ replaceser2 = '<span>'+neadlestringex+'</span>';
 
 for (var i=0; i<des.length; i++) 
 {
-des[i].innerHTML = des[i].innerHTML.replace(/<span>/g, '');
 new_string = des[i].innerHTML
 
 
