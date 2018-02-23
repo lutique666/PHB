@@ -95,6 +95,7 @@ function hidelight() {
     	{
     		for (var i=0; i<des.length; i++) {
     		des[i].innerHTML = des[i].innerHTML.replace(/<span>/g, '');
+		found = 0
     		}
     	}
 
@@ -281,7 +282,7 @@ document.getElementById('lightbox').style.display='block'
 
 
 function SearchString() {
-found = 0
+//found = 0
 
 document.getElementById('lightbox').style.display='block';
 
