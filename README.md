@@ -22,7 +22,7 @@
 <p><a href="Chapter10.html">Глава 10: Использование Заклинаний</a></p>
 <p><a href="Chapter11.html">Глава 11: Заклинания</a></p>
 <p><a href="Chapter11test.html">Глава 11: Заклинания из различных дополнений (тест)</a></p>
-<p><a href="Chapter11zen.html">Глава 11: Дизигн</a></p>
+<p><a href="Chapter11gen.html">Глава 11: Дизигн</a></p>
 <p><a href="Chapter11search.html">Глава 11: Поиск по Заклинаниям</a></p>
 <p><i>Приложения</i></p>
 <p><a href="Attachment01.html">Приложение A: Состояния</a></p>
