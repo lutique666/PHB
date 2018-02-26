@@ -1,4 +1,4 @@
-﻿﻿var level_number = '0'; //Дефолтное значение
+﻿var level_number = '0'; //Дефолтное значение
 var class_name = 'bard'; //Дефолтное значение
 var spellname = document.getElementsByClassName('spellname');
 var des = document.getElementsByClassName('featherlight-inner');
@@ -160,7 +160,6 @@ function closeSet() {
 		source_check.push(spellsource[i].value);
 	}
 	}
-	console.log(source_check)
   ChangeClass(class_name);
 }
 
@@ -173,7 +172,7 @@ current_display_spell = document.getElementsByClassName('spellname')[0];
 current_display_class = document.getElementById(class_name);
 document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents
 
-console.log(spellsource.length)
+
 
 }
 
@@ -268,8 +267,10 @@ for(i=0; i<eval(class_name+current_display_level).length; i++){
 	{
 		if (eval(class_name+current_display_level)[i].indexOf(source_check[j]) >= 0)
 		{
+			if (draw_table[draw_table.length-1]!=eval(class_name+current_display_level)[i])
+			{
 			draw_table.push(eval(class_name+current_display_level)[i]);
-
+			}
 		}
 	}
 }
