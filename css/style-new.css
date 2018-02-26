@@ -120,8 +120,28 @@ html, body {
   position: relative;
   top: 2em;
   width: 100%;
-  text-align: center;
+  
   margin-top: 2em;
+}
+
+.overlay p {
+  text-decoration: none;
+  font-size: 24px;
+  color: #818181;
+  display: block;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  transition: 0.3s;
+}
+
+.overlay label {
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  transition: 0.3s;
 }
 
 .overlay a {
@@ -131,6 +151,7 @@ html, body {
   color: #818181;
   display: block;
   transition: 0.3s;
+  text-align: center;
 }
 
 .overlay i {
@@ -140,6 +161,7 @@ html, body {
   color: #ff9625;
   display: block;
   transition: 0.3s;
+  text-align: center;
 }
 
 .overlay a:hover, .overlay a:focus {
