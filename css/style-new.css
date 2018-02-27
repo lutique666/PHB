@@ -241,10 +241,10 @@ display: none;
   }
   .featherlight-content {
     position: fixed;
-    top: 7.5%;
+    top: 2.5%;
     left: 7.5%;
     width: 85%;
-    height: 85%;
+    height: 95%;
     padding: 5px;
     text-align: left;
     font-size: 0.8em;
