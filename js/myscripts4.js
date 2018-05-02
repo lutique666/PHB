@@ -13,7 +13,8 @@ var content;	//Переменная в которой собирается та�
 var spellsource = document.getElementsByClassName('source');
 var source_check=["КИ", "РКпВ"];
 var draw_table=[];
-
+var source_class=document.getElementsByClassName('source')
+var source2_class=document.getElementsByClassName('source2')
 
 var bard0=['Волшебная рука (КИ)', 'Дружба (КИ)', 'Защита от оружия (КИ)', 'Злая насмешка (КИ)', 'Малая иллюзия (КИ)', 'Меткий удар (КИ)', 'Пляшущие огоньки (КИ)', 'Починка (КИ)', 'Свет (КИ)', 'Сообщение (КИ)', 'Фокусы (КИ)', 'Раскат Грома (РКпВ|EE)', 'Пульсирующая волна (КВ)', 'Крепкий росток (ПХ)', 'Оплетающая лоза (ПХ)', 'Весёлая песня (СЗТ)', 'Свежая краска (СЗТ)', 'Отвлечение (ТЗ)', 'Огненные глаза (ТЗ)', 'Нервировать (ТЗ)', 'Изменить инструмент (ТЗ)', 'Двойная тень (КТЧ)', 'Умбратургия (КТЧ)'];
 var bard1=['Безмолвный образ (КИ)', 'Волна грома (КИ)', 'Героизм (КИ)', 'Диссонирующий шёпот (КИ)', 'Дружба с животными (КИ)', 'Жуткий смех Таши (КИ)', 'Лечащее слово (КИ)', 'Лечение ран (КИ)', 'Маскировка (КИ)', 'Невидимое письмо* (КИ)', 'Невидимый слуга* (КИ)', 'Обнаружение магии* (КИ)', 'Огонь фей (КИ)', 'Опознание* (КИ)', 'Очарование личности (КИ)', 'Падение пёрышком (КИ)', 'Понимание языков* (КИ)', 'Порча (КИ)', 'Разговор с животными* (КИ)', 'Скороход (КИ)', 'Усыпление (КИ)', 'Дрожь Земли (РКпВ|EE)', 'Внезапное пробуждение (UA)', 'Марионетка (UA)', 'Направляющая длань* (UA)', 'Неземной припев (UA)', 'Чувство эмоций (UA)', 'Морская удача* (КВ)', 'Плавание (КВ)', 'Беспорядочный рост (ПХ)', 'Древесный мост* (ПХ)', 'Острые листья (ПХ)', 'Споры телепатической связи (ПХ)', 'Корректировка позиции (УМ:БМ)', 'Пришпорить скакуна (УМ:БМ)', 'Идея (ТЗ)', 'Луч усталости (ТЗ)', 'Причёска* (ТЗ)', 'Внимательное бдение (ТЗ)', 'Танцующее пламя (ТЗ)', 'Писарь* (ТЗ)', 'Удаление надписей (ТЗ)', 'Очарование Элонии (ТЗ)', 'Чёрное пламя (КТЧ)', 'Аура теней (КТЧ)', 'Причинить боль (КТЧ)', 'Вдохновение решимости (СУ)', 'Жидкая ночь* (ПЗ)', 'Язык дурака (ПЗ)'];
@@ -87,7 +88,13 @@ var wizard8=['Антипатия/симпатия (КИ)', 'Власть над 
 var wizard9=['Врата (КИ)', 'Заточение (КИ)', 'Исполнение желаний (КИ)', 'Истинное Превращение (КИ)', 'Метеоритный дождь (КИ)', 'Остановка времени (КИ)', 'Полное Превращение (КИ)', 'Предвидение (КИ)', 'Проекция в астрал (КИ)', 'Радужная стена (КИ)', 'Слово Силы: смерть (КИ)', 'Смертный ужас (КИ)', 'Множественное Превращение (РКпВ)', 'Неуязвимость (РКпВ)', 'Психический Крик (РКпВ)', 'Истощение жизни (КТЧ)', 'Кристальное копьё души (DS)', 'Изменить зверя* (ТЗ)']
 
 
-var table_of_contents = '<p>&nbsp;</p><a href="Chapter00.html">Введение</a><i>Часть 1: Создание Персонажа</i><a href="Chapter01.html">Глава 1: Создание Персонажа</a><a href="Chapter02.html">Глава 2: Расы</a><a href="Chapter03.html">Глава 3: Классы</a><a href="Chapter04.html">Глава 4: Личность и Предыстория</a><a href="Chapter05.html">Глава 5: Снаряжение</a><a href="Chapter06.html">Глава 6: Индивидуальные Опции</a><a href="Chapter07.html">Глава 7: Использование Характеристик</a> <i>Часть 2: Играя в Игру</i><a href="Chapter08.html">Глава 8: Приключения</a><a href="Chapter09.html">Глава 9: Сражение</a> <i>Часть 3: Правила Магии</i><a href="Chapter10.html">Глава 10: Использование Заклинаний</a><a href="Chapter11gen.html">Глава 11: Заклинания</a><i>Приложения</i><a href="Attachment01.html">Приложение A: Состояния</a><a href="Attachment02.html">Приложение Б: Боги Мультивселенной</a><a href="Attachment03.html">Приложение В: Планы Существования</a><a href="Attachment04.html">Приложение Г: Параметры Существ</a><i>Разное</i><a href="pocket.html">Генератор краж носовых платков</a>'
+var table_of_contents = '<a href="Chapter00.html">Введение</a><i>Часть 1: Создание Персонажа</i><a href="Chapter01.html">Глава 1: Создание Персонажа</a><a href="Chapter02.html">Глава 2: Расы</a><a href="Chapter03.html">Глава 3: Классы</a><a href="Chapter04.html">Глава 4: Личность и Предыстория</a><a href="Chapter05.html">Глава 5: Снаряжение</a><a href="Chapter06.html">Глава 6: Индивидуальные Опции</a><a href="Chapter07.html">Глава 7: Использование Характеристик</a> <i>Часть 2: Играя в Игру</i><a href="Chapter08.html">Глава 8: Приключения</a><a href="Chapter09.html">Глава 9: Сражение</a> <i>Часть 3: Правила Магии</i><a href="Chapter10.html">Глава 10: Использование Заклинаний</a><a href="Chapter11gen.html">Глава 11: Заклинания</a><i>Приложения</i><a href="Attachment01.html">Приложение A: Состояния</a><a href="Attachment02.html">Приложение Б: Боги Мультивселенной</a><a href="Attachment03.html">Приложение В: Планы Существования</a><a href="Attachment04.html">Приложение Г: Параметры Существ</a><i>Разное</i><a href="pocket.html">Генератор краж носовых платков</a>'
+
+/*Перерисовка при смене ориентации*/
+window.addEventListener("orientationchange", function() {
+  ChangeClass(class_name);
+}, false);
+
 
 /*ПОЖАЛУЙСТА ПОФИКСИТЕ ЭТО*/
 /*Скрытие лайт бокса. */
@@ -97,9 +104,9 @@ function hidelight() {
     document.getElementById('lightbox').style.display='none'
     if (found.length > 0)
     	{
-    		for (var i=0; i<found.length; i++) {
-    		des[found[i]].innerHTML = des[found[i]].innerHTML.replace(/<span>/g, '');
-			}
+    		//for (var i=0; i<found.length; i++) {
+    		//des[found[i]].innerHTML = des[found[i]].innerHTML.replace(/<span>/g, '');
+			//}
     		found = [];
     	}
 
@@ -117,12 +124,12 @@ function showlight() {
 }
 
 
+
 function openSearch() {
   document.getElementById("inputform").style.display = "block";
   document.getElementById("searchbook").style.display = "block";
   document.getElementById("main").style.display = "none";
   document.getElementById("searchform").style.display = "none";
-
 }
 
 function openBook() {
@@ -131,33 +138,74 @@ function openBook() {
   document.getElementById("main").style.display = "block";
   document.getElementById("searchform").style.display = "block";
   document.getElementById("nothing").style.display="none";
-
-
 }
 
+function openSearchP() {
+  document.getElementById("inputform").style.display = "block";
+  document.getElementById("searchbookP").style.display = "block";
+  document.getElementById("main").style.display = "none";
+  document.getElementById("searchformP").style.display = "none";
+}
+
+function openBookP() {
+  document.getElementById("inputform").style.display = "none";
+  document.getElementById("searchbookP").style.display = "none";
+  document.getElementById("main").style.display = "block";
+  document.getElementById("searchformP").style.display = "block";
+  document.getElementById("nothing").style.display="none";
+}
 function openNav() {
 	document.getElementById("navigation").style.width = "100%";
 }
 
 function closeNav() {
   document.getElementById("navigation").style.width = "0%";
-  
+}
 
+function openNavP() {
+	document.getElementById("navigationP").style.width = "100%";
+}
+
+function closeNavP() {
+  document.getElementById("navigationP").style.width = "0%";
 }
 
 function openSet() {
 	document.getElementById("settings").style.width = "100%";
-	
 }
-
 function closeSet() {
   document.getElementById("settings").style.width = "0%";
   source_check = []
 	for (i=0; i<spellsource.length; i++)
 	{
-	if (spellsource[i].checked) 
+	if (spellsource[i].checked)
 	{
 		source_check.push(spellsource[i].value);
+	}
+	}
+	for (i=0; i<source_class.length; i++) {
+		source2_class[i].checked=source_class[i].checked
+
+	}
+  ChangeClass(class_name);
+}
+
+function openSetP() {
+	document.getElementById("settingsP").style.width = "100%";
+}
+
+function closeSetP() {
+  document.getElementById("settingsP").style.width = "0%";
+  source_check = []
+	for (i=0; i<spellsource.length; i++)
+	{
+	if (spellsource[i].checked)
+	{
+		source_check.push(spellsource[i].value);
+	}
+	for (i=0; i<source_class.length; i++) {
+		source_class[i].checked=source2_class[i].checked
+
 	}
 	}
   ChangeClass(class_name);
@@ -170,12 +218,11 @@ function pagename() {
 current_display_table = document.getElementById(class_name+level_number+'Table');
 current_display_spell = document.getElementsByClassName('spellname')[0];
 current_display_class = document.getElementById(class_name);
-document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents
-
+document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
+document.getElementsByClassName('overlay-contentP')[0].innerHTML = table_of_contents;
 
 
 }
-
 
 
 
@@ -193,7 +240,6 @@ function Content(id) {
 }
 
 function ChangeClass(classus) {
-
 current_display_class.style.backgroundColor = 'white';
 current_display_class = document.getElementById(classus)
 
@@ -206,29 +252,31 @@ current_display_class = document.getElementById(classus)
 
 if (classus == 'paladin' || classus == 'ranger')
 {
-  
-  if (Number(level_number) > 5) 
+
+  if (Number(level_number) > 5)
         {
             level_number = '5';
 
         }
-  else if (Number(level_number)==0) 
+  else if (Number(level_number)==0)
     {
       level_number = '1';
     }
 }
-else 
+else
 {
 
 }
 
 
-	
+
 class_name=classus;
 ChangeLevel(level_number);
 
 
 }
+
+
 
 
 
@@ -249,11 +297,11 @@ if (class_name == 'paladin' || class_name == 'ranger')
     document.getElementById('shrt15').style.display='block';
     document.getElementsByClassName('circle2')[current_display_level].style.backgroundColor = 'orange';
 }
-else 
+else
 {
     document.getElementById('shrt15').style.display='none';
     document.getElementById('long19').style.display='block';
-    document.getElementsByClassName('circle')[current_display_level].style.backgroundColor = 'orange';	
+    document.getElementsByClassName('circle')[current_display_level].style.backgroundColor = 'orange';
 }
 
 //console.log(eval(class_name+current_display_level))
@@ -275,13 +323,22 @@ for(i=0; i<eval(class_name+current_display_level).length; i++){
 	}
 }
 
+
+
+if(window.screen.orientation.type==="portrait-primary" || window.screen.orientation.type==="portrait-secondary") {
+	n=3
+}
+else {
+	n=6
+}
+
 for(i=0; i<draw_table.length; i++){
-	if ((i+1) % 6 == 0) {
-		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div></div><div class="TableRow">';	
-	}
-	else {
-		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div>';
-	}
+    if ((i+1) % n == 0) {
+  		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div></div><div class="TableRow">';
+  	}
+  	else {
+  		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div>';
+  	}
 }
 
 content += '</div></div>'
@@ -319,7 +376,8 @@ document.getElementById('lightbox').style.display='block'
 
 
 
-function SearchString() {
+function SearchString() 
+{
 //found = 0
 
 document.getElementById('lightbox').style.display='block';
@@ -328,27 +386,32 @@ var check=document.getElementById('searchall').checked;
 var neadlestring = document.getElementById('neadlestring').value.toLowerCase();
 var neadlestringex = neadlestring[0].substring(0,1).toUpperCase() + neadlestring.slice(1)
 
-replaceser = '<span>'+neadlestring+'</span>';
-replaceser2 = '<span>'+neadlestringex+'</span>';
+//replaceser = '<span>'+neadlestring+'</span>';
+//replaceser2 = '<span>'+neadlestringex+'</span>';
 
-for (var i=0; i<des.length; i++) 
+for (var i=0; i<des.length; i++)
 {
-new_string = des[i].innerHTML
+//new_string = des[i].innerHTML
 
 
 if (check === true) {
-  if ((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0))  {
-	var new_string=new_string.replace(new RegExp(neadlestring, 'g'), replaceser);
-	var new_string=new_string.replace(new RegExp(neadlestringex, 'g'), replaceser2);
-    var new_string=new_string.replace(neadlestring.toUpperCase(), '<span>'+neadlestring.toUpperCase()+'</span>');
+ 
+if ((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0))  
+{
+//	var new_string=new_string.replace(new RegExp(neadlestring, 'g'), replaceser);
+//	var new_string=new_string.replace(new RegExp(neadlestringex, 'g'), replaceser2);
+//  var new_string=new_string.replace(neadlestring.toUpperCase(), '<span>'+neadlestring.toUpperCase()+'</span>');
     des[i].style.display = 'block';
     found.push(i)
-  } 
-  else {
+}
+
+else 
+{
     des[i].style.display = 'none';
-  }
-  	des[i].innerHTML=new_string;
-} 
+}
+
+// 	des[i].innerHTML=new_string;
+}
 
 else {
 if (neadlestring.length == 0)
@@ -358,9 +421,9 @@ else {
   if ((spellname[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (spellname[i].innerHTML.indexOf(neadlestring) >= 0)) {
     des[i].style.display = 'block';
     found.push(i)
-    
 
-  } 
+
+  }
   else  {
     des[i].style.display = 'none';
   }
@@ -376,9 +439,5 @@ if (found.length == 0)
 else
 	{
 		document.getElementById("nothing").style.display="none";
+	}
 }
-}
-
-
-
-
