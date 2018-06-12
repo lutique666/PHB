@@ -205,10 +205,10 @@ function closeSetP() {
 	{
 		source_check.push(sourcep_class[i].value);
 	}
+	}
 	for (i=0; i<sourcep_class.length; i++) {
 		source_class[i].checked=sourcep_class[i].checked
 
-	}
 	}
   ChangeClass(class_name);
 }
