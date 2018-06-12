@@ -205,7 +205,7 @@ function closeSetP() {
 	{
 		source_check.push(source2_class[i].value);
 	}
-	for (i=0; i<source_class.length; i++) {
+	for (i=0; i<source2_class.length; i++) {
 		source_class[i].checked=source2_class[i].checked
 
 	}
