@@ -203,7 +203,7 @@ function closeSetP() {
 	{
 	if (spellsource[i].checked)
 	{
-		source_check.push(spellsource[i].value);
+		source2_check.push(spellsource[i].value);
 	}
 	for (i=0; i<source_class.length; i++) {
 		source_class[i].checked=source2_class[i].checked
