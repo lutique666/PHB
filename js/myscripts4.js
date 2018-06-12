@@ -178,11 +178,11 @@ function openSet() {
 function closeSet() {
   document.getElementById("settings").style.width = "0%";
   source_check = []
-	for (i=0; i<spellsource.length; i++)
+	for (i=0; i<source_class.length; i++)
 	{
-	if (spellsource[i].checked)
+	if (source_class[i].checked)
 	{
-		source_check.push(spellsource[i].value);
+		source_check.push(source_class[i].value);
 	}
 	}
 	for (i=0; i<source_class.length; i++) {
@@ -199,11 +199,11 @@ function openSetP() {
 function closeSetP() {
   document.getElementById("settingsP").style.width = "0%";
   source_check = []
-	for (i=0; i<spellsource.length; i++)
+	for (i=0; i<source2_class.length; i++)
 	{
-	if (spellsource[i].checked)
+	if (source2_class[i].checked)
 	{
-		source2_check.push(spellsource[i].value);
+		source_check.push(source2_class[i].value);
 	}
 	for (i=0; i<source_class.length; i++) {
 		source_class[i].checked=source2_class[i].checked
