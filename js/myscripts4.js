@@ -275,7 +275,7 @@ function openSet() {
 
 function closeSet() {
   document.getElementById("settings").style.width = "0%";
-  source_check = []
+  source_check = [];
 	for (i=0; i<source_class.length; i++)
 	{
 	if (source_class[i].checked)
@@ -301,7 +301,7 @@ function openSetP() {
 
 function closeSetP() {
   document.getElementById("settingsP").style.width = "0%";
-  source_check = []
+  source_check = [];
 	for (i=0; i<sourcep_class.length; i++)
 	{
 	if (sourcep_class[i].checked)
@@ -329,6 +329,37 @@ current_display_spell = document.getElementsByClassName('spellname')[0];
 current_display_class = document.getElementById(class_name);
 document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
 document.getElementsByClassName('overlay-contentP')[0].innerHTML = table_of_contents;
+
+
+	json_str =  getCookie('storedsource');
+	source_check = JSON.parse(json_str) || ["КИ", "РКпВ"];
+
+//Вспоминалка источников, проставляет галочки в настройках
+for (i=0; i<source_class.length; i++) {
+
+		if (source_check.indexOf(source_class[i].value) >= 0) 
+		{
+			source_class[i].checked=1
+			sourcep_class[i].checked=1
+		}
+		else
+		{
+			source_class[i].checked=0
+			sourcep_class[i].checked=0
+		}
+
+	}
+//Но посколько храним мы строку, а работаем дальше с массивом, давайте-ка обнулим строку нахуй и построем массив еще раз, чтобы было заебись.	
+	source_check = [];
+	for (i=0; i<source_class.length; i++)
+	{
+	if (source_class[i].checked)
+	{
+		source_check.push(source_class[i].value);
+	}
+	}
+
+
 
 //Получение массива из куков
 for (n=0; n<10; n++)
@@ -393,34 +424,6 @@ else
 	}
 }
 //
-
-	json_str =  getCookie('storedsource');
-	source_check = JSON.parse(json_str) || ["КИ", "РКпВ"];
-
-//Вспоминалка источников, проставляет галочки в настройках
-for (i=0; i<source_class.length; i++) {
-
-		if (source_check.indexOf(source_class[i].value) >= 0) 
-		{
-			source_class[i].checked=1
-			sourcep_class[i].checked=1
-		}
-		else
-		{
-			source_class[i].checked=0
-			sourcep_class[i].checked=0
-		}
-
-	}
-//Но посколько храним мы строку, а работаем дальше с массивом, давайте-ка обнулим строку нахуй и построем массив еще раз, чтобы было заебись.	
-	source_check = [];
-	for (i=0; i<source_class.length; i++)
-	{
-	if (source_class[i].checked)
-	{
-		source_check.push(source_class[i].value);
-	}
-	}
 
 }
 
