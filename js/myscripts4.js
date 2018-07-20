@@ -332,8 +332,14 @@ document.getElementsByClassName('overlay-contentP')[0].innerHTML = table_of_cont
 
 
 	json_str =  getCookie('storedsource');
-	source_check = JSON.parse(json_str) || ["КИ", "РКпВ"];
-
+	if ((json_str == undefined) || (json_str == []))
+	{
+		source_check=["КИ", "РКпВ"];
+	}
+	else
+	{
+	source_check = JSON.parse(json_str);
+	}
 //Вспоминалка источников, проставляет галочки в настройках
 for (i=0; i<source_class.length; i++) {
 
