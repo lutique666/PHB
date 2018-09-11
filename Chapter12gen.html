@@ -1,0 +1,1364 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Таблички</title>
+
+  <script src="js/myscripts-tables.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu Mono' rel='stylesheet'>
+
+  <link rel="stylesheet" href="css/main.min.css" />
+  <link rel="stylesheet" href="css/chapter11.min.css" />
+
+  <script>
+  window.onkeyup = function(event) {
+
+
+  if (event.keyCode == 27)
+  document.getElementById('lightbox').style.display = "none";
+  }
+
+
+
+  </script>
+</head>
+
+<body onload="pageload()">
+
+  <div id="headTable">
+
+    <div class="menu">
+      <div id="navigation" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+
+        </div>
+
+      </div>
+
+      <span onclick="openNav()"><img src="img/mapP.png" /></span>    </div>
+
+    <div class="title">
+      <p> Таблички </p>
+    </div>
+
+    <div class="search">
+
+      <div onclick="openSearch()" id="searchform"><img src="img/search.png" srcset="img/searchP.png 1920w, img/searchP.png 860w" />      </div>
+
+      <div onclick="openBook()" id="searchbook"><img src="img/book.png" srcset="img/bookP.png 1920w, img/bookP.png 860w" />      </div>
+
+    </div>
+
+    <div class="settings">
+      <img onclick="openSet()" src="img/small1.png" />
+      <div class="help-tip">    <p>1. Выбираем класс, выбираем уровень заклинания, выбираем заклинание - получаем описание.</br>2. "Сердечко" добавляет заклинание в "Избранное"</br>3. "Шестеренка" включает/отключает показ дополнительных источников</br>4. Через "Лупу" доступен поиск с различными опциями</p>  </div>
+    </div>
+
+    <div id="settings" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeSet()">&times;</a>
+      <div class="overlay-content">
+        <form>
+          <i>Скрытие/показ спеллов из определенных источников.</i>
+<i>Вот это вроде как разрешено вплоть до Лиги Приключенцев. Поправьте меня, если я не прав.</i>
+<label><input type="checkbox" class="source" value="КИ" checked>(КИ) - метка для заклинаний из "Книги Игрока"" (Player Hand Book). Перевод выполнен Студией фэнтези «PHantom». https://vk.com/phantom_st http://phantom-studio.ru/</label><br>
+<label><input type="checkbox" class="source" value="РКпВ" checked>(РКпВ) - метка для заклинаний из "Руководства Ксанатара по Всему"" (Xanatar's Guide to Everything). Перевод выполнен Dungeons_ru https://vk.com/dungeons_ru Dungeonsanddragons.ru</label><br>
+<i>А тут идут спеллы из различных дополнений</i>
+<i>Все переводы ниже выполнены Айвендил Заклинатель</i>
+<label><input type="checkbox" class="source" value="ППППМ">ППППМ - метка для заклинаний из "Путеводителя Приключенца по Побережью Меча" (Sword Coast Adventurer's Guide). Добавлены ссылки на англоязычные описания.</label><br>
+<label><input type="checkbox" class="source" value="UA">UA - метка для заклинаний из "Извлеченная Аркана" (Unearthed Arcana). Добавлены ссылки на англоязычные описания. Правда часть спеллов отсюда была объединенина в один пошли в РкПВ.</label><br>
+<label><input type="checkbox" class="source" value="ЭСЧМ">ЭСЧМ - Эта старая чёрная магия (Unearthed Arcana). Добавлены ссылки на англоязычные описания. Правда часть спеллов отсюда была объединениа в один пошли в РкПВ.</label><br>
+<label><input type="checkbox" class="source" value="EE">EE - метка для заклинаний из "Элементальное Зло" (Elemental Evil). Но по факту все спеллы из нее вошли в Ксанатар, так что переводчик выше. </label><br>
+<label><input type="checkbox" class="source" value="КВ">КВ - метка для заклинаний из "Кодекса Волн".</label><br>
+<label><input type="checkbox" class="source" value="ПХ">ПХ - метка для заклинаний из "Прорастающего хаоса".</label><br>
+<label><input type="checkbox" class="source" value="ПА">ПА - Проецированные атаки.</label><br>
+<label><input type="checkbox" class="source" value="УМ:БМ">УМ:БМ - Углублённая Магия: Боевая Магия (Kobold Press).</label><br>
+<label><input type="checkbox" class="source" value="УМ:МХ">УМ:МХ - Углублённая Магия: Магия Хаоса (Kobold Press).</label><br>
+<label><input type="checkbox" class="source" value="МК">МК - Магия Крови.</label><br>
+<label><input type="checkbox" class="source" value="СЗТ">СЗТ - The Compendium of Forgotten Secrets Ultimate.</label><br>
+<label><input type="checkbox" class="source" value="ТЗ">ТЗ (том заклинаний) - The not really Complete Tome of Spells v2.</label><br>
+<label><input type="checkbox" class="source" value="ПЗ">ПЗ - Потерянные заклинания.</label><br>
+<label><input type="checkbox" class="source" value="СУ">СУ - Смятение умов.</label><br>
+<label><input type="checkbox" class="source" value="DS">DS - Dark Souls Compendium.</label><br>
+<label><input type="checkbox" class="source" value="КТЧ">КТЧ - Книга тёмных чар (Dark Arts Player's Companion).</label><br>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="inputform">
+    <form onsubmit="SearchString(); return false;">
+      <div>
+        <p><input type="radio" id="searchall" name="search-option" value="searchall" checked><label for="searchall">Поиск по всему тексту</label><input type="radio" id="searchbyname" name="search-option" value="searchbyname"><label for="searchbyname">Поиск по названию</label></p>
+      </div>
+
+      <div>
+        <p>Поиск по описанию или названию заклинания</p>
+        <p><input size="50" type="search" id="neadlestring" placeholder="Поиск..." /><input type="button" value="Найти" onclick="SearchString()" ontouch="SearchString()" /></p>
+      </div>
+
+
+      <div class="selector">
+        <label for="cname">Класс</label>
+        <select id='cname' name="cname">
+ <option value="" selected></option>
+ <option value="бард">Бард</option>
+ <option value="волшебник">Волшебник</option>
+ <option value="друид">Друид</option>
+ <option value="жрец">Жрец</option>
+ <option value="колдун">Колдун</option>
+ <option value="паладин">Паладин</option>
+ <option value="следопыт">Следопыт</option>
+ <option value="чародей">Чародей</option>
+</select>
+      </div>
+
+      <div class="selector">
+        <label for="clvl">Уровень заклинания</label>
+        <select id='clvl' name="clvl">
+ <option value="" selected></option>
+ <option value="Заговор">Заговор</option>
+ <option value="1 уровень">1 уровень</option>
+ <option value="2 уровень">2 уровень</option>
+ <option value="3 уровень">3 уровень</option>
+ <option value="4 уровень">4 уровень</option>
+ <option value="5 уровень">5 уровень</option>
+ <option value="6 уровень">6 уровень</option>
+ <option value="7 уровень">7 уровень</option>
+ <option value="8 уровень">8 уровень</option>
+ <option value="9 уровень">9 уровень</option>
+</select>
+      </div>
+
+      <div class="selector">
+        <label for="cschool1">Школа магии</label>
+        <select id='cschool1' name="cschool2">
+ <label for="searchall">Поиск по всему тексту</label>
+ <option value="" selected></option>
+ <option value="воплощение">Воплощение</option>
+ <option value="вызов">Вызов</option>
+ <option value="иллюзия">Иллюзия</option>
+ <option value="некромантия">Некромантия</option>
+ <option value="ограждение">Ограждение</option>
+ <option value="очарование">Очарование</option>
+ <option value="преобразование">Преобразование</option>
+ <option value="прорицание">Прорицание</option>
+</select>
+      </div>
+
+      <div class="selector">
+        <label for="cschool2">Школа магии</label>
+        <select id='cschool2' name="cschool2">
+ <label for="searchall">Поиск по всему тексту</label>
+ <option value="" selected></option>
+ <option value="воплощение">Воплощение</option>
+ <option value="вызов">Вызов</option>
+ <option value="иллюзия">Иллюзия</option>
+ <option value="некромантия">Некромантия</option>
+ <option value="ограждение">Ограждение</option>
+ <option value="очарование">Очарование</option>
+ <option value="преобразование">Преобразование</option>
+ <option value="прорицание">Прорицание</option>
+</select>
+      </div>
+
+      <div class="selector">
+        <label for="ctime">Время накладывания</label>
+        <select id='ctime' name="ctime">
+ <option value="" selected></option>
+ <option value="1 действие">Действие</option>
+ <option value="1 бонусное действие">Бонусное действие</option>
+ <option value="1 реакция">Реакция</option>
+ <option value="1 минута">1 минута</option>
+ <option value="10 минут">10 минут</option>
+ <option value="1 час">1 час</option>
+ <option value="8 часов">8 часов</option>
+ <option value="24 часа">24 часа</option>
+</select>
+      </div>
+
+      <div class="selector">
+        <label for="ccomp">Компоненты</label>
+        <select id='ccomp' name="ccomp">
+ <option value="" selected></option>
+ <option value="<strong>Компоненты:</strong> В</p>">В</option>
+ <option value="<strong>Компоненты:</strong> В, М ">В, М</option>
+ <option value="<strong>Компоненты:</strong> В, С</p>">В, С</option>
+ <option value="<strong>Компоненты:</strong> В, С, М">В, С, М</option>
+ <option value="<strong>Компоненты:</strong> С</p>">С</option>
+ <option value="<strong>Компоненты:</strong> С, М ">С, М</option>
+</select>
+      </div>
+
+      <div class="selector">
+        <label for="cduration">Длительность</label>
+        <select id='cduration' name="cduration">
+ <option value="" selected></option>
+ <option value="1">Без концентрации</option>
+ <option value="Концентрация">Концентрация</option>
+ <option value="Мгновенная">Мгновенная</option>
+</select>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="main">
+
+    <div class="spellclass">
+     <div class="spellCell" id=common onclick=ChangeClass(id) ontouch=ChangeClass(id)>Общее</div>
+    <div class="spellCell" id=bard onclick=ChangeClass(id) ontouch=ChangeClass(id)>Бард</div>
+        <div class="spellCell" id=barb onclick=ChangeClass(id) ontouch=ChangeClass(id)>Варвар</div>
+            <div class="spellCell" id=fighter onclick=ChangeClass(id) ontouch=ChangeClass(id)>Воин</div>
+      <div class="spellCell" id=wizard onclick=ChangeClass(id) ontouch=ChangeClass(id)>Волшебник</div>
+      <div class="spellCell" id=druid onclick=ChangeClass(id) ontouch=ChangeClass(id)=>Друид</div>
+      <div class="spellCell" id=cleric onclick=ChangeClass(id) ontouch=ChangeClass(id)=>Жрец</div>
+      <div class="spellCell" id=warlock onclick=ChangeClass(id) ontouch=ChangeClass(id)>Колдун</div>
+      <div class="spellCell" id=paladin onclick=ChangeClass(id) ontouch=ChangeClass(id)>Паладин</div>
+      <div class="spellCell" id=ranger onclick=ChangeClass(id) ontouch=ChangeClass(id)>Следопыт</div>
+      <div class="spellCell" id=sorcerer onclick=ChangeClass(id) ontouch=ChangeClass(id)>Чародей</div>
+      <div class="spellCell" id=arr onclick=ChangeClass(id) ontouch=ChangeClass(id)>Избранное</div>
+    </div>
+    <! close spelclass>
+
+    <div class="numbers">
+
+      <div id="long19">
+        <p>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>0</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>2</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>3</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>4</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>5</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>6</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>7</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>8</span>
+          <span class="circle" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>9</span>
+
+        </p>
+      </div>
+
+      <div id="shrt15" style="display: none">
+        <p>
+          <span style="display: none" class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+          <span class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+          <span class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>2</span>
+          <span class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>3</span>
+          <span class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>4</span>
+          <span class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>5</span>
+          <span style="display: none" class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+          <span style="display: none" class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+          <span style="display: none" class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+          <span style="display: none" class="circle2" onclick=ChangeLevel(this.innerHTML) ontouch=ChangeLevel(this.innerHTML)>1</span>
+
+
+        </p>
+      </div>
+
+
+
+    </div>
+    <! close numbers>
+
+
+
+    <div id="table" style="display: table" ></div>
+    <p></p>
+  </div>
+  <div class="footer">Qpheliax, Lutique666</div>
+  <! close spelllist>
+
+  <! close main>
+  </div>
+  <div onclick="hidelight()" id="lightbox" class="featherlight" />
+  <div onclick="showlight()" onmousedown="mouseStart()" onmouseup="mouseEnd()" ontouchstart="touchStart()" ontouchend="touchEnd()" class="featherlight-content" id="featherlight-content" />
+  <button onclick="document.getElementById('lightbox').style.display='none'" class="featherlight-close-icon featherlight-close" aria-label="Close">✕</button>
+
+
+
+
+
+
+  
+      <div class=featherlight-inner><img id=0 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+        <h2 class=spellname>Адское возмездие (КИ)</h2>
+        <h2 class=eng><a href="https://5e.tools/spells.html#hellish%20rebuke_phb" target="_blank">Hellish rebuke</a></h2>
+        <h3>1 уровень, воплощение</h3>
+        <p><strong>Доступно для классов:</strong> колдун</p>
+        <p><strong>Время накладывания:</strong> 1 реакция, совершаемая вами в ответ на получение урона от существа, находящегося в пределах 60 футов от вас и видимого вами</p>
+        <p><strong>Дистанция:</strong> 60 футов</p>
+        <p><strong>Компоненты:</strong> В, С</p>
+        <p><strong>Длительность:</strong> Мгновенная</p>
+        <p>Вы указываете пальцем, и существо, причинившее вам урон, мгновенно окружается пламенем. Существо должно совершить спасбросок Ловкости. Оно получает урон огнём 2к10 при провале, или половину этого урона при успехе. </p>
+        <p><strong>На больших уровнях:</strong> Если вы накладываете это заклинание, используя ячейку 2 уровня или выше, урон увеличивается на 1к10 за каждый уровень ячейки выше первого.</p>
+        <p>&nbsp;</p>
+      </div>
+     
+      <div class=featherlight-inner><img id=1 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+        <h2 class=spellname>Опыт</h2>
+     <p><b>Развитие Персонажа</b></p>
+<table border=1>
+<tr><td>Опыт</td><td>Уровень</td><td>Бонус мастерства</td></tr>
+<tr><td>0</td><td>1</td><td>+2</td></tr>
+<tr><td>300</td><td>2</td><td>+2</td></tr>
+<tr><td>900</td><td>3</td><td>+2</td></tr>
+<tr><td>2 700</td><td>4</td><td>+2</td></tr>
+<tr><td>6 500</td><td>5</td><td>+3</td></tr>
+<tr><td>14 000</td><td>6</td><td>+3</td></tr>
+<tr><td>23 000</td><td>7</td><td>+3</td></tr>
+<tr><td>34 000</td><td>8</td><td>+3</td></tr>
+<tr><td>48 000</td><td>9</td><td>+4</td></tr>
+<tr><td>64 000</td><td>10</td><td>+4</td></tr>
+<tr><td>85 000</td><td>11</td><td>+4</td></tr>
+<tr><td>100 000</td><td>12</td><td>+4</td></tr>
+<tr><td>120 000</td><td>13</td><td>+5</td></tr>
+<tr><td>140 000</td><td>14</td><td>+5</td></tr>
+<tr><td>165 000</td><td>15</td><td>+5</td></tr>
+<tr><td>195 000</td><td>16</td><td>+5</td></tr>
+<tr><td>225 000</td><td>17</td><td>+6</td></tr>
+<tr><td>265 000</td><td>18</td><td>+6</td></tr>
+<tr><td>305 000</td><td>19</td><td>+6</td></tr>
+<tr><td>355 000</td><td>20</td><td>+6</td></tr>
+</table>
+<p>&nbsp;</p>
+</div>
+
+
+      <div class=featherlight-inner><img id=2 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+        <h2 class=spellname>Доспехи и щиты</h2>
+<table border=1>
+<tr><td colspan="6"><b>Доспехи</b></td></tr>
+<tr><td>Доспех</td><td>Стоимость</td><td>Класс Доспеха (КД)</td><td>Сила</td><td>Скрытность</td><td>Вес</td></tr>
+<tr><td colspan="6"><b>Лёгкий Доспех</b></td></tr>
+<tr><td>Стёганный</td><td>5 зм</td><td>11 + модификатор Лов</td><td>—</td><td>Помеха</td><td>8 фнт.</td></tr>
+<tr><td>Кожаный</td><td>10 зм</td><td>11 + модификатор Лов</td><td>—</td><td>—</td><td>10 фнт.</td></tr>
+<tr><td>Проклёпанная кожа</td><td>45 зм</td><td>12 + модификатор Лов</td><td>—</td><td>—</td><td>13 фнт.</td></tr>
+<tr><td colspan="6"><b>Средний Доспех</b></td></tr>
+<tr><td>Шкурный</td><td>10 зм</td><td>12 + модификатор Лов (макс. 2)</td><td>—</td><td>—</td><td>12 фнт.</td></tr>
+<tr><td>Кольчужная рубаха</td><td>50 зм</td><td>13 + модификатор Лов (макс. 2)</td><td>—</td><td>—</td><td>20 фнт.</td></tr>
+<tr><td>Чешуйчатый</td><td>50 зм</td><td>14 + модификатор Лов (макс. 2)</td><td>—</td><td>Помеха</td><td>45 фнт.</td></tr>
+<tr><td>Кираса</td><td>400 зм</td><td>14 + модификатор Лов (макс. 2)</td><td>—</td><td>—</td><td>20 фнт.</td></tr>
+<tr><td>Полулаты</td><td>750 зм</td><td>15 + модификатор Лов (макс. 2)</td><td>—</td><td>Помеха</td><td>40 фнт.</td></tr>
+<tr><td colspan="6"><b>Тяжёлый Доспех</b></td></tr>
+<tr><td>Колечный</td><td>30 зм</td><td>14</td><td>—</td><td>Помеха</td><td>40 фнт.</td></tr>
+<tr><td>Кольчуга</td><td>75 зм</td><td>16</td><td>Сил 13</td><td>Помеха</td><td>55 фнт.</td></tr>
+<tr><td>Наборный</td><td>200 зм</td><td>17</td><td>Сил 15</td><td>Помеха</td><td>60 фнт.</td></tr>
+<tr><td>Латы</td><td>1,500 зм</td><td>18</td><td>Сил 15</td><td>Помеха</td><td>65 фнт.</td></tr>
+<tr><td colspan="6"><b>Щит</b></td></tr>
+<tr><td>Щит</td><td>10 зм</td><td>+2</td><td>—</td><td>—</td><td>6 фнт. </td></tr>
+</table>
+<p>&nbsp;</p>
+<table border=1>
+<tr><td colspan=3><b>Надевание и Снятие Доспехов</b></td></tr>
+<tr><td>Вид</td><td>Надевание</td><td>Снятие</td></tr>
+<tr><td>Лёгкий доспех</td><td>1 минута</td><td>1минута</td></tr>
+<tr><td>Средний доспех</td><td>5 минут</td><td>1 минута</td></tr>
+<tr><td>Тяжёлый доспех</td><td>10 минут</td><td>5 минут</td></tr>
+<tr><td>Щит</td><td>1 действие</td><td>1 действие</td></tr>
+</table>
+<p>&nbsp;</p>
+</div>
+
+
+<div class=featherlight-inner><img id=3 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+<h2 class=spellname>Оружие</h2>
+<table border=1>
+<tr><td colspan=5><b>Оружие</b></td></tr>
+<tr><td>Название</td><td>Стоимость</td><td>Урон</td><td>Вес</td><td>Свойства</td></tr>
+<tr><td colspan=5><b>Простое Рукопашное Оружие</b></td></tr>
+<tr><td>Боевой посох</td><td>2 см</td><td>1к6 дробящий</td><td>4 фнт.</td><td>Универсальное (1к8)</td></tr>
+<tr><td>Булава</td><td>5 зм</td><td>1к6 дробящий</td><td>4 фнт.</td><td>—</td></tr>
+<tr><td>Дубинка</td><td>1 см</td><td>1к4 дробящий</td><td>2 фнт.</td><td>Лёгкое</td></tr>
+<tr><td>Кинжал</td><td>2 зм</td><td>1к4 колющий</td><td>1 фнт.</td><td>Лёгкое, метательное (дис.я 20/60), фехтовальное</td></tr>
+<tr><td>Копьё</td><td>1 зм</td><td>1к6 колющий</td><td>3 фнт.</td><td>Метательное (дис. 20/60), универсальное (1к8)</td></tr>
+<tr><td>Лёгкий молот</td><td>2 зм</td><td>1к4 дробящий</td><td>2 фнт.</td><td>Лёгкое, метательное (дис. 20/60)</td></tr>
+<tr><td>Метательное копьё</td><td>5 см</td><td>1к6 колющий</td><td>2 фнт.</td><td>Метательное (дис. 30/120)</td></tr>
+<tr><td>Палица</td><td>2 см</td><td>1к8 дробящий</td><td>10 фнт.</td><td>Двуручное</td></tr>
+<tr><td>Ручной топор</td><td>5 зм</td><td>1к6 рубящий</td><td>2 фнт.</td><td>Лёгкое, метательное (дис. 20/60)</td></tr>
+<tr><td>Серп</td><td>1 зм</td><td>1к4 рубящий </td><td>2 фнт.</td><td>Лёгкое</td></tr>
+<tr><td colspan=5><b>Простое Дальнобойное Оружие</b></td></tr>
+<tr><td>Арбалет, лёгкий</td><td>25 зм</td><td>1к8 колющий</td><td>5 фнт.</td><td>Боеприпас (дис. 80/320), двуручное, перезарядка</td></tr>
+<tr><td>Дротик</td><td>5 мм</td><td>1к4 колющий</td><td>1/4 фнт.</td><td>Метательное (дис. 20/60), фехтовальное</td></tr>
+<tr><td>Короткий лук</td><td>25 зм</td><td>1к6 колющий</td><td>2 фнт.</td><td>Боеприпас (дис. 80/320), двуручное</td></tr>
+<tr><td>Праща</td><td>1 см</td><td>1к4 дробящий</td><td>—</td><td>Боеприпас (дис. 30/120)</td></tr>
+<tr><td colspan=5><b>Воинское Рукопашное Оружие</b></td></tr>
+<tr><td>Алебарда</td><td>20 зм</td><td>1к10 рубящий</td><td>6 фнт.</td><td>Двуручное, досягаемость, тяжёлое</td></tr>
+<tr><td>Боевая кирка</td><td>5 зм</td><td>1к8 колющий</td><td>2 фнт.</td><td>—</td></tr>
+<tr><td>Боевой молот</td><td>15 зм</td><td>1к8 дробящий</td><td>2 фнт.</td><td>Универсальное (1к10)</td></tr>
+<tr><td>Боевой топор</td><td>10 зм</td><td>1к8 рубящий</td><td>4 фнт.</td><td>Универсальное (1к10)</td></tr>
+<tr><td>Глефа</td><td>20 зм</td><td>1к10 рубящий</td><td>6 фнт.</td><td>Двуручное, досягаемость, тяжёлое</td></tr>
+<tr><td>Двуручный меч</td><td>50 зм</td><td>2к6 рубящий</td><td>6 фнт.</td><td>Двуручное, тяжёлое</td></tr>
+<tr><td>Длинное копьё</td><td>10 зм</td><td>1к12 колющий</td><td>6 фнт.</td><td>Досягаемость, особое</td></tr>
+<tr><td>Длинный меч</td><td>15 зм</td><td>1к8 рубящий</td><td>3 фнт.</td><td>Универсальное (1к10)</td></tr>
+<tr><td>Кнут</td><td>2 зм</td><td>1к4 рубящий</td><td>3 фнт.</td><td>Досягаемость, фехтовальное</td></tr>
+<tr><td>Короткий меч</td><td>10 зм</td><td>1к6 колющий </td><td>2 фнт.</td><td>Лёгкое, фехтовальное</td></tr>
+<tr><td>Молот</td><td>10 зм</td><td>2к6 дробящий</td><td>10 фнт.</td><td>Двуручное, тяжёлое</td></tr>
+<tr><td>Моргенштерн</td><td>15 зм</td><td>1к8 колющий</td><td>4 фнт.</td><td>—</td></tr>
+<tr><td>Пика</td><td>5 зм</td><td>1к10 колющий</td><td>18 фнт.</td><td>Двуручное, досягаемость, тяжёлое</td></tr>
+<tr><td>Рапира</td><td>25 зм</td><td>1к8 колющий</td><td>2 фнт.</td><td>Фехтовальное</td></tr>
+<tr><td>Секира</td><td>30 зм</td><td>1к12 рубящий</td><td>7 фнт.</td><td>Двуручное, тяжёлое</td></tr>
+<tr><td>Скимитар</td><td>25 зм</td><td>1к6 рубящий</td><td>3 фнт.</td><td>Лёгкое, фехтовальное</td></tr>
+<tr><td>Трезубец</td><td>5 зм</td><td>1к6 колющий</td><td>4 фнт.</td><td>Метательное (дис. 20/60), универсальное (1к8)</td></tr>
+<tr><td>Цеп</td><td>10 зм</td><td>1к8 дробящий</td><td>2 фнт.</td><td>—</td></tr>
+<tr><td colspan=5><b>Воинское Дальнобойное Оружие</b></td></tr>
+<tr><td>Арбалет, ручной</td><td>75 зм</td><td>1к6 колющий</td><td>3 фнт.</td><td>Боеприпас (дис. 30/120), лёгкое, перезарядка</td></tr>
+<tr><td>Арбалет, тяжёлый</td><td>50 зм</td><td>1к10 колющий</td><td>18 фнт.</td><td>Боеприпас (дис. 100/400), двуручное, перезарядка, тяжёлое</td></tr>
+<tr><td>Длинный лук</td><td>50 зм</td><td>1к8 колющий </td><td>2 фнт.</td><td>Боеприпас (дис. 150/600), двуручное, тяжёлое</td></tr>
+<tr><td>Духовая трубка</td><td>10 зм</td><td>1 колющий</td><td>1 фнт.</td><td>Боеприпас (дис. 25/100), перезарядка</td></tr>
+<tr><td>Сеть</td><td>1 зм</td><td>—</td><td>3 фнт.</td><td>Метательное (дис. 5/15), особое </td></tr>
+</table>
+<p>&nbsp;</p>
+</div>
+
+      <div class=featherlight-inner><img id=4 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+        <h2 class=spellname>Требования к мультиклассированию</h2>
+<p>Для того чтобы получить новый класс, нужно удовлетворять требованиям к характеристикам и для текущего и для нового класса, показанным в приведённой таблице. Например, у варвара, решившего мультиклассироваться в друида, Сила и Мудрость должны быть не меньше 13. Обучение происходит не плавно как обычно, а ускоренно, поэтому значения характеристик должны быть выше среднего.</p>
+<table border=1>
+<tr><td colspan="2"><b>Требования к Мультиклассированию</b></td></tr>
+<tr><td><b>Класс</b></td><td><b>Минимальные значения характеристик</b></td></tr>
+<tr><td>Бард</td><td>Харизма 13</td></tr>
+<tr><td>Варвар</td><td>Сила 13</td></tr>
+<tr><td>Воин</td><td>Сила 13 или Ловкость 13</td></tr>
+<tr><td>Жрец</td><td>Мудрость 13</td></tr>
+<tr><td>Волшебник</td><td>Интеллект 13</td></tr>
+<tr><td>Друид</td><td>Мудрость 13</td></tr>
+<tr><td>Колдун</td><td>Харизма 13</td></tr>
+<tr><td>Монах</td><td>Ловкость 13 и Мудрость 13</td></tr>
+<tr><td>Паладин</td><td>Сила 13 и Харизма 13</td></tr>
+<tr><td>Плут</td><td>Ловкость 13</td></tr>
+<tr><td>Следопыт</td><td>Ловкость 13 и Мудрость 13</td></tr>
+<tr><td>Чародей</td><td>Харизма 13</td></tr>
+</table>
+<p>&nbsp;</p>
+
+<p>Владение</p>
+<p>Когда вы получаете первый уровень нового класса, вы получаете не все его владения, а только часть, как показано в приведённой таблице:</p>
+
+<table border=1>
+<tr><td colspan="2"><b>Мультиклассовые Владения</b></td></tr>
+<tr><td><b>Класс</b></td><td><b>Получаемые владения</b></td></tr>
+<tr><td>Бард</td><td>Лёгкие доспехи, один навык на ваш выбор, один музыкальный инструмент</td></tr>
+<tr><td>Варвар</td><td>Щиты, простое оружие, воинское оружие</td></tr>
+<tr><td>Воин</td><td>Лёгкие доспехи, средние доспехи, щиты, простое оружие, воинское оружие</td></tr>
+<tr><td>Волшебник</td><td>—</td></tr>
+<tr><td>Друид</td><td>Лёгкие доспехи, средние доспехи, щиты (друиды не носят и не используют доспехи и щиты из металла)</td></tr>
+<tr><td>Жрец</td><td>Лёгкие доспехи, средние доспехи, щиты</td></tr>
+<tr><td>Колдун</td><td>Лёгкие доспехи, простое оружие</td></tr>
+<tr><td>Монах</td><td>Простое оружие, короткие мечи</td></tr>
+<tr><td>Паладин</td><td>Лёгкие доспехи, средние доспехи, щиты, простое оружие, воинское оружие</td></tr>
+<tr><td>Плут</td><td>Лёгкие доспехи, один навык из списка классовых навыков, воровские инструменты</td></tr>
+<tr><td>Следопыт</td><td>Лёгкие доспехи, средние доспехи, щиты, простое оружие, воинское оружие, один навык из списка классовых навыков</td></tr>
+<tr><td>Чародей</td><td>—</td></tr>
+</table>
+<p>&nbsp;</p>
+</div>
+
+<div class=featherlight-inner><img id=5 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+ <h2 class=spellname>Черты</h2>
+
+<p>Черты отражают дарование или обучение, дающее персонажу особые знания. Они воплощают тренировки, опыт и способности, превышающие те, что даёт класс.</p>
+<p>На некоторых уровнях класс даёт вам умение <b>Улучшение Характеристик</b>. При помощи этого опционального правила вы можете отказаться от этого умения и взять вместо него черту. Каждую черту можно брать только один раз, если в её описании не сказано обратное.</p>
+<p>Для получения черты вы должны выполнять её требования. Если вы перестали выполнять требования черты, вы не можете её использовать, пока снова не начнёте выполнять требования. Например, черта Борец требует наличия Силы 13 или выше. Если ваша Сила по каким-то причинам опустится ниже 13 (например, из-за проклятья) вы не получаете преимуществ от этой черты, пока не восстановите Силу.</p>
+<p>&nbsp;</p>
+<p><b>Артистичный</b></p>
+<p>Научившись театральному искусству и подражанию, вы получаете следующие преимущества:</p>
+<p>• Увеличьте значение Харизмы на 1, при максимуме 20.</p>
+<p>• Вы совершаете с преимуществом проверки Харизмы (Выступление) и Харизма (Обман), когда пытаетесь выдать себя за кого-то другого.</p>
+<p>• Вы можете подражать речи кого-то другого, а также звукам, издаваемым другими существами. Перед этим вы должны как минимум в течение 1 минуты слышать чужую речь или звуки существа. Успешная проверка Мудрости (Проницательность), противопоставленная вашей проверке Харизмы (Обман), позволяет слушающему понять, что источник звука не настоящий.</p>
+<p>&nbsp;</p>
+<p><b>Атлетичный</b></p>
+<p>Вы прошли интенсивную физическую подготовку и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы или Ловкости на 1, при максимуме 20.</p>
+<p>• Если вы лежите ничком, вставание использует только 5 футов перемещения.</p>
+<p>• Лазание не заставляет вас тратить дополнительное перемещение.</p>
+<p>• Вы можете совершать прыжок в длину или высоту с разбега, переместившись только на 5 футов, а не на 10.</p>
+<p>&nbsp;</p>
+<p><b>Бдительный</b></p>
+<p>Вы всегда готовы к опасностям и получаете следующие преимущества:</p>
+<p>• Вы получаете бонус +5 к проверкам инициативы.</p>
+<p>• Вас не могут застать врасплох, пока вы в сознании.</p>
+<p>• Другие существа не получают преимущество для бросков атаки по вам за то, что они скрыты от вас.</p>
+<p>&nbsp;</p>
+<p><b>Боевой Заклинатель</b></p>
+<p>Требование: Способность накладывать хотя бы одно заклинание</p>
+<p>Вы научились накладывать заклинания в пылу сражения и узнали техники, дающие следующие преимущества:</p>
+<p>• Вы совершаете с преимуществом спасброски Телосложения для поддержания концентрации на заклинании при получении урона.</p>
+<p>• Вы можете выполнять телесный компонент заклинаний даже если используете оружие или щит в одной или обеих руках.</p>
+<p>• Если перемещение враждебного существа провоцирует от вас атаку, вы можете вместо совершения провоцированной атаки реакцией наложить на это существо заклинание. Время накладывания этого заклинания должно быть «1 действие» и оно должно нацеливаться только на это существо.</p>
+<p>&nbsp;</p>
+<p><b>Борец</b></p>
+<p>Требование: Сила 13 или выше</p>
+<p>Вы развили навыки, нужные для тесного захвата противников. Вы получаете следующие преимущества:</p>
+<p>• Вы совершаете с преимуществом броски атаки по существу, которое держите в захвате.</p>
+<p>• Вы можете действием попытаться скрутить захваченное вами существо. Для этого совершите ещё одну проверку захвата. В случае успеха и вы и это существо становитесь опутанными до окончания захвата.</p>
+<p>&nbsp;</p>
+<p><b>Везунчик</b></p>
+<p>Вам непонятным образом везёт как раз тогда, когда это нужно.</p>
+<p>У вас есть 3 единицы удачи. Каждый раз, когда вы совершаете бросок атаки, проверку характеристики или спасбросок, вы можете потратить одну единицу удачи, чтобы бросить дополнительный к20.</p>
+<p>Вы можете решить потратить единицу удачи после обычного броска кости, но до определения последствий. После этого вы сами выбираете, какую к20 использовать для броска атаки, проверки характеристики или спасброска. Вы также можете потратить одну единицу удачи, когда по вам совершается бросок атаки. Бросьте к20, а потом решите, какую из костей будет использовать атакующий, вашу или свою. Если сразу несколько существ тратят единицы удачи для оказания влияния на один бросок, единицы отменяют друг друга и дополнительные кости никто не кидает.</p>
+<p>Вы восстанавливаете потраченные единицы удачи в конце продолжительного отдыха.</p>
+<p>&nbsp;</p>
+<p><b>Верховой Боец</b></p>
+<p>Вы — опасный враг, когда вы верхом на скакуне.</p>
+<p>Если вы находитесь верхом и не выведены из строя, вы получаете следующие преимущества:</p>
+<p>• Вы совершаете с преимуществом броски рукопашных атак по существам, чей размер меньше вашего скакуна, и не находящимся при этом верхом.</p>
+<p>• Вы можете сделать так, что атака, нацеленная на вашего скакуна, будет перенацелена на вас.</p>
+<p>• Если ваш скакун попадает под эффект, позволяющий совершить спасбросок Ловкости для получения половины урона, то он не получает урон в случае успеха и получает всего половину урона при провале.</p>
+<p>&nbsp;</p>
+<p><b>Внимательный</b></p>
+<p>Вы быстро улавливаете мелкие подробности и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Интеллекта или Мудрости на 1, при максимуме 20.</p>
+<p>• Если вы видите рот существа, когда оно говорит на языке, который вы понимаете, вы можете прочитать по его губам, что оно говорит.</p>
+<p>• Вы получаете бонус +5 к пассивной проверке Мудрости (Внимательность) и пассивной проверке Интеллекта (Анализ).</p>
+<p>&nbsp;</p>
+<p><b>Воинский Адепт</b></p>
+<p>Вы прошли военную подготовку, позволяющую совершать особые боевые приёмы. Вы получаете следующие преимущества:</p>
+<p>Вы узнаёте два приёма на свой выбор из списка архетипа воина Мастер боевых искусств. Если приём требует, чтобы цель совершила спасбросок для сопротивления эффекту приёма, Сл спасброска равна 8 + ваш бонус мастерства + модификатор Силы или Ловкости (на ваш выбор). Если у вас уже есть кости превосходства, вы получаете ещё одну; в противном случае вы получаете одну кость превосходства: к6. Эта кость подпитывает ваши приёмы. Кость превосходства тратится, когда вы её используете, и восстанавливается после окончания короткого или продолжительного отдыха. Эта кость превосходства останется у вас даже если позже вы получите новые кости из другого источника.</p>
+<p>&nbsp;</p>
+<p><b>Воодушевляющий Лидер</b></p>
+<p>Требование: Харизма 13 или выше</p>
+<p>Вы можете потратить 10 минут на воодушевление спутников, укрепляя их решимость. Если вы делаете это, выберите до шести дружественных существ (можете включить себя) в пределах 30 футов от себя, которые могут видеть или слышать вас, и которые могут вас понять. Все эти существа получают временные хиты в количестве, равном вашему уровню + ваш модификатор Харизмы. Существа больше не могут получать временные хиты от этой черты, пока не окончат короткий или продолжительный отдых.</p>
+<p>&nbsp;</p>
+<p><b>Дикий Атакующий</b></p>
+<p>Один раз в ход, когда вы совершаете бросок урона для атаки рукопашным оружием, вы можете перебросить все кости урона оружия и использовать любой из вариантов.</p>
+<p>&nbsp;</p>
+<p><b>Драчун</b></p>
+<p>Привыкнув к мордобою с использованием подручных предметов, вы получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы или Телосложения на 1, при максимуме 20.</p>
+<p>• Вы получаете владение импровизированным оружием.</p>
+<p>• Ваш безоружный удар использует для урона к4.</p>
+<p>• Если вы в свой ход попадаете по существу безоружным ударом или импровизированным оружием, вы можете бонусным действием попытаться захватить цель.</p>
+<p>&nbsp;</p>
+<p><b>Знаток Лёгких Доспехов</b></p>
+<p>Вы обучились ношению лёгких доспехов и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы или Ловкости на 1, при максимуме 20.</p>
+<p>• Вы получаете владение лёгкими доспехами.</p>
+<p>&nbsp;</p>
+<p><b>Знаток Средних Доспехо</b>В</p>
+<p>Требование: Владение лёгкими доспехами</p>
+<p>Вы обучились ношению средних доспехов и щитов, и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы или Ловкости на 1, при максимуме 20.</p>
+<p>• Вы получаете владение средними доспехами и щитами.</p>
+<p>&nbsp;</p>
+<p><b>Знаток Тяжёлых Доспехов</b></p>
+<p>Требование: Владение средними доспехами</p>
+<p>Вы обучились ношению тяжёлых доспехов и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы на 1, при максимуме 20.</p>
+<p>• Вы получаете владение тяжёлыми доспехами.</p>
+<p>&nbsp;</p>
+<p><b>Использование Двух Оружий</b></p>
+<p>Вы знаете как использовать сразу два оружия, и получаете следующие преимущества:</p>
+<p>• Вы получаете бонус +1 к КД, когда держите в каждой руке по рукопашному оружию.</p>
+<p>• Вы можете использовать сражение с двумя оружиями даже если ни у одного из ваших одноручных оружий нет свойства «лёгкое».</p>
+<p>• Вы можете вынимать и убирать два одноручных оружия когда обычно позволяется вынуть или убрать только одно.</p>
+<p>&nbsp;</p>
+<p><b>Исследователь Подземелий</b></p>
+<p>Научившись искать скрытые ловушки и потайные двери в подземельях, вы получаете следующие преимущества:</p>
+<p>• Вы совершаете с преимуществом проверки Мудрости (Внимательность) и Интеллекта (Анализ), совершённые для обнаружения потайных дверей.</p>
+<p>• Вы совершаете с преимуществом спасброски для избегания ловушек и сопротивления их эффектам.</p>
+<p>• Вы получаете сопротивление к урону от ловушек.</p>
+<p>• Вы можете искать ловушки, идя с обычной скоростью, а не медленной.</p>
+<p>&nbsp;</p>
+<p><b>Крепкий</b></p>
+<p>Максимум ваших хитов увеличивается на количество, равное удвоенному уровню, на котором берётся эта черта. Каждый раз, когда вы впоследствии будете получать уровень, максимум ваших хитов будет дополнительно увеличиваться на 2.</p>
+<p>&nbsp;</p>
+<p><b>Лекарь</b></p>
+<p>Вы способный медик, что позволяет быстро залечивать раны и возвращать союзников в строй. Вы получаете следующие преимущества:</p>
+<p>• Когда вы используете комплект целителя для стабилизации умирающего существа, это существо также восстанавливает 1 хит.</p>
+<p>• Вы можете действием потратить одно использование комплекта целителя, чтобы позаботиться о существе и восстановить ему 1к6 + 4 хита, плюс дополнительные хиты, равные максимуму имеющихся у него Костей Хитов. Это существо не сможет повторно восстанавливать хиты от этой черты, пока не закончит короткий или продолжительный отдых.</p>
+<p>&nbsp;</p>
+<p><b>Мастер Большого Оружия</b></p>
+<p>Вы научились использовать вес своего оружия, позволяя инерции усиливать ваши атаки. Вы получаете следующие преимущества:</p>
+<p>• В свой ход, когда вы совершаете критическое попадание рукопашным оружием или опускаете им хиты существа до 0, вы можете бонусным действием совершить одну атаку рукопашным оружием.</p>
+<p>Перед совершением атаки рукопашным оружием со свойством «тяжёлое», которым вы владеете, вы можете принять штраф −5 к броску атаки. Если такая атака попадает, вы добавляете +10 к урону от этой атаки.</p>
+<p>&nbsp;</p>
+<p><b>Мастер Древкового Оружия</b></p>
+<p>Вы можете сдерживать врагов оружием со свойством «досягаемость». Вы получаете следующие преимущества:</p>
+<p>• Если вы совершаете действие Атака и атакуете только алебардой, боевым посохом или глефой, вы можете бонусным действием совершить рукопашную атаку противоположным концом оружия. Кость урона для этой атаки равна к4, и атака причиняет дробящий урон. Бонусная атака использует модификатор той же характеристики, что и основная.</p>
+<p>• Если вы используете алебарду, боевой посох, глефу или пику, другие существа провоцируют от вас атаку, когда входят в пределы вашей досягаемости.</p>
+<p>&nbsp;</p>
+<p><b>Мастер Оружия</b></p>
+<p>Вы знаете как пользоваться множеством видов оружия и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы или Ловкости на 1, при максимуме 20.</p>
+<p>• Вы получаете владение четырьмя выбранными видами оружия. Выбранное оружие должно быть или простым или воинским.</p>
+<p>&nbsp;</p>
+<p><b>Мастер Средних Доспехов</b></p>
+<p>Требование: Владение средними доспехами</p>
+<p>Вы привыкли к перемещению в средних доспехах и получаете следующие преимущества:</p>
+<p>• Ношение среднего доспеха не накладывает помеху к проверкам Ловкости (Скрытность).</p>
+<p>• Когда вы носите средний доспех, вы можете добавлять к КД 3, а не 2, если ваша Ловкость 16 или выше.</p>
+<p>&nbsp;</p>
+<p><b>Мастер Тяжёлых Доспехов</b></p>
+<p>Требование: Владение тяжёлыми доспехами</p>
+<p>Вы можете своим доспехом отклонять удары, которые других убили бы. Вы получаете следующие преимущества:</p>
+<p>• Увеличьте значение Силы на 1, при максимуме 20.</p>
+<p>• Если вы носите тяжёлый доспех, дробящий, колющий и рубящий урон, получаемый вами от немагического оружия, уменьшается на 3.</p>
+<p>&nbsp;</p>
+<p><b>Мастер Щитов</b></p>
+<p>Вы используете щиты не только для обороны, но и для нападения. Вы получаете следующие преимущества, когда используете щит:</p>
+<p>• Если вы в свой ход совершаете действие Атака, вы можете бонусным действием попытаться оттолкнуть щитом существо, находящееся в пределах 5 футов от вас.</p>
+<p>• Если вы не выведены из строя, вы можете добавлять бонус к КД от щита ко всем спасброскам Ловкости, совершённым от заклинаний и прочих вредоносных эффектов, нацеленных только на вас.</p>
+<p>• Если вы подвергаетесь действию эффекта, позволяющего совершить спасбросок Ловкости для получения половины урона, вы можете реакцией вообще не получить урон в случае успешного спасброска, выставив щит между собой и источником эффекта.</p>
+<p>&nbsp;</p>
+<p><b>Меткие Заклинания</b></p>
+<p>Требование: Способность накладывать хотя бы одно заклинание</p>
+<p>Вы узнали технику, улучшающую атаку некоторыми видами заклинаний, и получаете следующие преимущества:</p>
+<p>• Если вы накладываете заклинание, требующее совершение броска атаки, дистанция заклинания удваивается.</p>
+<p>• Ваши дальнобойные атаки заклинаниями игнорируют укрытие на половину и укрытие на три четверти.</p>
+<p>• Вы узнаёте один заговор, требующий броска атаки. Выберите заговор из списка заклинаний барда, волшебника, друида, жреца, колдуна или чародея. Базовая характеристика для этого заговора зависит от выбранного класса: Харизма для барда, колдуна и чародея; Интеллект для волшебника; Мудрость для друида и жреца.</p>
+<p>&nbsp;</p>
+<p><b>Меткий Стрелок</b></p>
+<p>Вы овладели дальнобойным оружием и можете совершать выстрелы, которые другие считали невозможными. Вы получаете следующие преимущества:</p>
+<p>• Совершение атаки в пределах максимальной дистанции не вызывает помеху к броску атаки дальнобойным оружием.</p>
+<p>• Ваши атаки дальнобойным оружием игнорируют укрытие на половину и укрытие на три четверти.</p>
+<p>• Перед совершением атаки дальнобойным оружием, которым вы владеете, вы можете принять штраф −5 к броску атаки. Если такая атака попадает, вы добавляете +10 к урону от этой атаки.</p>
+<p>&nbsp;</p>
+<p><b>Налётчик</b></p>
+<p>Когда вы используете действие Рывок, вы можете бонусным действием совершить одну рукопашную атаку оружием или оттолкнуть другое существо.</p>
+<p>Если вы перед совершением этого бонусного действия переместились минимум на 10 футов по прямой линии, вы либо получаете бонус +5 к броску урона этой атаки (если вы решили совершить рукопашную атаку и попали), либо толкаете цель на 10 футов от себя (если решили толкать и преуспели).</p>
+<p>&nbsp;</p>
+<p><b>Оборонительный Дуэлянт</b></p>
+<p>Требование: Ловкость 13 или выше</p>
+<p>Если вы используете оружие со свойством «фехтовальное», которым владеете, и другое существо попадает по вам рукопашной атакой, вы можете для этой атаки реакцией добавить бонус мастерства к КД, что потенциально может привести к промаху атаки.</p>
+<p>&nbsp;</p>
+<p><b>Одарённый</b></p>
+<p>Вы получаете владение любой комбинацией из трёх навыков и инструментов на ваш выбор.</p>
+<p>&nbsp;</p>
+<p><b>Отличная Память</b></p>
+<p>Вы с невероятной точностью можете отслеживать время, направление и подробности. Вы получаете следующие преимущества:</p>
+<p>• Увеличьте значение Интеллекта на 1, при максимуме 20.</p>
+<p>• Вы всегда знаете, в какой стороне находится север.</p>
+<p>• Вы всегда знаете, через сколько часов наступит следующий закат или восход.</p>
+<p>• Вы можете с точностью вспомнить всё, что видели или слышали за последний месяц.</p>
+<p>&nbsp;</p>
+<p><b>Подвижный</b></p>
+<p>Вы невероятно быстры и ловки. Вы получаете следующее преимущество:</p>
+<p>• Ваша скорость увеличивается на 10 футов.</p>
+<p>• Когда вы используете действие Рывок, труднопроходимая местность в этом ходу не замедляет ваше перемещение.</p>
+<p>• Если вы совершаете рукопашную атак по существу, вы до конца этого хода не провоцируете от него атаки, вне зависимости от того, попадёте или нет.</p>
+<p>&nbsp;</p>
+<p><b>Посвящённый в Магию</b></p>
+<p>Выберите класс: бард, волшебник, друид, жрец, колдун или чародей. Вы узнаёте два заговора на свой выбор из списка заклинаний этого класса.</p>
+<p>Кроме того, выберите одно заклинание 1 уровня из этого же списка. Вы узнаёте это заклинание и можете накладывать его на минимально возможном уровне. После использования заклинания вы должны закончить продолжительный отдых, прежде чем сможете снова использовать его этой чертой.</p>
+<p>Базовая характеристика для этих заклинаний зависит от выбранного класса: Харизма для барда, колдуна и чародея; Интеллект для волшебника; Мудрость для друида и жреца.</p>
+<p>&nbsp;</p>
+<p><b>Проныра</b></p>
+<p>Требование: Ловкость 13 или выше</p>
+<p>Вы знаете, как сливаться с тенями. Вы получаете следующие преимущества:</p>
+<p>• Вы можете попытаться спрятаться даже если слабо заслонены от существа, от которого прячетесь.</p>
+<p>• Если вы прячетесь от существа и промахиваетесь по нему атакой дальнобойным оружием, эта атака не выдаёт вашу позицию.</p>
+<p>• Тусклый свет не причиняет помеху вашим проверкам Мудрости (Внимательность), полагающимся на зрение.</p>
+<p>&nbsp;</p>
+<p><b>Ритуальный Заклинатель</b></p>
+<p>Требование: Интеллект или Мудрость 13 или выше</p>
+<p>Вы узнали несколько заклинаний, которые можете накладывать как ритуалы. Эти заклинания записаны в ритуальной книге, которую вы должны держать в руке во время их использования.</p>
+<p>Когда вы выбираете эту черту, вы получаете ритуальную книгу, содержащую два заклинания 1 уровня на ваш выбор. Выберите один из классов: бард, волшебник, друид, жрец, колдун или чародей.</p>
+<p>Вы должны выбирать заклинания из списков для этого класса, но у этих заклинаний должно быть ключевое слово «ритуал». Выбранный класс также определяет базовую характеристику для этих заклинаний: Харизма для барда, колдуна и чародея; Интеллект для волшебника; Мудрость для друида и жреца.</p>
+<p>Найдя заклинание, записанное в письменной форме, такой как магический свиток заклинания или книга заклинаний волшебника, вы можете скопировать его в свою ритуальную книгу. Это заклинание должно быть в списке заклинаний выбранного вами класса, уровень его не должен превышать половину вашего уровня (округлённую в большую сторону), и у него должно быть ключевое слово «ритуал». Процесс переписывания занимает по 2 часа за каждый уровень заклинания и стоит по 50 зм за каждый уровень. Это стоимость материальных компонентов, расходуемых в процессе экспериментов с заклинанием, а также особых чернил, которыми оно записывается.</p>
+<p>&nbsp;</p>
+<p><b>Стихийный Адепт</b></p>
+<p>Требование: Способность накладывать хотя бы одно заклинание</p>
+<p>Когда вы получаете эту черту, выберите один из видов урона: звук, кислота, огонь, холод или электричество.</p>
+<p>Накладываемые вами заклинания игнорируют сопротивление к выбранному виду урона. Кроме того, когда вы определяете урон от наложенного вами заклинания, причиняющего урон этого вида, вы можете считать все выпавшие на костях «1» как «2».</p>
+<p>Вы можете брать эту черту несколько раз. Каждый раз, когда вы это делаете, вы выбираете новый вид урона.</p>
+<p>&nbsp;</p>
+<p><b>Стойкий</b></p>
+<p>Вы стойкий и живучий, и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Телосложения на 1, при максимуме 20.</p>
+<p>• Когда вы бросаете Кость Хитов для восстановления хитов, минимум равен удвоенному модификатору Телосложения (минимум 2).</p>
+<p>&nbsp;</p>
+<p><b>Страж</b></p>
+<p>Вы овладели техникой, позволяющей пользоваться всеми брешами в обороне противника, и получаете следующие преимущества:</p>
+<p>• Если вы попадаете по существу провоцированной атакой, скорость этого существа падает до 0 до конца текущего хода.</p>
+<p>• Существа перед выходом из вашей досягаемости провоцируют от вас атаки, даже если совершают действие Отход.</p>
+<p>• Если существо, находящееся в пределах 5 футов от вас, совершает атаку не по вам (и у цели нет этой черты), вы можете реакцией совершить атаку рукопашным оружием по атакующему.</p>
+<p>&nbsp;</p>
+<p><b>Убийца Магов</b></p>
+<p>Вы разработали техники, полезные в рукопашном сражении с заклинателями, и получаете следующие преимущества:</p>
+<p>• Если существо в пределах 5 футов от вас использует заклинание, вы можете реакцией совершить атаку рукопашным оружием по этому существу.</p>
+<p>• Когда вы причиняете урон существу, концентрирующемуся на заклинании, это существо совершает с помехой спасбросок для поддержания концентрации.</p>
+<p>• Вы совершаете с преимуществом спасброски от заклинаний, наложенных существами, находящимися в пределах 5 футов от вас.</p>
+<p>&nbsp;</p>
+<p><b>Устойчивый</b></p>
+<p>Выберите одну характеристику. Вы получаете следующие преимущества:</p>
+<p>• Увеличьте значение выбранной характеристики на 1, при максимуме 20.</p>
+<p>• Вы получаете владение спасбросками этой характеристики.</p>
+<p>&nbsp;</p>
+<p><b>Эксперт в Арбалетах</b></p>
+<p>Благодаря обширной практике с арбалетом вы получаете следующие преимущества:</p>
+<p>• Вы игнорируете свойство «перезарядка» у арбалетов, которыми владеете.</p>
+<p>• Нахождение в пределах 5 футов от враждебного существа не накладывает помеху к вашим броскам дальнобойной атаки.</p>
+<p>• Когда вы используете действие Атака и атакуете одноручным оружием, вы можете бонусным действием атаковать заряженным ручным арбалетом, находящимся в руке.</p>
+<p>&nbsp;</p>
+<p><b>Языковед</b></p>
+<p>Вы изучали языки и способы кодирования текстов, и получаете следующие преимущества:</p>
+<p>• Увеличьте значение Интеллекта на 1, при максимуме 20.</p>
+<p>• Вы узнаёте три языка на свой выбор.</p>
+<p>• Вы можете писать шифрованные письма. Другие не могут расшифровать код, пока либо вы не научите их, либо они не преуспеют в проверке Интеллекта (Сл равна вашему значению Интеллекта + ваш бонус Мастерства), либо они не используют для расшифровки магию.</p>
+</div>
+
+<div class=featherlight-inner><img id=6 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+ <h2 class=spellname>Сводная таблица - Бард</h2>
+ <table border=1>
+<tr><td colspan=5><b>Бард</td><td colspan=9><b>Ячейки Заклинаний</td></tr>
+<tr><td>Уровень</td><td>Бонус</br> Мастерства</td><td>Умения</td><td>Известные</br> Заговоры</td><td>Известные</br> Заклинания</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+<tr><td>1</td><td>+2</td><td>Использование заклинаний,</br> Вдохновение барда (к6)</td><td>2</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>2</td><td>+2</td><td>Мастер на все руки,</br> Песнь отдыха (к6)</td><td>2</td><td>5</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>3</td><td>+2</td><td>Коллегия бардов,</br> Компетентность</td><td>2</td><td>6</td><td>4</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>4</td><td>+2</td><td>Увеличение характеристик</td><td>3</td><td>7</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>5</td><td>+3</td><td>Вдохновение барда (к8),</br> Источник вдохновения</td><td>3</td><td>8</td><td>4</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>6</td><td>+3</td><td>Контрочарование,</br> Умение коллегии бардов</td><td>3</td><td>9</td><td>4</td><td>3</td><td>3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>7</td><td>+3</td><td>—</td><td>3</td><td>10</td><td>4</td><td>3</td><td>3</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>8</td><td>+3</td><td>Увеличение характеристик</td><td>3</td><td>11</td><td>4</td><td>3</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>9</td><td>+4</td><td>Песнь отдыха (к8)</td><td>3</td><td>12</td><td>4</td><td>3</td><td>3</td><td>3</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>10</td><td>+4</td><td>Вдохновение барда (к10),</br> Компетентность,</br> Тайны магии</td><td>4</td><td>14</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>11</td><td>+4</td><td>—</td><td>4</td><td>15</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>12</td><td>+4</td><td>Увеличение характеристик</td><td>4</td><td>15</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>13</td><td>+5</td><td>Песнь отдыха (к10)</td><td>4</td><td>16</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>—</td><td>—</td></tr>
+<tr><td>14</td><td>+5</td><td>Тайны магии,</br> Умение коллегии бардов</td><td>4</td><td>18</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>—</td><td>—</td></tr>
+<tr><td>15</td><td>+5</td><td>Вдохновение барда (к12)</td><td>4</td><td>19</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td><td>—</td></tr>
+<tr><td>16</td><td>+5</td><td>Увеличение характеристик</td><td>4</td><td>19</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td><td>—</td></tr>
+<tr><td>17</td><td>+6</td><td>Песнь отдыха (к12)</td><td>4</td><td>20</td><td>4</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>18</td><td>+6</td><td>Тайны магии</td><td>4</td><td>22</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>19</td><td>+6</td><td>Увеличение характеристик</td><td>4</td><td>22</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>20</td><td>+6</td><td>Превосходное вдохновение</td><td>4</td><td>22</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>2</td><td>2</td><td>1</td><td>1 </td></tr>
+</table>
+
+
+<p><b>Вдохновение Барда</b></p>
+<p>Своими словами или музыкой вы можете вдохновлять других. Для этого вы должны бонусным действием выбрать одно существо, отличное от вас, в пределах 60 футов, которое может вас слышать.</p>
+<p>Это существо получает кость бардовского вдохновения — к6.</p>
+<p>В течение следующих 10 минут это существо может один раз бросить эту кость и добавить результат к проверке характеристики, броску атаки или спасброску, который оно совершает. Существо может принять решение о броске кости вдохновения уже после броска к20, но должно сделать это прежде, чем Мастер объявит результат броска. Как только кость бардовского вдохновения брошена, она исчезает. Существо может иметь только одну такую кость одновременно.</p>
+<p>Вы можете использовать это умение количество раз, равное модификатору вашей Харизмы, но как минимум один раз. Потраченные использования этого умения восстанавливаются после продолжительного отдыха.</p>
+<p>Ваша кость бардовского вдохновения изменяется с ростом вашего уровня в этом классе. Она становится к8 на 5 уровне, к10 на 10 уровне и к12 на 15 уровне.</p>
+<p><b>Мастер на Все Руки</b></p>
+<p>Начиная со 2 уровня вы можете добавлять половину бонуса мастерства, округлённую в меньшую сторону, ко всем проверкам характеристик, куда этот бонус ещё не включён.</p>
+<p><b>Песнь Отдыха</b></p>
+<p>Начиная со 2 уровня вы с помощью успокаивающей музыки или речей можете помочь своим раненым союзникам восстановить их силы во время короткого отдыха. Если вы, или любые союзные существа, способные слышать ваше исполнение, восстанавливаете хиты в конце короткого отдыха, каждый из вас восстанавливает дополнительно 1к6 хитов. Для того, чтобы восстановить дополнительные хиты, существо должно потратить в конце короткого отдыха как минимум одну Кость Хитов. Количество дополнительно восстанавливаемых хитов растёт с вашим уровнем в этом классе: 1к8 на 9 уровне, 1к10 на 13 уровне и 1к12 на 17 уровне.</p>
+<p><b>Компетентность</b></p>
+<p>На третьем уровне выберите 2 навыка из тех, которыми вы владеете. Ваш бонус мастерства для этих навыков удваивается. На 10 уровне вы можете выбрать ещё 2 навыка и получить для них это преимущество.</p>
+<p><b>Увеличение Характеристик</b></p>
+<p>При достижении 4, 8, 12, 16 и 19 уровней вы можете повысить значение одной из ваших характеристик на 2 или двух характеристик на 1. Как обычно, значение характеристики при этом не должно превысить 20.</p>
+<p><b>Источник Вдохновения</b></p>
+<p>Начиная с 5 уровня вы восстанавливаете истраченные вдохновения барда и после короткого и после продолжительного отдыха.</p>
+<p><b>Контрочарование</b></p>
+<p>На 6 уровне вы получаете возможность использовать звуки или слова силы для разрушения воздействующих на разум эффектов. Вы можете действием начать исполнение, которое продлится до конца вашего следующего хода. В течение этого времени вы и все дружественные существа в пределах 30 футов от вас совершают спасброски от запугивания и очарования с преимуществом. Чтобы получить это преимущество, существа должны слышать вас. Исполнение заканчивается преждевременно, если вы оказываетесь недееспособны, теряете способность говорить, или прекращаете исполнение добровольно (на это не требуется действие).</p>
+<p><b>Тайны Магии</b></p>
+<p>К 10 уровню вы успели набрать знаний из самого широкого спектра магических дисциплин. Выберите два заклинания любого класса, включая ваш собственный. Эти заклинания должны быть того уровня, который вы можете использовать, или являться заговорами. Теперь эти заклинания считаются для вас заклинаниями барда, и они уже включены в общее количество известных вам заклинаний согласно таблице «Бард». Ещё по два заклинания других классов вы выучите на 14 и 18 уровнях.</p>
+<p><b>Превосходное Вдохновение</b></p>
+<p>При достижении 20 уровня, если на момент броска инициативы у вас не осталось неиспользованных вдохновений, вы получаете одно.</p>
+<p>&nbsp;</p>
+
+</div>
+
+<div class=featherlight-inner><img id=7 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+ <h2 class=spellname>Коллегия Доблести</h2>
+<p>Барды коллегии доблести это отважные скальды, чьи сказания не дают забыть великих героев прошлого и вдохновляют на подвиги нынешних героев. Такие барды собираются в медовых залах или вокруг походных костров, чтоб воспеть великие свершения прошлого и настоящего. Они путешествуют, чтобы стать очевидцами великих событий, и не дать памяти о них угаснуть. Своими песнями они вдохновляют на достижения, достойные памяти предков.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительные Навыки</b></p>
+<p>Присоединяясь к коллегии доблести на 3 уровне, вы получаете владение средними доспехами, щитами и воинским оружием.</p>
+<p>&nbsp;</p>
+<p><b>Боевое Вдохновение</b></p>
+<p>При достижении 3 уровня вы узнаёте, как вдохновлять других в бою. Существо, получившее от вас кость бардовского вдохновения, может бросить эту кость и добавить результат к своему броску урона оружием. В качестве альтернативы, если существо атаковано, оно может реакцией совершить бросок кости вдохновения и добавить результат к своему КД от этой атаки. Оно может сделать это после броска атаки, но до того, как узнает, попали ли по нему.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительная Атака</b></p>
+<p>Начиная с 6 уровня, если вы в свой ход совершаете действие Атака, вы можете совершить две атаки вместо одной.</p>
+<p>&nbsp;</p>
+<p><b>Боевая Магия</b></p>
+<p>На 14 уровне вы научились сплетать использование заклинаний и оружия в одно гармоничное действие. Если вы действием используете заклинание барда, вы можете бонусным действием совершить одну атаку оружием.</p>
+</div>
+
+<div class=featherlight-inner><img id=8 class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png" />
+ <h2 class=spellname>Коллегия Знаний</h2>
+<p>Барды коллегии знаний понемногу осведомлены обо всём на свете. Они собирают крупицы знаний отовсюду, будь то научные труды или крестьянские побасенки. Напевают ли они народные баллады в таверне, или исполняют изысканные композиции при дворе, эти барды используют свой талант, чтобы очаровать публику. И когда смолкают аплодисменты, публика может обнаружить себя рассказывающей все свои секреты, начиная со сплетен местного прихода, и заканчивая подробностями своей верности королю.</p>
+<p>Лояльность таких бардов покоится на стремлении к красоте и правде, а не на верности монархам или приверженности к религиозным догматам. Дворяне, содержащие таких бардов в качестве советников или герольдов, хорошо знают, что бард скорее скажет неприятную правду, чем благоразумно промолчит.</p>
+<p>Члены коллегии собираются в библиотеках, а иногда даже в колледжах, с настоящими классами и общежитиями. Там они делятся друг с другом знаниями. Они также посещают фестивали и общественные собрания, где могут выявлять растратчиков, разоблачать лжецов или выставлять на посмешище самоуверенных политиков.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительные Навыки</b></p>
+<p>Если вы по достижении 3 уровня присоединяетесь к коллегии знаний, вы овладеваете тремя навыками на ваш выбор.</p>
+<p>&nbsp;</p>
+<p><b>Острое Словцо</b></p>
+<p>Также на 3 уровне вы узнаёте, как использовать собственное остроумие, чтобы отвлечь, смутить или по-другому подорвать способности и уверенность противников. Если существо, которое вы можете видеть, в пределах 60 футов от вас совершает бросок атаки, урона или проверку характеристики, вы можете реакцией потратить одну из ваших костей бардовского вдохновения, и вычесть результат броска этой кости из броска этого существа. Вы можете принять решение об использовании этой способности после броска существа, но до того момента, когда Мастер объявит результат броска или проверки. Существо не подвержено этой способности, если не может слышать вас, или обладает иммунитетом к очарованию.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительные Тайны Магии</b></p>
+<p>На 6 уровне вы можете выучить 2 заклинания из доступных любому классу на свой выбор. Их уровень не должен превышать уровня заклинаний, которые вы можете использовать на этом уровне. Они также могут быть заговорами. Выбранные заклинания теперь считаются для вас заклинаниями барда, но максимальное количество заклинаний, которое вы можете знать, не меняется.</p>
+<p>&nbsp;</p>
+<p><b>Непревзойдённый Навык</b></p>
+<p>Начиная с 14 уровня, если вы совершаете проверку характеристики, вы можете бросить кость бардовского вдохновения и добавить результат к проверке. Вы можете принять решение об использовании этой способности после броска проверки, но до того, как Мастер объявит результат этой проверки.</p>
+</div>
+
+
+<div class="featherlight-inner"><img id="9" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Сводная таблица - Варвар</h2>
+<table border=1>
+<tr><td colspan=5><b>Варвар</b></td></tr>
+<tr><td><b>Уровень</b></td><td><b>Бонус Мастерства</b></td><td><b>Умения</b></td><td><b>Ярость</b></td><td><b>Урон Ярости</b></td></tr>
+<tr><td>1</td><td>+2</td><td>Защита без доспехов, Ярость</td><td>2</td><td>+2</td></tr>
+<tr><td>2</td><td>+2</td><td>Безрассудная атака, Чувство опасности</td><td>2</td><td>+2</td></tr>
+<tr><td>3</td><td>+2</td><td>Путь дикости</td><td>3</td><td>+2</td></tr>
+<tr><td>4</td><td>+2</td><td>Увеличение характеристик</td><td>3</td><td>+2</td></tr>
+<tr><td>5</td><td>+3</td><td>Быстрое передвижение, Дополнительная атака</td><td>3</td><td>+2</td></tr>
+<tr><td>6</td><td>+3</td><td>Умение пути</td><td>4</td><td>+2</td></tr>
+<tr><td>7</td><td>+3</td><td>Дикий инстинкт</td><td>4</td><td>+2</td></tr>
+<tr><td>8</td><td>+3</td><td>Увеличение характеристик</td><td>4</td><td>+2</td></tr>
+<tr><td>9</td><td>+4</td><td>Сильный критический удар (1 кость)</td><td>4</td><td>+3</td></tr>
+<tr><td>10</td><td>+4</td><td>Умение пути</td><td>4</td><td>+3</td></tr>
+<tr><td>11</td><td>+4</td><td>Непреклонная ярость</td><td>4</td><td>+3</td></tr>
+<tr><td>12</td><td>+4</td><td>Увеличение характеристик</td><td>5</td><td>+3</td></tr>
+<tr><td>13</td><td>+5</td><td>Сильный критический удар (2 кости)</td><td>5</td><td>+3</td></tr>
+<tr><td>14</td><td>+5</td><td>Умение пути</td><td>5</td><td>+3</td></tr>
+<tr><td>15</td><td>+5</td><td>Непрерывная ярость</td><td>5</td><td>+3</td></tr>
+<tr><td>16</td><td>+5</td><td>Увеличение характеристик</td><td>5</td><td>+4</td></tr>
+<tr><td>17</td><td>+6</td><td>Сильный критический удар (3 кости)</td><td>6</td><td>+4</td></tr>
+<tr><td>18</td><td>+6</td><td>Неукротимая мощ</td><td>6</td><td>+4</td></tr>
+<tr><td>19</td><td>+6</td><td>Увеличение характеристик</td><td>6</td><td>+4</td></tr>
+<tr><td>20</td><td>+6</td><td>Дикий чемпион</td><td>Неограниченно</td><td>+4</td></tr>
+</table>
+<p>&nbsp;</p>
+<p><b>Защита Без Доспехов</b></p>
+<p>Если вы не носите доспехов, ваш Класс Доспеха равен 10 + модификатор Ловкости + модификатор Телосложения. Вы можете использовать щит, не теряя этого преимущества.</p>
+<p>&nbsp;</p>
+<p><b>Ярость</b></p>
+<p>В бою вы сражаетесь с первобытной свирепостью. В свой ход вы можете бонусным действием войти в состояние ярости. В состоянии ярости вы получаете следующие преимущества, если не носите тяжёлую броню:</p>
+<p>• Вы совершаете с преимуществом проверки и спасброски Силы.</p>
+<p>• Если вы совершаете рукопашную атаку оружием, используя Силу, вы получаете бонус к броску урона, соответствующий вашему уровню варвара, как показано в колонке «урон ярости» таблицы «Варвар».</p>
+<p>• Вы получаете сопротивление дробящему, колющему и рубящему урону.</p>
+<p> Если вы были способны использовать заклинания, то вы не можете использовать или концентрироваться на заклинаниях, пока находитесь в состоянии ярости.</p>
+<p>Ваша ярость длится 1 минуту. Она прекращается раньше, если вы потеряли сознание, если вы закончили ход, не атаковав враждебное по отношению к вам существо с момента окончания прошлого хода, или если вы с момента окончания прошлого хода не получили урон. Также вы можете прекратить свою ярость бонусным действием.</p>
+<p>Если вы впадали в состояние ярости максимальное для вашего уровня количество раз (смотрите колонку «ярость»), то вы должны совершить продолжительный отдых, прежде чем сможете использовать ярость ещё раз.</p>
+<p>&nbsp;</p>
+<p><b>Безрассудная Атака</b></p>
+<p>Начиная со 2 уровня вы способны отбросить любую заботу о защите, чтобы атаковать ожесточённо и безрассудно. Когда вы совершаете первую атаку в свой ход, вы можете решить, что будете атаковать безрассудно. Решившись на это, вы в этом ходу совершаете рукопашные атаки оружием, использующие Силу, с преимуществом, но все броски атаки по вам до вашего следующего хода тоже совершаются с преимуществом.</p>
+<p>&nbsp;</p>
+<p><b>Чувство Опасности</b></p>
+<p>На 2 уровне вы получаете обострённое ощущение происходящего вокруг, помогающее вам избегать опасности.</p>
+<p>Вы совершаете с преимуществом спасброски Ловкости от эффектов, которые вы можете видеть, такие как заклинания и ловушки. Для использования этого преимущества вы не должны быть ослеплены, оглушены и не должны быть недееспособны.</p>
+<p>&nbsp;</p>
+<p><b>Увеличение Характеристик</b></p>
+<p>При достижении 4, 8, 12, 16 и 19 уровней вы можете повысить значение одной из ваших характеристик на 2 или двух характеристик на 1. Как обычно, значение характеристики при этом не должно превысить 20.</p>
+<p>&nbsp;</p>
+<p><b>Быстрое Передвижение</b></p>
+<p>Начиная с 5 уровня ваша скорость передвижения увеличивается на 10 футов, если вы не носите тяжёлые доспехи.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительная Атака</b></p>
+<p>Начиная с 5 уровня, если вы в свой ход совершаете действие Атака, вы можете совершить две атаки вместо одной.</p>
+<p>&nbsp;</p>
+<p><b>Дикий Инстинкт</b></p>
+<p>С 7 уровня ваши инстинкты настолько обостряются, что вы совершаете с преимуществом броски инициативы. Кроме того, если вы были захвачены врасплох в начале боя, и вы не являетесь недееспособным, вы можете в первом ходу действовать нормальным образом, но только если вы впадёте в ярость раньше всех других действий в этом ходу.</p>
+<p>&nbsp;</p>
+<p><b>Сильный Критический Удар</b></p>
+<p>Начиная с 9 уровня вы можете бросать одну дополнительную кость урона оружия, когда определяете дополнительный урон от критического попадания рукопашной атакой. Количество костей увеличивается до двух на 13 уровне и трёх на 17 уровне.</p>
+<p>&nbsp;</p>
+<p><b>Непреклонная Ярость</b></p>
+<p>Начиная с 11 уровня ваша ярость позволяет вам сражаться, несмотря на тяжелейшие раны. Если ваши хиты опустилось до 0, когда вы находились в состоянии ярости, и вы не умерли сразу, вы можете совершить спасбросок Телосложения со Сл 10. В случае успеха ваше здоровье опускается всего лишь до 1. Каждый раз, когда вы используете эту способность повторно, Сл спасброска повышается на 5. Когда вы закончите короткий либо продолжительный отдых, Сл снова равняется 10.</p>
+<p>&nbsp;</p>
+<p><b>Непрерывная Ярость</b></p>
+<p>Начиная с 15 уровня ваша ярость становится настолько сильной, что досрочно прекращается только если вы теряете сознание или сами прекращаете её.</p>
+<p>&nbsp;</p>
+<p><b>Неукротимая Мощь</b></p>
+<p>Начиная с 18 уровня, если результат вашей проверки Силы оказался меньше значения вашей Силы, то вы можете использовать значение характеристики вместо результата проверки.</p>
+<p>&nbsp;</p>
+<p><b>Дикий Чемпион</b></p>
+<p>К 20 уровню вы становитесь воплощением силы дикой природы. Значение Силы и Телосложения увеличивается на 4. Максимальное значение для этих характеристик теперь 24.</p>
+</div>
+
+
+<div class="featherlight-inner"><img id="10" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Путь берсерка</h2>
+<p>Для некоторых варваров ярость это способ достижения цели, и этой целью является насилие. Путь берсерка это путь, залитый кровью, путь несдерживаемой ярости. Впадая в ярость берсерка, вы бросаете себя в хаос боя, не заботясь более о собственном здоровье.</p>
+<p>&nbsp;</p>
+<p><b>Бешенство</b></p>
+<p>Если вы выбрали этот путь, то начиная с 3 уровня, находясь в состоянии ярости, вы можете впасть в бешенство. В этом случае, пока ваша ярость не прекратилась, вы можете в каждый свой ход после текущего совершать бонусным действием одну рукопашную атаку оружием. После окончания ярости вы получаете один уровень усталости (как описано в приложении А).</p>
+<p>&nbsp;</p>
+<p><b>Бездумная Ярость</b></p>
+<p>Начиная с 6 уровня вы не можете быть испуганы или очарованы, пока находитесь в состоянии ярости. Если вы были испуганы или очарованы до того, как впали в состояние ярости, эти эффекты приостанавливаются до окончания вашей ярости.</p>
+<p>&nbsp;</p>
+<p><b>Пугающее Присутствие</b></p>
+<p>Начиная с 10 уровня, вы можете действием пугать других своим ужасающим видом. Чтобы сделать это, выберите существо в пределах 30 футов от себя, которое вы можете видеть. Если оно может видеть или слышать вас, оно должно совершить успешный спасбросок Мудрости (Сл равна 8 + ваш бонус мастерства + ваш модификатор Харизмы), иначе станет испуганным вами до конца вашего следующего хода. В последующие ходы вы можете действием поддерживать этот эффект до конца своего следующего хода. Эффект оканчивается, если цель оказалась вне линии обзора, или далее чем в 60 футах от вас. Если существо преуспело в спасброске, вы не можете использовать на нём это умение следующие 24 часа.</p>
+<p>&nbsp;</p>
+<p><b>Ответный Удар</b></p>
+<p>Начиная с 14 уровня, при получении урона от существа, находящегося в пределах 5 футов от вас, вы можете реакцией совершить по нему рукопашную атаку оружием.</p>
+<p></p>
+</div>
+
+<div class="featherlight-inner"><img id="11" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Путь тотемного война</h2>
+<p>Путь тотемного воина — духовный путь, в котором дух зверя становится для варвара наставником, защитником и вдохновителем. В бою дух тотема дарует вам сверхъестественную мощь, наполняя вашу ярость магической силой. Большинство варварских племён связывают свои кланы с конкретными духами-покровителями, и иметь несколько тотемных духов считается необычным, хотя такие исключения и случаются.</p>
+<p>&nbsp;</p>
+<p><b>Искатель Духов</b></p>
+<p>Ваш путь, тесно связанный с дикой природой, даёт вам близость с животными. На 3 уровне, если вы выбрали этот путь, вы получаете возможность использовать заклинания животные чувства и разговор с животными, но только в виде ритуалов, как описано в главе 10.</p>
+<p>&nbsp;</p>
+<p><b>Тотемный Дух</b></p>
+<p>На 3 уровне, встав на этот путь, вы выбираете своего тотемного духа, и получаете его умения. Вы должны сделать или приобрести тотем: физический предмет (амулет или похожее украшение), содержащий мех или кожу, перья, когти, зубы или кости тотемного животного. Если хотите, можете приобрести незначительные физические изменения, напоминающие ваше тотемное животное.</p>
+<p>Например, если вашим тотемным животным является медведь, вы можете получить необычную волосатость и толстокожесть, а если это орёл, то ваши глаза могут приобрести ярко-жёлтый цвет. Ваше тотемное животное должно относиться к одному из перечисленных ниже, но быть естественным для вашей родной местности. Например, вместо орла может быть ястреб или гриф.</p>
+<p><b>Волк.</b> Пока вы находитесь в состоянии ярости, ваши друзья совершают броски рукопашных атак по всем враждебным вам существам, находящимся в пределах 5 футов от вас, с преимуществом. Дух волка делает вас вожаком стаи.</p>
+<p><b>Медведь.</b> В состоянии ярости вы получаете сопротивление всем видам урона кроме урона психической энергией. Дух медведя делает вас достаточно крепким, чтобы выдержать любое испытание.</p>
+<p><b>Орёл.</b> Когда вы находитесь в состоянии ярости и не носите тяжёлых доспехов, другие существа совершают провоцированные атаки по вам с помехой. В свой ход вы можете совершать Рывок бонусным действием. Дух орла превращает вас в хищника, с лёгкостью носящегося по полю боя.</p>
+<p>&nbsp;</p>
+<p><b>Аспект Зверя</b></p>
+<p>На 6 уровне вы получаете волшебное свойство, зависящее от выбранного вами тотемного животного. Вы можете выбрать то же животное, что и на 3 уровне, либо другое.</p>
+<p><b>Волк.</b> Вы получаете чутьё охотящегося волка. Вы можете идти по следу существа, путешествуя в быстром темпе, или передвигаться скрытно, путешествуя в нормальном темпе (смотрите правила по темпам путешествия в главе 8).</p>
+<p><b>Медведь.</b> Вы получаете мощь медведя. Ваша способность переносить тяжести (включая максимальный вес нагрузки и подъёма) удваивается, и вы совершаете с преимуществом проверки Силы, совершённые, чтобы толкать, тянуть, поднимать или ломать предметы.</p>
+<p><b>Орёл.</b> Вы получаете зоркость орла. Вы без затруднений можете видеть на расстоянии до одной мили, и способны различить мельчайшие детали, рассматривая что-то на расстоянии до 100 футов (30 метров). Кроме того, тусклое освещение более не накладывает помеху на проверки Мудрости (Внимательность).</p>
+<p>&nbsp;</p>
+<p><b>Гуляющий С Духами</b></p>
+<p>На 10 уровне вы получаете способность использовать заклинание общение с природой в качестве ритуала. Когда вы делаете это, призрачная версия одного из ваших тотемных животных является вам и сообщает необходимую информацию.</p>
+<p>&nbsp;</p>
+<p><b>Гармония Тотема</b></p>
+<p>На 14 уровне вы получаете волшебное свойство, зависящее от выбранного вами тотемного животного. Вы можете выбрать то же животное, что и ранее, либо другое.</p>
+<p><b>Волк.</b> Пока вы в состоянии ярости, вы можете в свой ход бонусным действием сбить с ног существо Большого или менее размера, когда попадаете по нему атакой рукопашным оружием.</p>
+<p><b>Медведь.</b> Пока вы в состоянии ярости, все враждебные существа в пределах 5 футов от вас совершают с помехой броски атак, нацеленных не на вас и не на другое существо с таким же свойством. Противники получают иммунитет к этому эффекту, если не могут видеть или слышать вас, либо если они не могут быть напуганы.</p>
+<p><b>Орёл.</b> Находясь в состоянии ярости, вы приобретаете скорость полёта, равную вашей скорости передвижения. Это преимущество работает только в коротком промежутке времени. Если вы завершите свой ход в воздухе, где ничто не будет вас поддерживать, вы упадёте.</p>
+</div>
+
+<div class="featherlight-inner"><img id="12" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Сводная таблица - Воин</h2>
+<table border=1>
+<tr><td colspan="3"><b>Воин</b></td></tr>
+<tr><td><b>Уровень</b></td><td><b>Бонус Мастерства</b></td><td><b>Умения</b></td></tr>
+<tr><td>1</td><td>+2</td><td>Боевой стиль, Второе дыхание</td></tr>
+<tr><td>2</td><td>+2</td><td>Всплеск действий (одно использование)</td></tr>
+<tr><td>3</td><td>+2</td><td>Воинский архетип</td></tr>
+<tr><td>4</td><td>+2</td><td>Увеличение характеристик</td></tr>
+<tr><td>5</td><td>+3</td><td>Дополнительная атака</td></tr>
+<tr><td>6</td><td>+3</td><td>Увеличение характеристик</td></tr>
+<tr><td>7</td><td>+3</td><td>Умение воинского архетипа</td></tr>
+<tr><td>8</td><td>+3</td><td>Увеличение характеристик</td></tr>
+<tr><td>9</td><td>+4</td><td>Упорный (одно использование)</td></tr>
+<tr><td>10</td><td>+4</td><td>Умение воинского архетипа</td></tr>
+<tr><td>11</td><td>+4</td><td>Дополнительная атака (2)</td></tr>
+<tr><td>12</td><td>+4</td><td>Увеличение характеристик</td></tr>
+<tr><td>13</td><td>+5</td><td>Упорный (два использования)</td></tr>
+<tr><td>14</td><td>+5</td><td>Увеличение характеристик</td></tr>
+<tr><td>15</td><td>+5</td><td>Умение воинского архетипа</td></tr>
+<tr><td>16</td><td>+5</td><td>Увеличение характеристик</td></tr>
+<tr><td>17</td><td>+6</td><td>Всплеск действий (два использования), Упорный (три использования)</td></tr>
+<tr><td>18</td><td>+6</td><td>Умение воинского архетипа</td></tr>
+<tr><td>19</td><td>+6</td><td>Увеличение характеристик</td></tr>
+<tr><td>20</td><td>+6</td><td>Дополнительная атака (3)</td></tr>
+<p></table></p>
+<p>&nbsp;</p>
+<p><b>Боевой стиль</b></p>
+<p>Вы выбираете боевой стиль, соответствующий вашей специализации. Выберите один из следующих вариантов. Вы не можете выбирать один и тот же вариант боевого стиля, даже если позже у вас будет возможность выбрать ещё один стиль.</p>
+<p><b>Дуэлянт.</b> Пока вы держите рукопашное оружие в одной руке, и не используете другого оружия, вы получаете бонус +2 к броскам урона этим оружием.</p>
+<p><b>Защита.</b> Если существо, которое вы видите, атакует не вас, а другое существо, находящееся в пределах 5 футов от вас, вы можете реакцией создать помеху его броску атаки. Для этого вы должны использовать щит.</p>
+<p><b>Оборона.</b> Пока вы носите доспехи, вы получаете бонус +1 к КД.</p>
+<p><b>Сражение Большим Оружием.</b> Если у вас выпало «1» или «2» на кости урона оружия при атаке, которую вы совершали рукопашным оружием, удерживая его двумя руками, то вы можете перебросить эту кость, и должны использовать новый результат, даже если снова выпало «1» или «2». Чтобы воспользоваться этим преимуществом, ваше оружие должно иметь свойство «двуручное» или «универсальное».</p>
+<p><b>Сражение Двумя Оружиями.</b> Если вы сражаетесь двумя оружиями, вы можете добавить модификатор характеристики к урону от второй атаки.</p>
+<p><b>Стрельба.</b> Вы получаете бонус +2 к броску атаки, когда атакуете дальнобойным оружием.</p>
+<p>&nbsp;</p>
+<p><b>Второе Дыхание.</b></p>
+<p>Вы обладаете ограниченным источником выносливости, которым можете воспользоваться, чтобы уберечь себя. В свой ход вы можете бонусным действием восстановить хиты в размере 1к10 + ваш уровень воина. Использовав это умение, вы должны завершить короткий либо продолжительный отдых, чтобы получить возможность использовать его снова.</p>
+<p>&nbsp;</p>
+<p><b>Всплеск Действий</b></p>
+<p>Начиная со 2 уровня вы получаете возможность на мгновение преодолеть обычные возможности. В свой ход вы можете совершить одно дополнительное действие помимо обычного и бонусного действий.</p>
+<p>Использовав это умение, вы должны завершить короткий или продолжительный отдых, чтобы получить возможность использовать его снова. Начиная с 17 уровня вы можете использовать это умение дважды, прежде чем вам понадобится отдых, но в течение одного хода его всё равно можно использовать лишь один раз.</p>
+<p>&nbsp;</p>
+<p><b>Увеличение Характеристик</b></p>
+<p>При достижении 4, потом 6, 8, 12, 14, 16 и 19 уровней вы можете повысить значение одной из ваших характеристик на 2 или двух характеристик на 1. Как обычно, значение характеристики при этом не должно превысить 20.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительная Атака</b></p>
+<p>Начиная с 5 уровня, если вы в свой ход совершаете действие Атака, вы можете совершить две атаки вместо одной. Количество атак увеличивается до трёх на 11 уровне этого класса, и до четырёх на 20 уровне.</p>
+<p>&nbsp;</p>
+<p><b>Упорный</b></p>
+<p>Начиная с 9 уровня вы можете перебросить проваленный спасбросок, и должны использовать новый результат. После этого вы можете повторно использовать это умение только после завершения продолжительного отдыха. Вы можете использовать это умение дважды между периодами продолжительного отдыха после достижения 13 уровня, и трижды после достижения 17 уровня.</p>
+</div>
+
+
+<div class="featherlight-inner"><img id="13" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Мастер боевых исскуств</h2>
+<p>Тот, кто выбрал архетип мастера боевых искусств, полагается на техники, выработанные поколениями бойцов. Для такого воина сражение сродни академической задаче, и часто включает вещи, далёкие от боя, вроде кузнечного мастерства или каллиграфии. Не все воины способны впитать уроки истории, теорию и артистизм, отражённые в архетипе мастера боевых искусств, но те, кто смог сделать это, являются отлично подготовленными воинами, обладающими прекрасными навыками и знаниями.</p>
+<p>&nbsp;</p>
+<p><b>Боевое Превосходство</b></p>
+<p>Если на 3 уровне вы выбираете этот архетип, вы изучаете приёмы, использующие специальные кости, называемые костями превосходства.</p>
+<p>&nbsp;</p>
+<p><b>Приёмы.</b></p> 
+<p>Вы изучаете три приёма на ваш выбор. Они описаны в разделе «приёмы», расположенном ниже. Большинство приёмов тем или иным образом усиливают атаку. Во время одной атаки вы можете использовать только один приём. Вы изучаете два дополнительных приёма при достижении 7, 10 и 15 уровней. Каждый раз, при изучении новых приёмов, вы можете также заменить один из известных вам приёмов на другой. Кости превосходства. У вас есть четыре кости превосходства. Это кости к8. Кости превосходства тратятся при использовании. Вы восполняете все потраченные кости в конце короткого или продолжительного отдыха. Вы получаете ещё по одной кости превосходства на 7 и 15 уровнях.</p>
+<p><b>Спасброски.</b> Некоторые из ваших приёмов требуют от цели спасброска, чтобы избежать эффекта приёма. Сложность такого спасброска рассчитывается следующим образом:</p>
+<p><b>Сложность Спасброска Приёма</b> = 8 + ваш бонус мастерства + модификатор Силы или Ловкости (на ваш выбор) </p>
+<p>&nbsp;</p>
+<p><b>Ученик Войны</b></p>
+<p>На 3 уровне вы осваиваете владением одним из ремесленных инструментов на ваш выбор. </p>
+<p>&nbsp;</p>
+<p><b>Познай Своего Врага</b></p>
+<p>Начиная с 7 уровня, если вы потратите как минимум 1 минуту, рассматривая, или по другому взаимодействуя с существом вне боя, вы можете узнать некоторую информацию о его способностях в сравнении с вашими. Мастер сообщит вам, равняется ли существо, превосходит или уступает вам в двух характеристиках на ваш выбор из перечисленных:</p>
+<p>• Значение Силы </p>
+<p>• Значение Ловкости </p>
+<p>• Значение Телосложения </p>
+<p>• Класс Доспеха </p>
+<p>• Текущие хиты</p>
+<p>• Общее количество уровней (если есть)</p> 
+<p>• Количество уровней в классе Воин (если есть) </p>
+<p>&nbsp;</p>
+<p><b>Улучшенное Боевое Превосходство</b></p>
+<p>На 10 уровне ваша кость превосходства увеличивается до к10. На 18 уровне — до к12. </p>
+<p>&nbsp;</p>
+<p><b>Неослабевающий</b></p>
+<p>Начиная с 15 уровня, если вы совершаете бросок инициативы, не имея костей превосходства, вы получаете одну. </p>
+<p>&nbsp;</p>
+<p><b>Приёмы</b></p>
+<p>Приёмы приведены в алфавитном порядке.</p>
+<p><b>Активное Уклонение.</b> При перемещении вы можете потратить одну кость превосходства, совершить её бросок и добавить выпавшее значе ние к КД, пока не прекратите перемещение.</p>
+<p><b>Атака С Выпадом.</b> Если вы в свой ход совершаете рукопашную атаку оружием, вы можете потратить одну кость превосходства, чтобы увеличить досягаемость этой атаки на 5 футов. В случае попадания вы добавляете кость превосходства к броску урона этой атаки.</p>
+<p><b>Атака С Манёвром.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы один из ваших товарищей смог переместиться в более выгодное положение. Вы добавляете кость превосходства к броску урона этой атаки и выбираете дружественное существо, которое может видеть или слышать вас. Это существо может реакцией переместиться на расстояние до половины своей скорости, не провоцируя при этом атаки от цели вашей атаки.</p>
+<p><b>Атака С Угрозой.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы попытаться напугать цель. Вы добавляете кость превосходства к броску урона этой атаки, а цель должна совершить спасбросок Мудрости. При провале цель испугана вами до конца вашего следующего хода.</p>
+<p><b>Атака С Финтом.</b> Вы можете в свой ход потратить одну кость превосходства и бонусным действием совершить финт, выбрав в качестве цели одно существо в пределах 5 футов. Следующий бросок атаки по этому существу вы совершаете с преимуществом. Если атака попадает, добавьте кость превосходства к броску урона этой атаки. Оба преимущества пропадают, если вы не используете их в том же ходу, в котором получили их.</p>
+<p><b>Обезоруживающая Атака.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы попытаться обезоружить противника, заставляя его выронить один предмет по вашему выбору, который он держит. Вы добавляете кость превосходства к броску урона атаки, а цель должна совершить спасбросок Силы. В случае провала она роняет выбранный вами предмет. Предмет падает у её ног.</p>
+<p><b>Опрокидывающая Атака.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы попытаться сбить цель с ног. Вы добавляете кость превосходства к броску урона атаки, и, если размер цели Большой или меньше, она должна совершить спасбросок Силы. В случае провала вы сбиваете цель с ног.</p>
+<p><b>Ответный Удар.</b> Если существо промахивается по вам рукопашной атакой, вы можете реакцией потратить одну кость превосходства, чтобы совершить рукопашную атаку оружием по этому существу. Если вы попадаете, вы добавляете кость превосходства к броску урона этой атаки.</p>
+<p><b>Отвлекающий Удар.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы отвлечь существо, открывая его для ваших союзников. Вы добавляете кость превосходства к броску урона этой атаки. Следующий бросок атаки по этой цели любого существа кроме вас совершается с преимуществом, если атака совершается до начала вашего следующего хода.</p>
+<p><b>Парирование.</b> Если другое существо причиняет вам урон рукопашной атакой, вы можете реакцией потратить одну кость превосходства, чтобы уменьшить урон на величину, равную броску вашей кости превосходства + ваш модификатор Ловкости.</p>
+<p><b>Провоцирующая Атака.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы попытаться спровоцировать противника атаковать вас. Вы добавляете кость превосходства к броску урона этой атаки, а цель должна совершить спасбросок Мудрости. При провале цель до конца вашего следующего хода совершает с помехой броски атаки по всем целям, кроме вас.</p>
+<p><b>Сплочение.</b> Вы можете в свой ход бонусным действием потратить одну кость превосходства, чтобы поддержать решимость одного из ваших спутников. Если вы это сделаете, выберите дружественное существо, которое может видеть или слышать вас. Это существо получает временные хиты, равные броску кости превосходства + ваш модификатор Харизмы.</p>
+<p><b>Толкающая Атака.</b> Если вы попадаете по существу атакой оружием, вы можете потратить одну кость превосходства, чтобы попытаться оттолкнуть цель. Вы добавляете кость превосходства к броску урона атаки, и, если размер цели Большой или меньше, она должна совершить спасбросок Силы. При провале вы толкаете цель на расстояние до 15 футов от себя.</p>
+<p><b>Точная Атака.</b> Если вы совершаете бросок атаки оружием по существу, вы можете потратить одну кость превосходства, чтобы добавить её к броску. Вы можете использовать этот приём до или после совершения броска атаки, но до применения эффектов атаки.</p>
+<p><b>Удар Командующего.</b> Если вы совершаете в свой ход действие Атака, вы можете отказаться от одной из ваших атак и бонусным действием направить удар одного из ваших соратников. Если вы это сделаете, выберите дружественное существо, которое может видеть или слышать вас и потратьте одну кость превосходства. Это существо может немедленно совершить реакцией одну атаку оружием, добавив кость превосходства к броску урона этой атаки.</p>
+<p><b>Широкая Атака.</b> Если вы попадаете по существу атакой рукопашным оружием, вы можете потратить одну кость превосходства, чтобы попытаться причинить урон другому существу этой же атакой. Выберите другое существо в пределах 5 футов от первоначальной цели и в пределах вашей досягаемости. Если исходный бросок атаки попал бы по второму существу, оно получает урон, равный броску кости превосходства. Урон того же вида, что и для исходной атаки.</p>
+</div>
+
+<div class="featherlight-inner"><img id="14" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Мистический рыцарь</h2>
+<p>Архетип мистического рыцаря совмещает в себе воинское искусство и тщательное изучение волшебства. Мистические рыцари используют приёмы, схожие с практиками волшебников. Но они сосредоточились на изучении двух из восьми школ магии: Воплощения и Ограждения. Заклинания</p>
+<p>Ограждения обеспечивают мистическим рыцарям дополнительную защиту в бою, а Воплощения причиняют урон сразу нескольким противникам за раз, увеличивая возможности рыцаря в бою. Эти рыцари владеют относительно небольшим количеством заклинаний, что позволяет постоянно держать их в памяти и не использовать книгу заклинаний.</p>
+<p>&nbsp;</p>
+<p><b>Использование Заклинаний</b></p>
+<p>При достижении 3 уровня к своим воинским талантам вы добавляете возможность использовать заклинания. Смотрите общие правила о заклинаниях в главе 10 и список заклинаний волшебника в главе 11.</p>
+<p>&nbsp;</p>
+<p><b>Заговоры.</b></p> 
+<p>Вы изучаете 2 заговора на свой выбор из списка волшебника. Дополнительный заговор волшебника вы изучите на 10 уровне.</p>
+<p>&nbsp;</p>
+<p><b>Ячейки Заклинаний.</b></p> 
+<p>Таблица заклинаний мистического рыцаря содержит информацию о количестве доступных вам ячеек заклинаний. Чтобы использовать заклинание определённого уровня, вы должны потратить ячейку того же уровня или выше. Все потраченные ячейки заклинаний вы восстанавливаете после окончания продолжительного отдыха. Например, если вы знаете заклинание 1 уровня щит, и имеете ячейки 1 и 2 уровней, вы можете использовать это заклинание, использовав любую из этих ячеек. Известные заклинания первого и более высоких уровней. Вы знаете три заклинания 1 уровня из списка волшебника на свой выбор, два из которых должны принадлежать к школам Воплощения и Ограждения.</p>
+<p>Колонка «известные заклинания» в таблице показывает, когда вы сможете выучить новые заклинания волшебника. Все эти заклинания должны принадлежать школам Воплощения или Ограждения, и не должны превышать уровень доступных вам ячеек заклинаний. Например, при достижении 7 уровня в этом классе вы можете выучить новое заклинание 1 или 2 уровня. Заклинания, которые вы выучите на 8, 14 и 20 уровнях могут принадлежать к любой школе магии.</p>
+<p>Каждый раз, <b>получая уровень в этом классе, вы можете заменить одно из заклинаний волшебника</b>, известное вам, другим, на ваш выбор. Новое заклинание должно быть из списка доступных волшебнику, у вас должны быть ячейки соответствующего уровня, и заклинание должно принадлежать школам Воплощения или Ограждения, кроме случаев, когда вы заменяете заклинания, полученные на 8, 14 или 20 уровнях.</p>
+<table border=1>
+<tr><td colspan=3><b>Мистический Рыцарь</b></td><td colspan=4><b>Ячейки Заклинаний на Уровень Заклинаний</b></td></tr>
+<tr><td><b>Уровень Воина</b></td><td><b>Известные Заговоры</b></td><td><b>Известные Заклинания</b></td><td><b>1</b></td><td><b>2</b></td><td><b>3</b></td><td><b>4</b></td></tr>
+<tr><td>3</td><td>2</td><td>3</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>4</td><td>2</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>5</td><td>2</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>6</td><td>2</td><td>4</td><td>3</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>7</td><td>2</td><td>5</td><td>4</td><td>2</td><td>—</td><td>—</td></tr>
+<tr><td>8</td><td>2</td><td>6</td><td>4</td><td>2</td><td>—</td><td>—</td></tr>
+<tr><td>9</td><td>2</td><td>6</td><td>4</td><td>2</td><td>—</td><td>—</td></tr>
+<tr><td>10</td><td>3</td><td>7</td><td>4</td><td>3</td><td>—</td><td>—</td></tr>
+<tr><td>11</td><td>3</td><td>8</td><td>4</td><td>3</td><td>—</td><td>—</td></tr>
+<tr><td>12</td><td>3</td><td>8</td><td>4</td><td>3</td><td>—</td><td>—</td></tr>
+<tr><td>13</td><td>3</td><td>9</td><td>4</td><td>3</td><td>2</td><td>—</td></tr>
+<tr><td>14</td><td>3</td><td>10</td><td>4</td><td>3</td><td>2</td><td>—</td></tr>
+<tr><td>15</td><td>3</td><td>10</td><td>4</td><td>3</td><td>2</td><td>—</td></tr>
+<tr><td>16</td><td>3</td><td>11</td><td>4</td><td>3</td><td>3</td><td>—</td></tr>
+<tr><td>17</td><td>3</td><td>11</td><td>4</td><td>3</td><td>3</td><td>—</td></tr>
+<tr><td>18</td><td>3</td><td>11</td><td>4</td><td>3</td><td>3</td><td>—</td></tr>
+<tr><td>19</td><td>3</td><td>12</td><td>4</td><td>3</td><td>3</td><td>1</td></tr>
+<tr><td>20</td><td>3</td><td>13</td><td>4</td><td>3</td><td>3</td><td>1</td></tr>
+<p></table></p>
+<p><b>Базовая Характеристика Заклинаний.</b> Интеллект является базовой характеристикой для ваших заклинаний, поскольку вы узнаёте заклинания посредством изучения и запоминания. Когда заклинание требует использовать базовую характеристику, вы используете Интеллект. Кроме того, вы используете модификатор Интеллекта при определении Сл спасбросков от ваших заклинаний волшебника, и при броске атаки заклинаниями.</p>
+<p><b>Сл Спасброска</b> = 8 + бонус мастерства + модификатор Интеллекта</p>
+<p><b>Модификатор Броска Атаки</b> = бонус мастерства + модификатор Интеллекта</p>
+<p>&nbsp;</p>
+<p><b>Связь с Оружием</b></p>
+<p>На 3 уровне вы узнаёте ритуал, позволяющий создать магическую связь между вами и одним оружием. Вы выполняете ритуал в течение 1 часа, и он может быть совершён в течение короткого отдыха. Оружие во время проведения ритуала должно находиться на доступном расстоянии от вас, и в конце вы должны прикоснуться к нему и создать связь.</p>
+<p>Как только вы привязали к себе оружие, вы не можете быть обезоруженным, пока не станете недееспособным. Если оружие находится на одном плане существования с вами, вы можете в свой ход бонусным действием призвать его, телепортируя себе в руку.</p>
+<p>У вас может быть не более двух привязанных оружий одновременно, и бонусным действием вы призываете их по одному. Если вы попытаетесь создать связь с третьим оружием, вам придётся разорвать связь с одним из первых двух.</p>
+<p>&nbsp;</p>
+<p><b>Боевая Магия</b></p>
+<p>Начиная с 7 уровня, если вы действием используете заговор, вы можете бонусным действием совершить одну атаку оружием.</p>
+<p>&nbsp;</p>
+<p><b>Мистический Удар</b></p>
+<p>Начиная с 10 уровня вы узнаёте, как с помощью удара оружием снизить сопротивляемость цели вашим заклинаниям. Если вы попадаете по существу атакой оружием, это существо совершает следующий спасбросок от вашего заклинания, использованного до конца вашего следующего хода, с помехой.</p>
+<p>&nbsp;</p>
+<p><b>Волшебный Рывок</b></p>
+<p>С 15 уровня вы получаете возможность телепортироваться на 30 футов в свободное пространство, которое вы видите, когда используете Всплеск действий. Вы можете телепортироваться до или после дополнительного действия.</p>
+<p>&nbsp;</p>
+<p><b>Улучшенная Боевая Магия</b></p>
+<p>Начиная с 18 уровня, если вы действием используете заклинание, вы можете бонусным действием совершить одну атаку оружием.</p>
+</div>
+
+
+<div class="featherlight-inner"><img id="15" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Чемпион</h2>
+<p>Обычно чемпионы фокусируются на использовании чистой физической силы, отточенной до смертельного совершенства. Выбравший для себя архетип чемпиона сочетает суровые тренировки с физическим совершенством, позволяющим наносить смертоносные удары.</p>
+<p>&nbsp;</p>
+<p><b>Улучшенные Критические Попадания</b></p>
+<p>Если вы выбрали этот архетип на 3 уровне, ваши атаки оружием совершают критическое попадание при выпадении «19» или «20» на кости атаки.</p>
+<p>&nbsp;</p>
+<p><b>Выдающийся Атлет</b></p>
+<p>Начиная с 7 уровня, вы можете добавлять половину бонуса мастерства, округлённую в большую сторону, ко всем проверкам Силы, Ловкости или Телосложения, куда этот бонус ещё не включён. Кроме того, если вы совершаете прыжок в длину с разбега, дальность прыжка увеличивается на количество футов, равное модификатору Силы.</p>
+<p>&nbsp;</p>
+<p><b>Дополнительный Боевой Стиль</b></p>
+<p>На 10 уровне вы можете выбрать второй боевой стиль.</p>
+<p>&nbsp;</p>
+<p><b>Превосходные Критические Попадания</b></p>
+<p>Начиная с 15 уровня, ваши атаки оружием совершают критическое попадание при выпадении «18–20» на кости атаки.</p>
+<p>&nbsp;</p>
+<p><b>Уцелевший</b></p>
+<p>К 18 уровню вы достигаете вершин стойкости в бою. В начале каждого своего хода вы восстанавливаете количество хитов, равное 5 + ваш модификатор Телосложения, если количество ваших хитов не превышает половины от максимума. Эта способность не работает, если у вас 0 хитов.</p>
+</div>
+
+<div class="featherlight-inner"><img id="16" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Сводная таблица - Колдун</h2>
+<table border=1>
+<tr><td colspan=8><b>Колдун</b></td></tr>
+<tr><td><b>Уровень</b></td><td><b>Бонус Мастерства</b></td><td><b>Умения</b></td><td><b>Известные Заговоры</b></td><td><b>Известные Заклинания</b></td><td><b>Ячейки Заклинаний</b></td><td><b>Уровень Ячеек</b></td><td><b>Известные Воззвания</b></td></tr>
+<tr><td>1</td><td>+2</td><td>Потусторонний покровитель, Магия договора</td><td>2</td><td>2</td><td>1</td><td>1</td><td>—</td></tr>
+<tr><td>2</td><td>+2</td><td>Таинственные воззвания</td><td>2</td><td>3</td><td>2</td><td>1</td><td>2</td></tr>
+<tr><td>3</td><td>+2</td><td>Предмет договора</td><td>2</td><td>4</td><td>2</td><td>2</td><td>2</td></tr>
+<tr><td>4</td><td>+2</td><td>Увеличение характеристик</td><td>3</td><td>5</td><td>2</td><td>2</td><td>2</td></tr>
+<tr><td>5</td><td>+3</td><td>—</td><td>3</td><td>6</td><td>2</td><td>3</td><td>3</td></tr>
+<tr><td>6</td><td>+3</td><td>Умение покровителя</td><td>3</td><td>7</td><td>2</td><td>3</td><td>3</td></tr>
+<tr><td>7</td><td>+3</td><td>—</td><td>3</td><td>8</td><td>2</td><td>4</td><td>4</td></tr>
+<tr><td>8</td><td>+3</td><td>Увеличение характеристик</td><td>3</td><td>9</td><td>2</td><td>4</td><td>4</td></tr>
+<tr><td>9</td><td>+4</td><td>—</td><td>3</td><td>10</td><td>2</td><td>5</td><td>5</td></tr>
+<tr><td>10</td><td>+4</td><td>Умение покровителя</td><td>4</td><td>10</td><td>2</td><td>5</td><td>5</td></tr>
+<tr><td>11</td><td>+4</td><td>Таинственный арканум (6 уровень)</td><td>4</td><td>11</td><td>3</td><td>5</td><td>5</td></tr>
+<tr><td>12</td><td>+4</td><td>Улучшение характеристик</td><td>4</td><td>11</td><td>3</td><td>5</td><td>6</td></tr>
+<tr><td>13</td><td>+5</td><td>Таинственный арканум (7 уровень)</td><td>4</td><td>12</td><td>3</td><td>5</td><td>6</td></tr>
+<tr><td>14</td><td>+5</td><td>Умение покровителя</td><td>4</td><td>12</td><td>3</td><td>5</td><td>6</td></tr>
+<tr><td>15</td><td>+5</td><td>Таинственный арканум (8 уровень)</td><td>4</td><td>13</td><td>3</td><td>5</td><td>7</td></tr>
+<tr><td>16</td><td>+5</td><td>Увеличение характеристик</td><td>4</td><td>13</td><td>3</td><td>5</td><td>7</td></tr>
+<tr><td>17</td><td>+6</td><td>Таинственный арканум (9 уровень)</td><td>4</td><td>14</td><td>4</td><td>5</td><td>7</td></tr>
+<tr><td>18</td><td>+6</td><td>—</td><td>4</td><td>14</td><td>4</td><td>5</td><td>8</td></tr>
+<tr><td>19</td><td>+6</td><td>Увеличение характеристик</td><td>4</td><td>15</td><td>4</td><td>5</td><td>8</td></tr>
+<tr><td>20</td><td>+6</td><td>Таинственный мастер</td><td>4</td><td>15</td><td>4</td><td>5</td><td>8</td></tr>
+</table>
+<p>&nbsp;</p>
+<p><b>Таинственные Воззвания</b></p>
+<p>В процессе изучения оккультных знаний вы раскопали таинственные воззвания: фрагменты запрещённых знаний, которые даруют магические способности. На 2 уровне вы получаете два воззвания на свой выбор. Смотрите список воззваний в конце описания этого класса. Получая новые уровни колдуна, вы получаете дополнительные воззвания на свой выбор, как показано в колонке «известные воззвания». Кроме того, когда вы получаете новый уровень этого класса, <b>вы можете выбрать одно известное вам воззвание и заменить его другим</b>, которое вы способны выучить на этом уровне.</p>
+<p>&nbsp;</p>
+<p><b>Предмет Договора</b></p>
+<p>На 3 уровне потусторонний покровитель дарует вам подарок за верную службу. Вы получаете одно из следующих умений на выбор:</p>
+<p><b>Договор Гримуара.</b> Ваш покровитель дарует вам гримуар, который называется «Книга теней». Выберите 3 заговора из списков любых классов. Пока книга с вами, вы можете применять эти заговоры неограниченно. Они не учитываются при подсчёте максимального числа заговоров, которые вы можете знать, и считаются для вас заклинаниями колдуна. Если вы теряете книгу, вам нужно провести ритуал длительностью в 1 час, чтобы получить новую от своего покровителя. Вы можете провести этот ритуал во время короткого или продолжительного отдыха. Предыдущая книга при этом уничтожается. Книга обращается в прах при вашей смерти.</p>
+<p><b>Договор Клинка.</b> Вы можете действием создать оружие договора в своей пустой руке. Вы сами выбираете форму этого рукопашного оружия каждый раз, когда создаёте (смотрите варианты оружия в главе 5). Вы получаете владение этим оружием, пока используете его. Оружие считается магическим при определении преодоления сопротивления и иммунитета от немагических атак и урона. Оружие договора исчезает, если оно в течении 1 минуты находится дальше 5 футов от вас. Оно также исчезает, если вы используете это умение ещё раз, отзываете оружие (действие не требуется), или умираете. Вы можете трансформировать одно магическое оружие в своё оружие договора, проведя специальный ритуал, держа это оружие. Ритуал совершается 1 час, его можно провести во время короткого отдыха. Впоследствии вы можете отозвать оружие, помещая его между измерениями. Оно будет появляться в руке, когда вы будете в дальнейшем создавать оружие договора. Вы не можете сделать это с артефактом или разумным оружием. Оружие перестаёт быть оружием договора, когда вы умираете, выполняете часовой ритуал с другим оружием или когда вы исполните ритуал длиной в час для того, чтобы разорвать связь. Оружие материализуется у ваших ног, если в момент разрыва связи оно находилось между измерениями.</p>
+<p><b>Договор Цепи.</b> Вы узнаёте заклинание поиск фамильяра и можете использовать его как ритуал. Это заклинание не учитывается при подсчёте числа заклинаний, которые вы можете знать. Когда вы накладываете это заклинание, вы можете выбрать одну из обычных форм для вашего фамильяра, либо одну из особых форм: бес, квазит, псевдодракон или спрайт. Кроме того, когда вы совершаете действие Атака, вы можете вместо одной своей атаки позволить атаковать один раз фамильяру. При этом он совершает свою атаку реакцией.</p>
+<p>&nbsp;</p>
+<p><b>Увеличение Характеристик</b></p>
+<p>При достижении 4, 8, 12, 16 и 19 уровней вы можете повысить значение одной из ваших характеристик на 2 или двух характеристик на 1. Как обычно, значение характеристики при этом не должно превысить 20.</p>
+<p>&nbsp;</p>
+<p><b>Таинственный Арканум</b></p>
+<p>На 11 уровне ваш покровитель дарует вам магический секрет, называемый арканумом. Выберите одно заклинание 6 уровня из списка заклинаний колдуна в качестве арканума. Вы можете сотворить это заклинание, не используя ячейку заклинаний. Вы должны окончить продолжительный отдых, чтобы сделать это ещё раз.  На следующих уровнях вы получаете новые заклинания, которые можно применить таким образом — одно 7 уровня на 13 уровне, одно 8 уровня на 15 уровне и одно 9 уровня на 17 уровне. После окончания продолжительного отдыха вы восстанавливаете все потраченные использования арканумов.</p>
+<p>&nbsp;</p>
+<p><b>Таинственный Мастер</b></p>
+<p>На 20 уровне вы можете обратиться к внутреннему резерву мистической силы, умоляя при этом покровителя восстановить потраченные ячейки заклинаний. Вам надо потратить 1 минуту, умоляя покровителя, чтобы восстановить все использованные ячейки заклинаний, дарованные умением Магия договора. Вы должны закончить продолжительный отдых, чтобы применить это умение вновь.</p>
+<p>&nbsp;</p>
+<p><b>Магия Договора</b></p>
+<p>Исследования тайн и магия, дарованная покровителем, дают вам возможность использовать заклинания. Общие правила по использованию заклинаний смотрите в главе 10, а в главе 11 вы найдёте список заклинаний, доступных колдуну.</p>
+<p>&nbsp;</p>
+<p><b>Заговоры</b></p>
+<p>Вы знаете два заговора на свой выбор из списка заклинаний колдуна. Вы узнаёте дополнительные заговоры колдуна на более высоких уровнях, как показано в колонке «известные заговоры».</p>
+<p>&nbsp;</p>
+<p><b>Ячейки Заклинаний</b></p>
+<p>Таблица «Колдун» показывает, какое количество ячеек для сотворения заклинаний у вас есть, а также уровень этих ячеек — все ваши ячейки заклинаний одного уровня. Для сотворения одного из заклинаний колдуна 1 уровня и выше вы должны потратить ячейку заклинаний. Вы восстановите все потраченные ячейки, когда завершите короткий или продолжительный отдых. Например, если ваш персонаж 5 уровня, у вас есть две ячейки заклинаний 3 уровня. Чтобы использовать заклинание 1 уровня волна грома вы должны потратить одну из этих ячеек, и заклинание сработает как заклинание 3 уровня.</p>
+<p>&nbsp;</p>
+<p><b>Известные Заклинания Первого и Более Высоких Уровней</b></p>
+<p>На 1 уровне вы знаете два заклинания 1 уровня по своему выбору из списка заклинаний колдуна. Колонка «известные заклинания» показывает, когда вы сможете выучить новые заклинания 1 уровня и выше. Уровень заклинания, которое вы выбрали, не должен превышать уровень ячеек, указанный в таблице для колдуна вашего уровня. Например, когда вы получите 6 уровень, вы изучите новое заклинание колдуна, которое может быть 1, 2 или 3 уровней. Кроме того, когда вы получаете уровень в этом классе, <b>вы можете выбрать одно из известных вам заклинаний колдуна и заменить его другим заклинанием из списка заклинаний колдуна</b>, с уровнем, не превышающим уровень ячеек заклинаний.</p>
+<p>&nbsp;</p>
+<p><b>Базовая Характеристика Заклинаний</b></p>
+<p>При создании заклинаний колдун использует Харизму. Вы используете Харизму в случаях, когда заклинание ссылается на базовую характеристику. Кроме того, вы используете модификатор Харизмы при определении Сл спасбросков от ваших заклинаний колдуна, и при броске атаки заклинаниями.</p>
+<p><b>Сл Спасброска</b> = 8 + бонус мастерства + модификатор Харизмы</p>
+<p><b>Модификатор Броска Атаки</b> = бонус мастерства + модификатор Харизмы</p>
+<p>&nbsp;</p>
+<p><b>Фокусировка Заклинания</b></p>
+<p>Вы можете использовать магическую фокусировку (смотрите в главе 5) в качестве заклинательной фокусировки для заклинаний колдуна.</p>
+<p>&nbsp;</p>
+<p><b>Колдун - потусторонний покровитель</b></p>
+<p>На 1 уровне вы заключаете сделку с потусторонним существом на ваш выбор: Архифея, Исчадие или Великий Древний. Подробности смотрите в конце описания класса. Ваш выбор определит умения, предоставляемые на 1, 6, 10 и 14 уровнях.</p>
+<p>&nbsp;</p>
+<p><b>Потусторонние Покровители</b></p>
+<p>Существа, выступающие покровителями колдунов, являются могущественными обитателями других планов существования. Не боги, но почти равные богам в своих силах. Разные покровители предоставляют колдунам доступ к разным силам и воззваниям, и ожидают определённых услуг взамен.</p>
+<p>Некоторые покровители коллекционируют колдунов, раздавая мистические знания относительно свободно, или похваляются возможностью подчинять смертных своей воле. Другие покровители даруют свои силы неохотно, и могут заключить договор лишь с одним колдуном. Колдуны, служащие общему покровителю, могут относиться друг к другу как к союзникам, родственникам или соперникам.</p>
+<p>&nbsp;</p>
+<p><b>Ваш Предмет Договора</b></p>
+<p>Получаемые вами от договора блага отражают природу вашего покровителя.</p>
+<p><b>Договор Гримуара. </b>Ваша «Книга Теней» может быть изящным золочёным томом с заклинаниями очарования и иллюзий, дарованным высокомерной Архифеей. Она может быть тяжёлым, переплетённым в кожу демонов и отделанным железом томом, содержащим заклинания вызова и драгоценные, но запретные знания о зловещих уголках мироздания. Таким может быть дар Исчадия. Или это может быть изорванный дневник безумца, коснувшегося разума Великого Древнего. Этот дневник содержит обрывки заклинаний, понять которые позволяет только ваше собственное растущее безумие.</p>
+<p><b>Договор Клинка.</b> Если вашим покровителем является Архифея, ваше оружие может быть узким клинком, покрытым лозами. Если вы служите Исчадию, ваше оружие будет топором чёрного металла, украшенным изображением языков пламени. Если ваш покровитель — Великий Древний, вашим оружием может стать древнее копьё с самоцветом в наконечнике, выглядящим как ужасный, немигающий глаз.</p>
+<p><b>Договор Цепи.</b> Ваш фамильяр смышлёнее чем обычные. Его внешность может отражать сущность вашего покровителя. Так, спрайт или псевдодракон относится к Архифее, а бес или квазит к Исчадию. Поскольку сущность Великого Древнего не поддаётся пониманию, ему подходит любая форма фамильяра.</p>
+<p><b>С меткой (UA) идет тестовый материал</b></p>
+<p>Данный материал предназначен для тестирования и для формирования новых идей. Эти игровые механики находятся в черновом виде, их можно использовать в ваших кампаниях, однако они все еще не доведены до совершенства. Данные материалы не являются официальной частью игры и не разрешены в Лиге DnD Приключенцев (D&D Adventurers League). В случае если они станут официальными – они будут выпущены в книге.</p>
+</div>
+
+
+<div class="featherlight-inner"><img id="18" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Покровитель - Архифея</h2>
+<p>Ваш покровитель это лорд или леди фей. Существо из легенд, хранящее секреты, забытые ещё до возникновения смертных рас. Мотивы, движущие такими сущностями, непостижимы, причудливы, и могут диктоваться стремлением к величайшим магическим познаниям или вековыми обидами. Сущности такого рода включают Морозного Принца, Королеву Воздуха и Тьмы — правительницу Сумеречного Двора, Титанию из Летнего Двора, её супруга Оберона — Зелёного Лорда, Хирсама — Принца Дураков и древних карг.</p>
+<p>&nbsp;</p>
+<p><b>Расширенный Список Заклинаний</b></p>
+<p>Архифея позволяет вам при изучении заклинаний колдуна выбирать из более широкого списка. В ваш список заклинаний колдуна добавляются следующие заклинания.</p>
+<p><b>Дополнительные Заклинания Архифеи</b></p>
+<table border=1>
+<tr><td>Уровень заклинания</td><td>Заклинания</td></tr>
+<tr><td>1</td><td>огонь фей, усыпление</td></tr>
+<tr><td>2</td><td>воображаемая сила, умиротворение</td></tr>
+<tr><td>3</td><td>мерцание, рост растений</td></tr>
+<tr><td>4</td><td>высшая невидимость, подчинение зверя</td></tr>
+<tr><td>5</td><td>подчинение личности, притворство</td></tr>
+</table>
+<p>&nbsp;</p>
+<p><b>Фейская Внешность</b></p>
+<p>Начиная с 1 уровня ваш покровитель дарует вам возможность демонстрировать притягательную и пугающую фейскую внешность. Вы действием можете заставить всех существ в 10-футовом кубе с центром на вас совершить спасбросок Мудрости со Сл ваших заклинаний колдуна. Все существа, провалившие спасбросок, становятся до конца вашего следующего хода очарованными или напуганными вами (на ваш выбор). Использовав это умение, вы не можете использовать его снова, не завершив короткого либо продолжительного отдыха.</p>
+<p>&nbsp;</p>
+<p><b>Туманное Исчезновение</b></p>
+<p>Начиная с 6 уровня, получив урон, вы можете раствориться облачком тумана. Если вы получили урон, вы можете реакцией стать невидимым и телепортироваться на расстоянии до 60 футов в видимое вами свободное пространство. Вы остаётесь невидимым до начала своего следующего хода, или пока не используете атаку или заклинание. Использовав это умение, вы не можете использовать его снова, не завершив короткого либо продолжительного отдыха.</p>
+<p>&nbsp;</p>
+<p><b>Чарующая Защита</b></p>
+<p>Начиная с 10 уровня ваш покровитель обучает вас, как обращать воздействующую на разум магию ваших врагов против них самих. Вы получаете иммунитет к состоянию очарованности, и если другое существо пытается очаровать вас, вы можете реакцией попытаться повернуть очарование против его создателя. Это существо должно преуспеть в спасброске Мудрости со Сл ваших заклинаний колдуна, иначе оно станет очаровано вами на 1 минуту, или пока не получит любой урон.</p>
+<p>&nbsp;</p>
+<p><b>Тёмное Исступление</b></p>
+<p>Начиная с 14 уровня вы можете погружать существ в иллюзорное пространство. Выберите действием видимое вами существо в пределах 60 футов от себя. Оно должно совершить спасбросок Мудрости со Сл ваших заклинаний колдуна. В случае провала оно очаровано или напугано вами (на ваш выбор) на протяжении 1 минуты, или пока вы не потеряете концентрацию (как если бы концентрировались на заклинании). Эффект завершается преждевременно, если существо получает любой урон.</p>
+<p>Покуда иллюзия длится, существо считает, что оно потерялось в туманном пространстве, образ которого выбираете вы. Существо может видеть и слышать только себя, вас и иллюзию. Использовав это умение, вы не можете использовать его снова, не завершив короткого либо продолжительного отдыха.</p>
+</div>
+
+<div class="featherlight-inner"><img id="19" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Покровитель - Исчадие</h2>
+<p>Вы заключили договор с исчадием из нижних планов бытия, сущностью, обладающей злыми устремлениями, даже если сами вы не разделяете их. Эти сущности жаждут осквернения и разрушения всего сущего, особенно вас самих. Исчадия настолько мощные, чтоб заключить договор, включают демонических повелителей, таких как Демогоргон, Оркус, Фраз’Урб-луу и Бафомет; архидьяволов, таких как Асмодей, Диспатер, Мефистофель и Белиал; наиболее могущественных исчадий преисподней и балоров; ультролотов и других повелителей юголотов.</p>
+<p>&nbsp;</p>
+<p><b>Расширенный Список Заклинаний</b></p>
+<p>Исчадие позволяет вам при изучении заклинаний колдуна выбирать из более широкого списка. В ваш список заклинаний колдуна добавляются следующие заклинания.</p>
+<p><b>Дополнительные Заклинания Исчадия</b></p>
+<table border=1>
+<tr><td>Уровень заклинания</td><td>Заклинания</td></tr>
+<tr><td>1</td><td>огненные ладони, приказ</td></tr>
+<tr><td>2</td><td>глухота/слепота, палящий луч</td></tr>
+<tr><td>3</td><td>зловонное облако, огненный шар</td></tr>
+<tr><td>4</td><td>огненная стена, огненный щит</td></tr>
+<tr><td>5</td><td>небесный огонь, святилище</td></tr>
+</table>
+<p>&nbsp;</p>
+<p><b>Благословение Темнейшего</b></p>
+<p>Начиная с 1 уровня, когда вы опускаете хиты враждебного существа до 0, вы получаете временные хиты, равные вашему модификатору Харизмы + ваш уровень колдуна (минимум 1).</p>
+<p>&nbsp;</p>
+<p><b>Удача Темнейшего</b></p>
+<p>Начиная с 6 уровня, вы можете воззвать к своему покровителю, чтобы изменить судьбу в свою пользу. Когда вы совершаете проверку характеристики или спасбросок, вы можете использовать это умение, чтобы добавить к10 к броску. Вы можете так сделать после основного броска, но до того, как его эффект вступит в силу. Использовав это умение, вы не можете использовать его снова до окончания короткого или продолжительного отдыха.</p>
+<p>&nbsp;</p>
+<p><b>Устойчивость Исчадия</b></p>
+<p>Начиная с 10 уровня вы можете выбрать один вид урона, когда заканчиваете короткий или продолжительный отдых. Вы получаете сопротивление этому виду урона, пока вы не выберете другой вид урона при помощи этого умения. Урон от магического или серебряного оружия игнорирует это сопротивление.</p>
+<p>&nbsp;</p>
+<p><b>Бросок Сквозь Ад</b></p>
+<p>Начиная с 14 уровня, когда вы попадаете по существу атакой, вы можете использовать это умение, чтобы мгновенно переместить цель сквозь нижние планы. Существо исчезает и несётся через кошмарный ландшафт. В конце вашего следующего хода цель возвращается в пространство, которое занимало, или ближайшее свободное пространство. Если цель — не исчадие, она получает урон психической энергией 10к10 от испытанных жутких ощущений. Использовав это умение, вы не можете использовать его снова до окончания продолжительного отдыха.</p>
+</div>
+
+<div class="featherlight-inner"><img id="20" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Покровитель - Великий Древний</h2>
+<p>Ваш покровитель — таинственная сущность, природа которой совершенно чужда ткани реальности. Он может прийти из Дальнего Предела, пространства за пределами реальности, или это может быть один из древних богов, известных только в легендах. Его мотивы непонятны смертным, и его знания настолько великие и древние, что даже величайшие библиотеки меркнут в сравнении с имеющимися у него секретами. Великий Древний может не знать о вашем существовании или быть полностью равнодушным к вам, но секреты, которые вы узнали, позволяют черпать магию из этого источника. Сущностями этого типа могут быть Гонадар, зовущийся «Тот Кто Таится», Тариздун «Скованный Бог», Дендар «Ночной Змей», Заргон «Возвращающийся», Великий Ктулху, и прочие непостижимые создания.</p>
+<p>&nbsp;</p>
+<p><b>Расширенный Список Заклинаний</b></p>
+<p>Великий Древний позволяет вам при изучении заклинаний колдуна выбирать из более широкого списка. В ваш список заклинаний колдуна добавляются следующие заклинания.</p>
+<p><b>Дополнительные Заклинания Великого Древнего</b></p>
+<table border=1>
+<tr><td>Уровень заклинания</td><td>Заклинания</td></tr>
+<tr><td>1</td><td>диссонирующий шёпот, жуткий смех Таши</td></tr>
+<tr><td>2</td><td>воображаемая сила, обнаружение мыслей</td></tr>
+<tr><td>3</td><td>подсматривание, послание</td></tr>
+<tr><td>4</td><td>подчинение зверя, Эвардовы чёрные щупальца</td></tr>
+<tr><td>5</td><td>подчинение личности, телекенез</td></tr>
+</table>
+<p>&nbsp;</p>
+<p><b>Пробуждённый Разум</b></p>
+<p>Начиная с 1 уровня ваше чуждое знание даёт вам возможность касаться разума других существ. Вы можете общаться телепатически с любым существом, которое видите в пределах 30 футов от себя.</p>
+<p>Вам не нужно знать общий с существом язык для того, чтобы оно понимало ваши телепатические высказывания, но существо должно быть в состоянии понимать как минимум один язык.</p>
+<p>&nbsp;</p>
+<p><b>Энтропическая Опека</b></p>
+<p>На 6 уровне вы научитесь магически опекать себя от атак и использовать неудачную вражескую атаку на пользу себе. Если существо совершает бросок атаки по вам, вы можете реакцией создать помеху для этого броска. Если атака промахнётся по вам, ваш следующий бросок атаки по этому существу совершается с преимуществом, если вы совершите его до конца своего следующего хода. Использовав это умение, вы не можете использовать его снова до окончания короткого или продолжительного отдыха.</p>
+<p>&nbsp;</p>
+<p><b>Ментальный Щит</b></p>
+<p>Начиная с 10 уровня ваши мысли не могут быть прочитаны телепатически или иными средствами, если вы не пожелаете обратного. Вы также получаете сопротивление к урону психической энергией, и каждый раз, когда существо причиняет вам урон психической энергией, это существо получает такое же количество урона, что и вы.</p>
+<p>&nbsp;</p>
+<p><b>Создать Раба</b></p>
+<p>На 14 уровне вы получаете способность инфицировать разум гуманоидов чужеродной магией своего покровителя. Вы можете действием коснуться недееспособного гуманоида. Это существо становится очарованным вами до тех пора, пока на него не будет сотворено заклинание снятие проклятья, либо пока оно не перестанет быть очарованным, либо пока вы не используете это умение ещё раз. Вы можете общаться телепатически с очарованным существом, пока вы оба находитесь на одном плане существования.</p>
+</div>
+
+
+
+<div class="featherlight-inner"><img id="21" class="favourite" onclick="addFavourite(this)" ontouch="addFavourite(this)" src="img/heart.png">
+<h2 class="spellname">Таинственные воззвания</h2>
+<table border=1>
+<tr><td width="100"><b>Таинственное Воззвание</b></td><td width="200"><b>Требование</b></td><td><b>Описание</b></td></tr>
+<tr><td><b>Мистическое Копьё</b></td><td>заговор мистический заряд</td><td>Когда вы накладываете мистический заряд, его дистанция равна 300 футам.</td></tr>
+<tr><td><b>Мучительный Взрыв</b></td><td>заговор мистический заряд</td><td>Когда вы накладываете мистический заряд, добавьте модификатор Харизмы к урону, причиняемому при попадании.</td></tr>
+<tr><td><b>Отталкивающий Заряд</b></td><td>заговор мистический заряд</td><td>Если вы попадаете по существу мистическим зарядом, вы можете толкнуть его на 10 футов прочь от себя по прямой линии.</td></tr>
+<tr><td><b>Взор Двух Умов</b></td><td>Нет</td><td>Вы можете действием коснуться согласного гуманоида и до конца своего следующего хода воспринимать всё его чувствами. Пока существо находится на том же плане существования, что и вы, вы можете в последующие ходы действием продлевать эту связь до конца своего следующего хода. При восприятии чувствами другого существа, вы получаете все преимущества от особых чувств, которыми обладает это существо, а сами при этом слепы и глухи.</td></tr>
+<tr><td><b>Вор Пяти Судеб</b><td>Нет</td><td>Вы можете один раз сотворить заклинание порча, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.</td></tr>
+<tr><td><b>Глаза Хранителя Рун</b><td>Нет</td><td>Вы можете читать любые письмена.</td></tr>
+<tr><td><b>Доспех Теней</b><td>Нет</td><td>Вы можете неограниченно накладывать на себя заклинание доспехи мага, не тратя ячейки заклинаний и материальные компоненты.</td></tr>
+<tr><td><b>Дьявольский Взгляд</b><td>Нет</td><td>Вы можете нормально видеть в темноте, как магической, так и немагической, на расстоянии 120 футов.</td></tr>
+<tr><td><b>Животная Речь</b></td><td>Нет</td><td>Вы можете неограниченно накладывать заклинание разговор с животными, не тратя ячейки заклинаний.</td></tr>
+<tr><td><b>Маска Многих Лиц</b></td><td>Нет</td><td>Вы можете неограниченно накладывать заклинание маскировка, не тратя ячейки заклинаний.</td></tr>
+<tr><td><b>Мощь Исчадия</b><td>Нет</td><td>Вы можете неограниченно накладывать на себя заклинание псевдожизнь как заклинание 1 уровня, не тратя ячейки заклинаний и материальные компоненты.</td></tr>
+<tr><td><b>Обманчивое Влияние</b><td>Нет</td><td>Вы получаете владение навыками Обман и Убеждение.</td></tr>
+<tr><td><b>Таинственный Взгляд</b></td><td>Нет</td><td>Вы можете неограниченно накладывать заклинание обнаружение магии, не тратя ячейки заклинаний.</td></tr>
+<tr><td><b>Туманные Видения</b></td><td>Нет</td><td>Вы можете неограниченно накладывать заклинание безмолвный образ, не тратя ячейки заклинаний и материальные компоненты.</td></tr>
+<tr><td><b>Глас Цепного Мастера</b></td><td>умение Договор цепи</td><td>Вы можете телепатически общаться со своим фамильяром и воспринимать всё чувствами фамильяра, пока вы находитесь на одном и том же плане существования. Кроме того, когда вы воспринимаете чувствами фамильяра, вы можете говорить через него своим собственным голосом, даже если фамильяр не способен говорить.</td></tr>
+<tr><td><b>Книга Древних Секретов</b></td><td>умение Договор гримуара</td><td>Теперь вы можете вписывать магические ритуалы в свою Книгу Теней. Выберите два заклинания 1 уровня с ключевым словом «ритуал» из списков заклинаний любых классов. Эти заклинания появляются в книге и не учитываются в общем количестве заклинаний, которые вы можете знать. Держа Книгу Теней в руке, вы можете творить выбранные заклинания как ритуалы. Вы не можете творить заклинания иначе как ритуалом, если вы не узнали их иным способом. Вы также можете творить известные заклинания колдуна как ритуалы, если у них есть ключевое слово «ритуал». Во время приключений вы можете добавлять другие ритуальные заклинания в свою Книгу Теней. Когда вы найдёте такое заклинание, вы можете добавить его в книгу, если уровень заклинания не превышает половину вашего уровня колдуна (округляя в большую сторону) и если вы можете потратить время на переписывание заклинания. За каждый уровень заклинания время переписывания занимает 2 часа и стоит 50 золотых монет, которые должны быть потрачены на редкие чернила, необходимые для записи.</td></tr>
+<tr><td><b>Жаждущий Клинок</b></td><td>5 уровень, умение Договор клинка</td><td>Вы можете атаковать своим оружием договора два раза вместо одного, когда в свой ход используете действие Атака.</td></tr>
+<tr><td><b>Знак Дурного Предзнаменования</b></td><td>5 уровень</td><td>Вы можете один раз сотворить заклинание проклятие, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.</td></tr>
+<tr><td><b>Один Среди Теней</b></td><td>5 уровень</td><td>Когда вы находитесь в области тусклого света или в темноте, вы можете действием стать невидимым, пока вы не переместитесь или не используете действие или реакцию.</td></tr>
+<tr><td><b>Трясина Разума</b></td><td>5 уровень</td><td>Вы можете один раз сотворить заклинание замедление, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.
+</td></tr>
+<tr><td><b>Завораживающий Шёпот</b></td><td>7 уровень</td><td>Вы можете один раз сотворить заклинание принуждение, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.</td></tr>
+<tr><td><b>Скульптор Плоти</b></td><td>7 уровень</td><td>Вы можете один раз сотворить заклинание превращение, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.</td></tr>
+<tr><td><b>Ужасающее Слово</b></td><td>7 уровень</td><td>Вы можете один раз сотворить заклинание смятение, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.
+</td></tr>
+<tr><td><b>Восходящий Шаг</b></td><td>9 уровень</td><td>Вы можете неограниченно накладывать на себя заклинание левитация, не тратя ячейки заклинаний и материальные компоненты. </td></tr>
+<tr><td><b>Могильный Шёпот</b></td><td>9 уровень</td><td>Вы можете неограниченно накладывать заклинание разговор с мёртвыми, не тратя ячейки заклинаний.</td></tr>
+<tr><td><b>Потусторонний Прыжок</b></td><td>9 уровень</td><td>Вы можете неограниченно накладывать на себя заклинание прыжок, не тратя ячейки заклинаний и материальные компоненты.</td></tr>
+<tr><td><b>Слуги Хаоса</b></td><td>9 уровень</td><td>Вы можете один раз сотворить заклинание призыв элементаля, используя ячейку заклинаний колдуна. Вы не можете сделать это повторно, пока не окончите продолжительный отдых.
+</td></tr>
+<tr><td><b>Пьющий Жизнь</b></td><td>12 уровень, умение Договор клинка</td><td>Когда вы попадаете по существу оружием договора, это существо получает дополнительный урон некротической энергией, равный вашему модификатору Харизмы (минимум 1).</td></tr>
+<tr><td><b>Ведьмачий Взор</b></td><td>15 уровень</td><td>Вы можете видеть истинный облик всех перевёртышей и существ, скрытых магией школы Иллюзия или Преобразование, и находящихся в вашей линии обзора, и при этом в пределах 30 футов от вас.</td></tr>
+<tr><td><b>Видения Далёких Королевств</b></td><td>15 уровень</td><td>Вы можете неограниченно накладывать заклинание магический глаз, не тратя ячейки заклинаний.</td></tr>
+<tr><td><b>Мастер Бесчисленных Обликов</b></td><td>15 уровень</td><td>Вы можете неограниченно накладывать заклинание смена обличья, не тратя ячейки заклинаний.</td></tr>
+<tr><td><b>Цепи Карцери</b></td><td>15 уровень, умение Договор цепи</td><td>Вы можете неограниченно накладывать заклинание удержание чудовища, если цель — исчадие, небожитель или элементаль. При этом вы не тратите ячейки заклинаний и материальные компоненты. Вы должны закончить продолжительный отдых, прежде чем снова сможете использовать это заклинание против этого же существа.</td></tr>
+<tr><td><b>Ледяное копье (UA)</b></td><td>покровитель – Архифея,<br> заговор мистический заряд</td><td>Вы применяете силы Принца Холода, чтобы заковывать ваших врагов в лед. Когда вы попадаете по существу Мистическим зарядом один или более раз, вы можете снизить скорость этого существа на 10 футов до конца вашего следующего хода. </tr>
+<tr><td><b>Аспект Луны (UA)</b></td><td>покровитель - Архифея</td><td>Вы заслужили благословение Лунной Девы. Вам больше не нужен сон, и вы не можете быть усыплены никаким способом. Чтобы получить эффект полного отдыха вам надо 8 часов заниматься лёгкой деятельностью вроде чтения или стояния в дозоре. </td><td></td></tr>
+<tr><td><b>Дар Зелёного Лорда (UA)</b></td><td>покровитель – Архифея</td><td>Зелёный Лорд – смотритель зеленеющего царства вечного лета. Ваша душа теперь соединена с его силой. Каждый раз, когда вы восстанавливаете хиты, считайте, что на каждом кубике, определяющем восстановленные вам ОЗ, выпало максимально возможное значение. </td><td></td></tr>
+<tr><td><b>Дар Морских Близнецов (UA)</b></td><td>покровитель – Архифея</td><td>Морские близнецы правят морями страны фей. Их дар позволяет вам чувствовать себя в водной среде как дома. Вы можете дышать под водой, и ваша скорость плавания становится равна вашей скорости перемещения. Также вы можете использовать заклинание Подводное дыхание, затрачивая ячейку заклинания Колдуна. Эта способность может быть использованная один раз. Для того, чтобы ее восстановить, необходим полный отдых. </td><td></td></tr>
+<tr><td><b>Лунный Лук (UA)</b></td><td>покровитель – Архифея,<br> умение договор клинка. </td><td>Вы можете создавать длинный лук, используя ваш договор клинка. Каждый раз, когда вы натягиваете тетиву и стреляете, создается стрела из белого дерева, которая пропадает спустя 1 минуту. Вы получаете преимущество на атаки против ликантропов с использованием этого оружия. Когда вы попадаете по существу этим оружием, вы можете потратить ячейку заклинания и нанести дополнительно 2d8 урона излучением за каждый уровень потраченной ячейки. </td><td></td></tr>
+<tr><td><b>Гробница Левитуса (UA)</b></td><td>покровитель – Исчадие</td><td>Реакцией, когда вы получаете повреждения, вы можете заключить себя в лёд, который растает в конце вашего следующего хода. Вы получаете 10 временных хитов на уровень Колдуна, которые принимают на себя столько полученного урона, сколько возможно. Также вы недееспособны, уязвимы к огню, и ваша скорость передвижения становится 0. Эти эффекты пропадают, когда лёд исчезает. Затем вы должны окончить короткий или продолжительный отдых, чтобы использовать это умение вновь. </td><td></td></tr>
+<tr><td><b>Плащ Вельзевула (UA)</b></td><td> покровитель – Исчадие</td><td>Бонусным действием вы призываете рой мух вокруг вас. Пока рой вокруг вас, вы получаете преимущество на проверку Запугивания, но помеху на все остальные проверки Харизмы. Также каждое существо, которое начинает ход на расстоянии 5 футов от вас, получает урон ядом, равный вашему модификатору Харизмы. Вы можете развеять этот рой бонусным действием. </td><td></td></tr>
+<tr><td><b>Булава Диспатера (Dispater) (UA)</b></td><td>покровитель – Исчадие,<br> умение договор клинка </td><td>Когда вы создаете булаву вашим пактом клинка, является железная булава, выкованная в Дисе, втором из девяти преисподней. Когда вы попадаете по существу этим оружием, вы можете потратить ячейку заклинания и нанести дополнительно 2d8 урона силовым полем за каждый уровень потраченной ячейки, также вы можете заставить цель упасть, если она Огромная или меньше. </td><td></td></tr>
+<tr><td><b>Поцелуй Мефистофеля (UA)</b></td><td>5 Уровень, покровитель – Исчадие,<br> заговор мистический заряд</td><td>Ваш Мистический заряд может служить проводником для пламени Мефистофеля. Когда вы попадаете по существу с помощью этого заговора, вы можете применить Огненный шар бонусным действием, используя слот заклинания Колдуна. Однако шар обязательно должен быть центрирован на существе-цели Мистического заряда.</tr>
+<tr><td><b>Светоч Сайфона (Caiphon) (UA)</b></td><td>покровитель – Великий Древний</td><td>Фиолетовая звезда Сайфон – погибель для неопытных мореплавателей. Те, кто использует её обманчивый свет для ориентира в своих путешествиях, неизменно находят только гибель. Вы получаете владение навыками Обман и Скрытность и получаете преимущество при атаках по Очарованным (charmed) существам. </td><td></td></tr>
+<tr><td><b>Хватка Хадара (Hadar) (UA)</b></td><td>покровитель – Великий Древний,<br> заговор мистический заряд</td><td>Один раз за ход, когда вы попали по существу вашим Мистическим зарядом, вы можете пододвинуть к себе это существо на 10 футов по прямой линии.</tr>
+<tr><td><b>Коготь Акамара (Acamar) (UA)</b></td><td> покровитель – Великий Древний,<br> умение договор клинка </td><td>Вы можете создавать чёрный, свинцовый цеп, используя ваш договор клинка. Навершия цепа имеют форму пары цепких щупалец. У оружия есть свойство Длина. Когда вы попадаете по существу этим оружием, вы можете потратить ячейку заклинания и нанести дополнительно 2d8 некротического урона за каждый уровень потраченной ячейки, также вы можете уменьшить скорость передвижения цели до нуля до конца следующего раунда. </td><td></td></tr>
+<tr><td><b>Взгляд Хирада (Khirad) (UA)</b></td><td>7 уровень,<br> покровитель – Великий Древний </td><td>Вы получаете пронзающий взгляд синей звезды Хирада. Активным действием вы можете видеть сквозь твердые объекты на расстоянии до 30 футов от вас до конца текущего раунда. В течении этого времени вы видите объекты как призрачные, прозрачные видения. </td><td></td></tr>
+<tr><td><b>Покров Улбана (Ulban) (UA)</b></td><td> 18 уровень,<br> покровитель – Великий Древний.</td><td>Бледно синяя звезда Улбан практически незаметна среди других звезд, одна являет себя взору лишь для того, чтобы принести дурное знамение. Действием вы можете стать невидимым на 1 минуту. Если вы атакуете, наносите урон или обязуете существо выполнить спасбросок, вы становитесь видимым в конце этого хода. </td><td></td></tr>
+<tr><td><b>Пламенное Колдовство (UA)</b></td><td>покровитель – Колдовской клинок </td><td>Бонусным действием вы можете нанести цели, находящейся под вашем проклятьем, урон огнем, равный вашему модификатору Харизмы (минимум 1). </td><td></td></tr>
+<tr><td><b>Морозное Колдовство (UA)</b></td><td>покровитель – Колдовской клинок</td><td>Бонусным действием вы призываете вихрь холода вокруг цели, находящейся под вашим проклятьем, нанося урон холодом, равный вашему модификатору харизмы (минимум 1), всем врагам на расстоянии 5 футов от цели. </td><td></td></tr>
+<tr><td><b>Несущий Проклятия (UA)</b></td><td>покровитель – Колдовской клинок,<br> умение договор клинка </td><td>Вы можете создавать серебряный с черными рунами по всему лезвию двуручный меч (greatsword), используя ваш договор клинка. Если вы опускаете хиты цели под действием вашего Проклятия Колдовского клинка до 0, используя этот меч, вы можете сразу перенести проклятие на другое существо. Этот перенос не изменяет длительность проклятия. Когда вы попадаете по существу этим оружием, вы можете потратить ячейку заклинания и нанести дополнительно 2d8 рубящего урона за каждый уровень потраченной ячейки, также вы можете уменьшить скорость передвижения цели до нуля до конца следующего раунда </td><td></td></tr>
+<tr><td><b>Безжалостное Колдовство (UA)</b></td><td> 5 уровень,<br> покровитель – Колдовской клинок</td><td>Ваше проклятие Колдовского клинка создает временную связь между вами и целью. Бонусным действием вы можете магическим образом перенестись в точку в пределах 5 футов от проклятого вами существа, которую вы видите. Для этого вы должны быть в пределах 30 футов от существа и видеть его. </td><td></td></tr>
+<tr><td><b>Благословение Королевы Воронов (UA)</b></td><td>покровитель – Королева Воронов,<br> заговор мистический заряд</td><td>Когда вы наносите критический удар вашим Мистическим зарядом, выберите себя или союзника на расстоянии не более 30 футов от вас. Выбранное существо может сразу потратить кубик хитов для восстановления хитов равное броску + модификатор Телосложения существа (минимум 1 хит). </tr>
+<tr><td><b>Летопись Королевы Воронов (UA)</b></td><td>покровитель – Королева Воронов,<br> умение договор гримуара </td><td>Вы можете поместить руку или аналогичную конечность трупа на вашу Книгу Теней и вслух задать один вопрос. Спустя 1 минуту ответ проявляется кровью в вашей книге. Ответ даёт дух погибшего существа, сообщая всё, что знает относительно этого вопроса, кроме того, ответ переведен на любой язык по вашему выбору. Вы должны использовать эту способность не позднее, чем через минуту после смерти существа, и одному существу можно задать только один вопрос. </td><td></td></tr>
+<tr><td><b>Путь Ищущего (UA)</b></td><td>покровитель – Ищущий (Seeker)</td><td>Ищущий обязует вас путешествовать в поисках знаний, и не многое может заставить вас свернуть с этого пути. Вы игнорируете труднопроходимую местность, имеете преимущество в бросках на проверку на избавление от захвата, кандалов или веревок (связывания), а также на спас броски против паралича. </td><td></td></tr>
+<tr><td><b>Речь Ищущего (UA)</b></td><td>покровитель – Ищущий</td><td>Ваш путь познания позволяет вам овладеть любым из существующих языков. В конце длительного отдыха выберете два языка. Вы получаете способность говорить, читать и писать на них до конца следующего длительного отдыха. </td><td></td></tr>
+<tr><td><b>Улучшенное Оружие Пакта (UA)</b></td><td> 5 уровень,<br> Дар покровителя – договор клинка </td><td>Любое оружие, которое вы создаете своим пактом клинка, становится оружием +1. Эта инвокация не влияет на магическое оружие, которое вы делаете пактовым. </td><td></td></tr>
+<tr><td><b>Великое Оружие Пакта (UA)</b></td><td> 9 уровень,<br> Дар покровителя – договор клинка</td><td>Любое оружие, которое вы создаете своим пактом клинка, становится оружием +2. Эта инвокация не влияет на магическое оружие, которое вы делаете пактовым. </td><td></td></tr>
+<tr><td><b>Абсолютное Оружие Пакта (UA)</b></td><td> 15 уровень,<br> Дар покровителя – договор клинка</td><td>Любое оружие, которое вы создаёте своим пактом клинка, становится оружием +3. Эта инвокация не влияет на магическое оружие, которое вы делаете пактовым.</td><td></td></tr> 
+
+
+</table>
+</div>
+
+      <div id="nothing" style="display:none">
+        <h2>Неа, не нашел</h2>
+        <h3>Может вы ввели чего-то не то?</h3>
+        <p>Хотя я мог и накасячить. Если накосячил я - пишите в спорт лото. Или попробуйте позже</p>
+      </div>
+
+
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+</body>
+
+</html>
