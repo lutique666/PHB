@@ -739,7 +739,8 @@ function SearchString() {
 
       if (cduration != "1") //спелл с концентрацией или мгновенный
       {
-        if (((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0)) && (h3[i].innerHTML.indexOf(clvl) >= 0) && ((h3[i].innerHTML.indexOf(cschool1) >= 0) || (h3[i].innerHTML.indexOf(cschool2) >= 0)) && ((des[i].innerHTML.indexOf(ctime) <= des[i].innerHTML.indexOf('<b>Время') + 60) && des[i].innerHTML.indexOf(ctime) >= 0) && (des[i].innerHTML.indexOf(ccomp) >= 0) && (des[i].innerHTML.indexOf(cduration) >= 0) && (des[i].innerHTML.indexOf(cname) >= 0) && gacha == 1) {
+
+        if (((des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0)) && (h3[i].innerHTML.indexOf(clvl) >= 0) && ((h3[i].innerHTML.indexOf(cschool1) >= 0) || (h3[i].innerHTML.indexOf(cschool2) >= 0)) && ((des[i].innerHTML.indexOf(ctime) <= des[i].innerHTML.indexOf('<strong>Время') + 160) && des[i].innerHTML.indexOf(ctime) >= 0) && (des[i].innerHTML.indexOf(ccomp) >= 0) && (des[i].innerHTML.indexOf(cduration) >= 0) && (des[i].innerHTML.indexOf(cname) >= 0) && gacha == 1) {
           /*(des[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (des[i].innerHTML.indexOf(neadlestring) >= 0) || (des[i].innerHTML.indexOf(neadlestringex) >= 0)
           Основная поисковая строка, ищется по всем регистрам в полном тексте спелла des[i]
           */
