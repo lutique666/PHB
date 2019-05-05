@@ -1,34 +1,88 @@
-﻿<html>
- <head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
- <title>Глава 3: Классы</title>
- <link rel="stylesheet" href="css/style.css">
- <script src="js/myscripts.js"></script>
+﻿<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Глава 3. Классы</title>
+
+  <script src="js/myscripts-class.js" ></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu Mono' rel='stylesheet'>
+
+  <link rel="stylesheet" href="css/main03.css" />
+  <link rel="stylesheet" href="css/chapter03.css" />
+
+  <script>
+  window.onkeyup = function(event) {
 
 
- </head>
-<body onload="pagename();">
-<div id=picture onclick=Content(this) ontouch=Content(this)>
-<table>
-<td><img src="glav.png"/></td><td><p id=page-name style="font-size: 150%">1111111</p></td>
-</table>
+  if (event.keyCode == 27)
+  document.getElementById('lightbox').style.display = "none";
+  }
+
+  </script>
+
+</head>
+
+<body onload="pageload()">
+
+  <div id="headTable">
+
+    <div class="menu">
+      <div id="navigation" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+
+        </div>
+
+      </div>
+
+      <span onclick="openNav()"><img src="img/mapP.png" /></span>    </div>
+          <div class="title">
+      <p>Глава 3. Классы.</p>
+    </div>
+
 </div>
-<div id=suggestion>
-<iframe src="glav.html" width="400" height="660" align="left">...</iframe>
+
+
+  <div id="main">
+ <style type="text/css">
+   A {
+    text-decoration: none; /* Убирает подчеркивание для ссылок */
+   } 
+
+  </style>
+    <div class="option">
+      <div class="optionCell"><a href="Chapter0301.html">Бард</a></div>
+      <div class="optionCell"><a href="Chapter0302.html">Варвар</a></div>
+      <div class="optionCell"><a href="Chapter0303.html">Воин</a></div>
+
+      <div class="optionCell"><a href="Chapter0304.html">Волшебник</a></div>
+      <div class="optionCell"><a href="Chapter0305.html">Друид</a></div>
+      <div class="optionCell"><a href="Chapter0306.html">Жрец</a></div>
+
+      <div class="optionCell"><a href="Chapter0307.html">Колдун</a></div>
+      <div class="optionCell"><a href="Chapter0308.html">Монах</a></div>
+      <div class="optionCell"><a href="Chapter0309.html">Паладин</a></div>
+
+      <div class="optionCell"><a href="Chapter0310.html">Плут</a></div>
+      <div class="optionCell"><a href="Chapter0311.html">Следопыт</a></div>
+      <div class="optionCell"><a href="Chapter0312.html">Чародей</a></div>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    </div>
 </div>
-
-<table class=classes>
-<tr><td class=classes><a href="Chapter0301.html">Бард</a></td><td class=classes><a href="Chapter0302.html">Варвар</a></td><td class=classes><a href="Chapter0303.html">Воин</a></td><td class=classes><a href="Chapter0304.html">Волшебник</a></td><td class=classes><a href="Chapter0305.html">Друид</a></td><td class=classes><a href="Chapter0306.html">Жрец</a></td></tr>
-<tr><td class=classes><a href="Chapter0307.html">Колдун</a></td><td class=classes><a href="Chapter0308.html">Монах</a></td><td class=classes><b><A Href="Chapter0309.html"></b>Паладин</a></td><td class=classes><A Href="Chapter0310.html">Плут</a></td><td class=classes><A Href="Chapter0311.html">Следопыт</a></td><td class=classes><A Href="Chapter0312.html">Чародей</a></td></tr>
-
-
-<td colspan=6 class=spells width=12.5%><div class=circle0 onclick=Description(this) ontouch=Description(this)>Глава 3: Классы общая таблица</div></td>
-</tr>
-
-<tr>
-<td colspan=6>
-
-<div class=circle1-des><p><b>Глава 3: Классы</b></p>
+<div class="infoall">
+<div class="info" style="display: block;">
 <p><b>Искатели Приключений</b> — не обычные существа, движимые жаждой жизненных потрясений, на которые другие никогда бы не осмелились. Это герои, вынужденные исследовать тёмные уголки мира и принимать испытания, которым большинство женщин и мужчин не смогли бы противостоять.</p>
 <p>Класс является основным мерилом способностей вашего персонажа. Это больше чем профессия, это призвание вашего персонажа. Класс формирует ваше представление о мире и взаимодействие с ним, а также ваше отношение к другим существам и силам мультивселенной. Воин, например, может смотреть на мир прагматично, с точки зрения стратегии и манёвров, и видеть себя всего лишь пешкой в большой игре. Жрец напротив, может видеть себя в качестве усердного служителя разворачивающегося грандиозного плана божества, или назревающего конфликта между различными богами. У воина есть связи в организациях наёмников или войсках, а жрец может знать множество священников, паладинов и последователей, разделяющих его веру.</p>
 <p>Ваш класс даёт вам целый ряд особых умений, таких как мастерство воина во владении оружием и доспехами, и заклинания волшебника. На низких уровнях ваш класс даёт вам только два или три умения, но при получении новых уровней вы получите новые, и ваши существующие умения улучшатся. Описание каждого класса в этой главе включает в себя таблицу с кратким перечнем всех преимуществ, которые вы получаете на каждом уровне, и подробное описание каждого умения.</p>
@@ -49,13 +103,10 @@
 <tr><td><b>Следопыт</b></td><td>Воитель, использующий боевое искусство и магию природы для борьбы с угрозами на окраинах цивилизации</td><td>к10</td><td>Ловкость и Мудрость</td><td>Сила и Ловкость</td><td>Лёгкие и средние доспехи, щиты, простое и воинское оружие</td></tr>
 <tr><td><b>Чародей</b></td><td>Заклинатель, черпающий магию в себе, получив её в дар или как наследие</td><td>к6</td><td>Харизма</td><td>Телосложение и Харизма</td><td>Боевые посохи, дротики, кинжалы, лёгкие арбалеты, пращи </td></tr>
 </table>
+  </div>
+  </div>
 
-
- </body>
-</html>
-
-
-
-
-
-
+    <div id="table" style="display: table" ></div>
+    <p></p>
+  </div>
+  <div class="footer">Qpheliax, Lutique666</div>
