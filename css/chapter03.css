@@ -497,4 +497,4 @@ html.with-featherlight {
 .archetype0, .archetype1, .archetype2, .archetype3, .archetype4, .archetype5 table {
    color: #337ab7;
 }
-table, td {text-align: center;vertical-align: center;}table{width: 65%;margin: 0 auto;}
+table, td {text-align: center;vertical-align: center;}table{width: 90%;margin: auto auto;}
