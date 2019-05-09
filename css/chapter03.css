@@ -488,13 +488,13 @@ html.with-featherlight {
   }
 }
 
-.archetype0, .archetype1, .archetype2, .archetype3, .archetype4, .archetype5 {
+.archetype0, .archetype1, .archetype2, .archetype3, .archetype4, .archetype5, .archetype6, .archetype7, .archetype8, .archetype9, .archetype10 {
   color: #337ab7;
   display: none;
 
 }
 
-.archetype0, .archetype1, .archetype2, .archetype3, .archetype4, .archetype5 table {
+.archetype0, .archetype1, .archetype2, .archetype3, .archetype4, .archetype5, .archetype6, .archetype7, .archetype8, .archetype9, .archetype10 table {
    color: #337ab7;
 }
 table, td {text-align: center;vertical-align: center;}
