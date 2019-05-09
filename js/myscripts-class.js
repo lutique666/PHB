@@ -14,7 +14,9 @@ function closeNav() {
   document.getElementById("navigation").style.width = "0%";
 }
 
-
+function pageload() {
+document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
+}
 
 
 //Верхний переключатель быстрое создание, описание, классовые умения
