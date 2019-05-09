@@ -62,7 +62,7 @@ for (i = 0; i < current_display_archetype.length; i++) {
 function ChangeDisplayMain(button)
 {
 
-if (button == 'Показать только архетипы')
+if (button == 'Только подклассы')
 {
   archetypeCell[archetypeCell.length-1].innerHTML='Показать полный список умений'
  for (i = 0; i < class_main.length; i++) {
