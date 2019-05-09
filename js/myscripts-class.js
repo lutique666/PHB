@@ -72,7 +72,7 @@ if (button == 'Показать только архетипы')
 
 else
 {
-  archetypeCell[archetypeCell.length-1].innerHTML='Показать только архетипы'
+  archetypeCell[archetypeCell.length-1].innerHTML='Только подклассы'
   for (i = 0; i < class_main.length; i++) {
     class_main[i].style.display='block';
   }
