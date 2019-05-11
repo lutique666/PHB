@@ -16,6 +16,8 @@ function closeNav() {
 
 function pageload() {
 document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
+optionCell[2].style.backgroundColor = 'orange';
+info[2].style.display = 'block';
 }
 
 
