@@ -4,7 +4,7 @@ var archetypeCell = document.getElementsByClassName('archetypeCell');
 var class_main = document.getElementsByClassName('class_main');
 var current_display_archetype = document.getElementsByClassName('archetype1');
 var current_display_main = true;
-
+var archname;
 
 function openNav() {
   document.getElementById("navigation").style.width = "100%";
@@ -18,6 +18,7 @@ function pageload() {
 document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
 optionCell[2].style.backgroundColor = 'orange';
 info[2].style.display = 'block';
+archname=archetypeCell[archetypeCell.length-1].innerHTML;
 }
 
 
@@ -64,7 +65,7 @@ for (i = 0; i < current_display_archetype.length; i++) {
 function ChangeDisplayMain(button)
 {
 
-if (button == 'Только подклассы')
+if (button == archname)
 {
   archetypeCell[archetypeCell.length-1].innerHTML='Показать полный список умений'
  for (i = 0; i < class_main.length; i++) {
@@ -74,7 +75,7 @@ if (button == 'Только подклассы')
 
 else
 {
-  archetypeCell[archetypeCell.length-1].innerHTML='Только подклассы'
+  archetypeCell[archetypeCell.length-1].innerHTML=archname
   for (i = 0; i < class_main.length; i++) {
     class_main[i].style.display='block';
   }
