@@ -287,7 +287,7 @@ function pageload() {
   //Чтение выделенных сурсов. При первом открытии или открытии локально будет пустым и забьется дефолтным ксанатаром и КИ
   json_str = getCookie('storedsource');
   if ((json_str == undefined) || (json_str == "")) {
-    source_check = ["КИ", "РКпВ"]
+    source_check = ["КИ", "РКпВ", "ППППМ)"]
   } else {
     source_check = JSON.parse(json_str)
   }
