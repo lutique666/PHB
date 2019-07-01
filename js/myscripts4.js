@@ -160,6 +160,16 @@ function addFavourite(heart) {
     //Избранное
   } else {
     eval('arr' + l).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+     eval('arr' + 0).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+      eval('arr' + 1).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+       eval('arr' + 2).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+        eval('arr' + 3).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+         eval('arr' + 4).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+          eval('arr' + 5).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+           eval('arr' + 6).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+            eval('arr' + 7).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+             eval('arr' + 8).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
+              eval('arr' + 9).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
     heart.src = 'img/heart.png'
   }
 
