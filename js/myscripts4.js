@@ -159,13 +159,15 @@ function addFavourite(heart) {
     heart.src = 'img/heartfull.png'
     //Избранное
   } else {
+//Времяночка
+for (l=0; l<10; l++) {
     eval('arr' + l).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
     heart.src = 'img/heart.png'
   }
 
   json_str = JSON.stringify(eval('arr' + l));
   createCookie('favourite' + l, json_str, 30);
-
+}
 
 }
 
