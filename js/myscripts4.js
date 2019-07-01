@@ -555,24 +555,35 @@ function ChangeFavourite()
   current_display_class.style.backgroundColor = 'orange';
   document.getElementById('long19').style.display = 'none';
   document.getElementById('shrt15').style.display = 'none'; 
-  var arr10 = arr0.concat(arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9);
-  console.log(arr10);
-  var content = '<div class="TableBody"><div class="TableRow">'
+  //var arr10 = arr0.concat(arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9);
+  //console.log(arr10);
+  var content = '<div class="TableBody">'
   draw_table_swipe = [];
   draw_table = [];
   draw_table2 = [];
   class_name='arr';
-  for (i = 0; i < eval(class_name + 10).length; i++) {
 
+for (b = 0; b < 10; b++) {
+
+if (eval(class_name + b).length > 0)
+{
+  if (b == 0) {
+  	content += '<h4>Заговоры</h4><div class="TableRow">';
+  } 
+  else {
+  	content += '<h4>' + b + ' Круг</h4><div class="TableRow">';
+  }
+  for (i = 0; i < eval(class_name + b).length; i++) {
     for (j = 0; j < source_check.length; j++) {
-      if (eval(class_name + 10)[i].indexOf(source_check[j]) >= 0) {
-        if (draw_table[draw_table.length - 1] != eval(class_name + 10)[i]) {
-          draw_table.push(eval(class_name + 10)[i]);
-          draw_table_swipe.push(eval(class_name + 10)[i]);
+      if (eval(class_name + b)[i].indexOf(source_check[j]) >= 0) {
+        if (draw_table[draw_table.length - 1] != eval(class_name + b)[i]) {
+          draw_table.push(eval(class_name + b)[i]);
+          draw_table_swipe.push(eval(class_name + b)[i]);
         }
       }
     }
   }
+
 
  var port = window.matchMedia('(max-device-width : 1920px)');
   if (port.matches) {
@@ -581,6 +592,7 @@ function ChangeFavourite()
     var n = 4
   }
   /*Ебанутая хуйня*/
+
 
   var rows = Math.floor(draw_table.length / n)
   var ostatok = draw_table.length % n
@@ -611,6 +623,15 @@ function ChangeFavourite()
   for (i = 0; i < draw_table2.length; i++) {
     content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table2[i] + '</div>';
   }
+ var draw_table = [];
+ var draw_table2 = [];
+ var draw_table_swipe = [];
+
+
+ content += '</div>';
+
+}
+}
 
   content += '</div><div class="TableRow">';
   /*Ебанутая хуйня*/
