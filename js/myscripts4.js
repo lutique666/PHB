@@ -159,16 +159,34 @@ function addFavourite(heart) {
     heart.src = 'img/heartfull.png'
     //Избранное
   } else {
-//Времяночка
-for (l=0; l<10; l++) {
     eval('arr' + l).splice([(eval('arr' + l).indexOf(spellname[heart.id].innerHTML))], 1)
     heart.src = 'img/heart.png'
   }
 
   json_str = JSON.stringify(eval('arr' + l));
-  createCookie('favourite' + l, json_str, 30);
-}
-
+  createCookie('favourite' + l, json_str, 365);
+//Времяночка
+  json_str = JSON.stringify(eval('arr' + 0));
+  createCookie('favourite' + 0, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 1));
+  createCookie('favourite' + 1, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 2));
+  createCookie('favourite' + 2, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 3));
+  createCookie('favourite' + 3, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 4));
+  createCookie('favourite' + 4, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 5));
+  createCookie('favourite' + 6, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 6));
+  createCookie('favourite' + 6, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 7));
+  createCookie('favourite' + 7, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 8));
+  createCookie('favourite' + 8, json_str, 365);
+  json_str = JSON.stringify(eval('arr' + 9));
+  createCookie('favourite' + 9, json_str, 365);
+//Удалить это потом  
 }
 
 
