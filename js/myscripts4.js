@@ -519,10 +519,14 @@ function ChangeClass(classus) {
 
 
 
+if (classus == 'arr')
+{
+	ChangeFavourite();
+}
 
 
-
-
+else
+{
 
 
   if (classus == 'paladin' || classus == 'ranger') {
@@ -541,11 +545,93 @@ function ChangeClass(classus) {
 
   class_name = classus;
   ChangeLevel(level_number);
-
+}
 
 }
 
 
+function ChangeFavourite()
+{
+  current_display_class.style.backgroundColor = 'orange';
+  document.getElementById('long19').style.display = 'none';
+  document.getElementById('shrt15').style.display = 'none'; 
+  var arr10 = arr0.concat(arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9);
+  console.log(arr10);
+  var content = '<div class="TableBody"><div class="TableRow">'
+  draw_table_swipe = [];
+  draw_table = [];
+  draw_table2 = [];
+  class_name='arr';
+  for (i = 0; i < eval(class_name + 10).length; i++) {
+
+    for (j = 0; j < source_check.length; j++) {
+      if (eval(class_name + 10)[i].indexOf(source_check[j]) >= 0) {
+        if (draw_table[draw_table.length - 1] != eval(class_name + 10)[i]) {
+          draw_table.push(eval(class_name + 10)[i]);
+          draw_table_swipe.push(eval(class_name + 10)[i]);
+        }
+      }
+    }
+  }
+
+ var port = window.matchMedia('(max-device-width : 1920px)');
+  if (port.matches) {
+    var n = 3
+  } else {
+    var n = 4
+  }
+  /*Ебанутая хуйня*/
+
+  var rows = Math.floor(draw_table.length / n)
+  var ostatok = draw_table.length % n
+  for (i = 1; i <= ostatok; i++) {
+    draw_table2.push(draw_table[(rows + 1) * i - 1]);
+  }
+
+  for (i = 0; i < draw_table2.length; i++) {
+    draw_table.splice(draw_table.indexOf(draw_table2[i]), 1);
+  }
+
+  var k = 0
+  var l = k
+  for (i = 0; i < rows; i++) {
+
+    for (j = 0; j < n; j++) {
+      if (l < draw_table.length) {
+        content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[l] + '</div>';
+        l = l + rows
+      }
+
+    }
+    content += '</div><div class="TableRow">';
+    k = k + 1
+    var l = k
+  }
+
+  for (i = 0; i < draw_table2.length; i++) {
+    content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table2[i] + '</div>';
+  }
+
+  content += '</div><div class="TableRow">';
+  /*Ебанутая хуйня*/
+
+  //Отрисовка по строкам.
+  //for(i=0; i<draw_table.length; i++){
+  //   if ((i+1) % n == 0) {
+  //  		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div></div><div class="TableRow">';
+  //  	}
+  //  	else {
+  //  		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div>';
+  //  	}
+  //}
+
+  content += '</div></div>'
+
+  document.getElementById('table').innerHTML = content
+
+
+
+}
 
 
 
