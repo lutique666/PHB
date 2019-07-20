@@ -877,7 +877,6 @@ function SearchString() {
       if (neadlestring.length == 0) {} else {
         if ((spellname[i].innerHTML.toUpperCase().indexOf(neadlestring.toUpperCase()) >= 0) && gacha == 1) {
           des[i].style.display = 'block';
-          console.log(spellname[i].innerHTML);
           found.push(i);
 
 
