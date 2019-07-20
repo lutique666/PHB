@@ -757,7 +757,28 @@ function ChangeLevel(levelus) {
 
 
 
+function Search(neadle) {	
 
+   html = neadle;	
+  if (html == undefined) {	
+    html = '4324326547658765';	
+  } else {}	
+
+
+
+   for (var i = 0; i < spellname.length; i++) {	
+
+     if (spellname[i].innerHTML.toUpperCase().indexOf(html.toUpperCase()) == 0) {	
+      des[i].style.display = 'block';	
+      current_display_spell = spellname[i].innerHTML	
+
+     } else {	
+      des[i].style.display = 'none';	
+    }	
+  }	
+
+   document.getElementById('lightbox').style.display = 'block'	
+}
 
 
 
