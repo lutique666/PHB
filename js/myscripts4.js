@@ -539,9 +539,6 @@ else
   } else {
 
   }
-
-
-
   class_name = classus;
   ChangeLevel(level_number);
 }
@@ -760,28 +757,6 @@ function ChangeLevel(levelus) {
 
 
 
-function Search(neadle) {
-
-  html = neadle;
-  if (html == undefined) {
-    html = '4324326547658765';
-  } else {}
-
-
-
-  for (var i = 0; i < spellname.length; i++) {
-
-    if (spellname[i].innerHTML.toUpperCase().indexOf(html.toUpperCase()) == 0) {
-      des[i].style.display = 'block';
-      current_display_spell = spellname[i].innerHTML
-
-    } else {
-      des[i].style.display = 'none';
-    }
-  }
-
-  document.getElementById('lightbox').style.display = 'block'
-}
 
 
 
@@ -900,9 +875,10 @@ function SearchString() {
       // 	des[i].innerHTML=new_string;
     } else {
       if (neadlestring.length == 0) {} else {
-        if ((spellname[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (spellname[i].innerHTML.indexOf(neadlestring) >= 0)) {
+        if ((spellname[i].innerHTML.toUpperCase().indexOf(neadlestring.toUpperCase()) >= 0) && gacha == 1) {
           des[i].style.display = 'block';
-          found.push(i)
+          console.log(spellname[i].innerHTML);
+          found.push(i);
 
 
         } else {
