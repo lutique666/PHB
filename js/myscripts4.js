@@ -357,7 +357,16 @@ if (json_str != "")
   }
   //
 
-
+  tmp = document.URL.split('#')
+  spell = decodeURI(tmp[1])
+  if (spell == 'undefined')
+  {
+   
+  }
+  else
+  {
+  Search(spell);
+  }
 
 
 }
