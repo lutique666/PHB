@@ -48,8 +48,8 @@ font-size: 48px;
 
 #preset {
   table-layout: fixed;
-  position: absolute;
-  margin: 40% 20%;
+  position: relative;
+  margin: 50% 20%;
   top: 1em;
   font-family: Amatic SC;
   font-size: 36px;
