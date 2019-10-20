@@ -314,7 +314,8 @@ function addDice(dice) {
 		for (i = 0; i < dice_array.length; i++) {
 		if (dice_array[i]>0)
 			{
-			pad += '<span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
+				//В конце 3 нерастяжимых пробела для отбивки
+			pad += '<span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'+'&nbsp;&nbsp;&nbsp;'
 			}
 
 		}
@@ -331,7 +332,7 @@ function removeDice(dice) {
 		for (i = 0; i < dice_array.length; i++) {
 		if (dice_array[i]>0)
 			{
-			pad += '<span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
+			pad += '<span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'+'&nbsp;&nbsp;&nbsp;'
 			}
 
 		}
@@ -370,7 +371,7 @@ var preset_string = '';
 		//Формирование строки, которая уйдет в пресет. Если элемент не пустой в строку добавится количество дайсов и кDice
 			if (dice_array[j]>0)
 			{
-			preset_string +=dice_array[j]+'к'+dDice[j]+' ' 
+			preset_string +='<span style="color:orange">'+dice_array[j]+'</span>к'+dDice[j]+'   ' 
 			}	
 
  		}
