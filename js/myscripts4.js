@@ -463,7 +463,7 @@ function pageload() {
 for (i = 0; i < 6; i++) {
     json_str = getCookie('favouriteroll' + i);
 	var preset_string = '';
-	preset_string +=i+1+'. ';
+	preset_string +='<span style="color:orange">'+(i+1)+'.</span> ';
 	//Временная строка. Т.к. длина json_str без парса 13, а с парсом и вообще должна быть 6
 	str=JSON.parse(json_str);
 	
