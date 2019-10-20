@@ -17,7 +17,7 @@ var draw_table2 = [];
 var source_class = document.getElementsByClassName('source');
 //var sourcep_class = document.getElementsByClassName('sourcep')
 var n; //Кол-во столбцов в таблице
-var dice_array = [];
+
 
 //Для swipe
 var startX;
@@ -109,7 +109,7 @@ var h3 = document.getElementsByTagName('h3')
 //Вспомогательная переменная для определение уровня спелла
 var l
 
-//объявленные переменные для куков спеллов
+//объявленные переменные для куков
 var arr0 = [];
 var arr1 = [];
 var arr2 = [];
@@ -120,27 +120,6 @@ var arr6 = [];
 var arr7 = [];
 var arr8 = [];
 var arr9 = [];
-
-//Переменная с текущим набором кубов [d4,d6,d8,d10,d12,d20]
-var dDice = [4,6,8,10,12,20]
-var dice_array = [0,0,0,0,0,0];
-
-//объявленные переменные для куков дайсов
-var dice_arr0 = [];
-var dice_arr1 = [];
-var dice_arr2 = [];
-var dice_arr3 = [];
-var dice_arr4 = [];
-var dice_arr5 = [];
-
-//Cохраненные ролы
-var favouriteroll0
-var favouriteroll1
-var favouriteroll2
-var favouriteroll3
-var favouriteroll4
-var favouriteroll5
-
 
 var json_str = [];
 //Сердечки
@@ -171,6 +150,8 @@ function addFavourite(heart) {
   } else {
     var l = h3[heart.id].innerHTML[0].toString();
   }
+console.log(h3[heart.id].innerHTML)
+console.log(spellname[heart.id].innerHTML);
 
 
   //Проверяем какое сердце жмем. При пустом заполняем массив, при полном удаляем
@@ -185,7 +166,8 @@ function addFavourite(heart) {
   }
 
   json_str = JSON.stringify(eval('arr' + l));
-  createCookie('favourite' + l, json_str, 365);
+  createCookie('favourite' + l, json_str, 30);
+
 
 }
 
@@ -275,14 +257,6 @@ function closeNav() {
   document.getElementById("navigation").style.width = "0%";
 }
 
-function openDicePad() {
-  document.getElementById("dicepad").style.width = "100%";
-}
-
-function closeDicePad() {
-  document.getElementById("dicepad").style.width = "0%";
-}
-
 function openSet() {
   document.getElementById("settings").style.width = "100%";
 
@@ -303,107 +277,6 @@ function closeSet() {
   //  sourcep_class[i].checked = source_class[i].checked
   //}
   ChangeClass(class_name);
-}
-
-function addDice(dice) {
-		dice_array[dice]+=1
-		document.getElementById('roll').innerHTML = '';
-		for (i = 0; i < dice_array.length; i++) {
-		if (dice_array[i]>0)
-			{
-			document.getElementById('roll').innerHTML += '<p><span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
-			}
-
-		}
-}
-
-function removeDice(dice) {
-	document.getElementById('roll').innerHTML = '';
-	//dice_array.indexOf(dice) искомый куб для удаления
-	//dice_array.splice(dice_array.indexOf(dice),1) начиная с позиции дайс эррей удалить один элемент
-	//dice_array.splice(dice_array.indexOf(dice), 1)
-	dice_array[dice]-=1
-		for (i = 0; i < dice_array.length; i++) {
-		if (dice_array[i]>0)
-			{
-			document.getElementById('roll').innerHTML += '<p><span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
-			}
-		}
-}
-
-function roll()
-{
-	var result = 0;
-	var result_string = '';
-//В массиве записывается количество дайсов. 4-ка в нулевом элементе, 6-ка в первом и т.д.
-	for (i=0; i<dice_array.length; i++) {
-		for (j=0; j<dice_array[i]; j++) 
-       	{
-       		single_roll = Math.floor((Math.random() * dDice[i]) + 1);	
-       		result += single_roll	
-	   		result_string += single_roll.toString()+'[d'+ dDice[i] +'] '+', ';
-	   	}
-  	}
-  	result_string += 'Суммарно ' + result;
-  	document.getElementById('result').innerHTML += '<p color="#000000">' + result_string + '</p>\n'
-
-}
-
-function saveRoll() {
-var preset_string = '';
- //Проверяем переменные пресетов dice_arr от 0 до 5. Находим среди них первый пустой и пушим туда элементы из текущего массиво по одному 
- for (i=0; i<6; i++)
- {
- 	if (eval('dice_arr'+i).length == 0)
- 	{
- 		preset_string +=i+1+'. ';
- 		for (j=0; j<dice_array.length; j++) {
- 		eval('dice_arr'+i).push(dice_array[j]);
-		//Формирование строки, которая уйдет в пресет. Если элемент не пустой в строку добавится количество дайсов и кDice
-			if (dice_array[j]>0)
-			{
-			preset_string +=dice_array[j]+'к'+dDice[j]+' ' 
-			}	
-
- 		}
- 	document.getElementsByClassName('preset')[i].innerHTML = preset_string;
- 	json_str = JSON.stringify(dice_array);
-	createCookie('favouriteroll' + i, json_str, 365);
- 	break
- 	}
- 
-	 	 
- }
-
-
-				
-}
-
-
-
-function loadRoll(preset) {
-	//Загружаем массив и бахаем
-	dice_array = [];
-	dice_array = eval('dice_arr'+preset);
-	document.getElementById('roll').innerHTML = '';
-	//Микрокастыль для перерисования роляемых дайсов
-	addDice(0);
-	removeDice(0);
-	 roll()
-}
-function deleteRoll() {
-//Выбираем пресет для удаления и делаем -1 для соотвествия массиву.
-var preset = Number(prompt('Выберите пресет для удаления?', 1)-1);
-//Зануляем длину массива, что приводит его в виду пустого массива [];
-eval('dice_arr'+preset).length=0;
-json_str = JSON.stringify(eval('dice_arr'+preset));
-createCookie('favouriteroll' + preset, json_str, 365);
-//Прибавляем 1, чтобы нормально отрисовывалось
-document.getElementsByClassName('preset')[preset].innerHTML = (preset+1)+'. Пусто';
-}
-
-function eraseLog() {
-document.getElementById('result').innerHTML ='';
 }
 
 function pageload() {
@@ -443,45 +316,8 @@ function pageload() {
   }
 
 
-//Получения массива из куков для роллов
-for (i = 0; i < 6; i++) {
-    json_str = getCookie('favouriteroll' + i);
-	var preset_string = '';
-	preset_string +=i+1+'. ';
-	//Временная строка. Т.к. длина json_str без парса 13, а с парсом и вообще должна быть 6
-	str=JSON.parse(json_str);
-	
-	//Проверка, что в куках что-то есть.
-	if (str != "")
-	{
-		     if (i == 0) {
-			      dice_arr0 = str || [];
-			 } else if (i == 1) {
-			      dice_arr1 = str || [];
-			 } else if (i == 2) {
-			      dice_arr2 = str || [];
-			 } else if (i == 3) {
-			      dice_arr3 = str || [];
-			 } else if (i == 4) {
-			      dice_arr4 = str || [];
-			 } else if (i == 5) {
-			      dice_arr5 = str || [];
-			 }
-    //Запихиваем в соотвествующий массив то, что достали из куков
-    	for (j=0; j<str.length; j++)
-    	{	
 
-    		if (str[j]>0)
-			{
-			preset_string +=str[j]+'к'+dDice[j]+' ' 
-			}
-
-    	}
- 	document.getElementsByClassName('preset')[i].innerHTML = preset_string;
-	}
-}
-
-//Получение массива для спеллов из куков
+  //Получение массива из куков
   for (n = 0; n < 10; n++) {
     json_str = getCookie('favourite' + n);
 
@@ -524,16 +360,7 @@ if (json_str != "")
   }
   //
 
-  tmp = document.URL.split('#')
-  spell = decodeURI(tmp[1])
-  if (spell == 'undefined')
-  {
-   
-  }
-  else
-  {
-  Search(spell);
-  }
+
 
 
 }
@@ -694,14 +521,10 @@ function ChangeClass(classus) {
 
 
 
-if (classus == 'arr')
-{
-	ChangeFavourite();
-}
 
 
-else
-{
+
+
 
 
   if (classus == 'paladin' || classus == 'ranger') {
@@ -715,115 +538,16 @@ else
   } else {
 
   }
+
+
+
   class_name = classus;
   ChangeLevel(level_number);
-}
-
-}
-
-
-function ChangeFavourite()
-{
-  current_display_class.style.backgroundColor = 'orange';
-  document.getElementById('long19').style.display = 'none';
-  document.getElementById('shrt15').style.display = 'none'; 
-  //var arr10 = arr0.concat(arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9);
-  //console.log(arr10);
-  var content = '<div class="TableBody">'
-  draw_table_swipe = [];
-  draw_table = [];
-  draw_table2 = [];
-  class_name='arr';
-
-for (b = 0; b < 10; b++) {
-
-if (eval(class_name + b).length > 0)
-{
-  if (b == 0) {
-  	content += '<h4>Заговоры</h4><div class="TableRow">';
-  } 
-  else {
-  	content += '<h4>' + b + ' Круг</h4><div class="TableRow">';
-  }
-  for (i = 0; i < eval(class_name + b).length; i++) {
-    for (j = 0; j < source_check.length; j++) {
-      if (eval(class_name + b)[i].indexOf(source_check[j]) >= 0) {
-        if (draw_table[draw_table.length - 1] != eval(class_name + b)[i]) {
-          draw_table.push(eval(class_name + b)[i]);
-          draw_table_swipe.push(eval(class_name + b)[i]);
-        }
-      }
-    }
-  }
-
-
- var port = window.matchMedia('(max-device-width : 1920px)');
-  if (port.matches) {
-    var n = 3
-  } else {
-    var n = 4
-  }
-  /*Ебанутая хуйня*/
-
-
-  var rows = Math.floor(draw_table.length / n)
-  var ostatok = draw_table.length % n
-  for (i = 1; i <= ostatok; i++) {
-    draw_table2.push(draw_table[(rows + 1) * i - 1]);
-  }
-
-  for (i = 0; i < draw_table2.length; i++) {
-    draw_table.splice(draw_table.indexOf(draw_table2[i]), 1);
-  }
-
-  var k = 0
-  var l = k
-  for (i = 0; i < rows; i++) {
-
-    for (j = 0; j < n; j++) {
-      if (l < draw_table.length) {
-        content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[l] + '</div>';
-        l = l + rows
-      }
-
-    }
-    content += '</div><div class="TableRow">';
-    k = k + 1
-    var l = k
-  }
-
-  for (i = 0; i < draw_table2.length; i++) {
-    content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table2[i] + '</div>';
-  }
- var draw_table = [];
- var draw_table2 = [];
-
-
- content += '</div>';
-
-}
-}
-
-  content += '</div><div class="TableRow">';
-  /*Ебанутая хуйня*/
-
-  //Отрисовка по строкам.
-  //for(i=0; i<draw_table.length; i++){
-  //   if ((i+1) % n == 0) {
-  //  		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div></div><div class="TableRow">';
-  //  	}
-  //  	else {
-  //  		content += '<div class="TableCell2" onclick=Search(this.innerHTML) ontouch=Search(this.innerHTML)>' + draw_table[i] + '</div>';
-  //  	}
-  //}
-
-  content += '</div></div>'
-
-  document.getElementById('table').innerHTML = content
-
 
 
 }
+
+
 
 
 
@@ -933,28 +657,29 @@ function ChangeLevel(levelus) {
 
 
 
-function Search(neadle) {	
+function Search(neadle) {
 
-   html = neadle;	
-  if (html == undefined) {	
-    html = '4324326547658765';	
-  } else {}	
+  html = neadle;
+  if (html == undefined) {
+    html = '4324326547658765';
+  } else {}
 
 
 
-   for (var i = 0; i < spellname.length; i++) {	
+  for (var i = 0; i < spellname.length; i++) {
 
-     if (spellname[i].innerHTML.toUpperCase().indexOf(html.toUpperCase()) == 0) {	
-      des[i].style.display = 'block';	
-      current_display_spell = spellname[i].innerHTML	
+    if (spellname[i].innerHTML.toUpperCase().indexOf(html.toUpperCase()) == 0) {
+      des[i].style.display = 'block';
+      current_display_spell = spellname[i].innerHTML
 
-     } else {	
-      des[i].style.display = 'none';	
-    }	
-  }	
+    } else {
+      des[i].style.display = 'none';
+    }
+  }
 
-   document.getElementById('lightbox').style.display = 'block'	
+  document.getElementById('lightbox').style.display = 'block'
 }
+
 
 
 
@@ -1072,9 +797,9 @@ function SearchString() {
       // 	des[i].innerHTML=new_string;
     } else {
       if (neadlestring.length == 0) {} else {
-        if ((spellname[i].innerHTML.toUpperCase().indexOf(neadlestring.toUpperCase()) >= 0) && gacha == 1) {
+        if ((spellname[i].innerHTML.indexOf(neadlestring.toUpperCase()) >= 0) || (spellname[i].innerHTML.indexOf(neadlestring) >= 0)) {
           des[i].style.display = 'block';
-          found.push(i);
+          found.push(i)
 
 
         } else {

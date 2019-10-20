@@ -20,7 +20,7 @@
 <p><a href="Chapter09.html">Глава 9: Сражение</a></p>
 <p><i>Часть 3: Правила Магии</i></p>
 <p><a href="Chapter10.html">Глава 10: Использование Заклинаний</a></p>
-<p><a href="Chapter11gen.html">Глава 11: Заклинания. Дизигн</a></p>
+<p><a href="Chapter11gen.html">Глава 11: Дизигн</a></p>
 <p><i>Приложения</i></p>
 <p><a href="Attachment01.html">Приложение A: Состояния</a></p>
 <p><a href="Attachment02.html">Приложение Б: Боги Мультивселенной</a></p>
