@@ -353,7 +353,7 @@ function roll()
 	   		result_string += single_roll.toString()+'[d'+ dDice[i] +'] '+', ';
 	   	}
   	}
-  	result_string += ' Суммарно ' + result;
+  	result_string += ' Суммарно <span style="color:orange">' + result + '</span>';
   	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML
 roll_number++
 }
@@ -365,13 +365,13 @@ var preset_string = '';
  {
  	if (eval('dice_arr'+i).length == 0)
  	{
- 		preset_string +=' '+(i+1)+'. ';
+ 		preset_string +='<span style="color:orange">'+(i+1)+'.</span> ';
  		for (j=0; j<dice_array.length; j++) {
  		eval('dice_arr'+i).push(dice_array[j]);
 		//Формирование строки, которая уйдет в пресет. Если элемент не пустой в строку добавится количество дайсов и кDice
 			if (dice_array[j]>0)
 			{
-			preset_string +='<span style="color:orange">'+dice_array[j]+'</span>к'+dDice[j]+'   ' 
+			preset_string +=dice_array[j]+'к'+dDice[j]+'    ' 
 			}	
 
  		}
@@ -415,7 +415,7 @@ eval('dice_arr'+preset).length=0;
 json_str = JSON.stringify(eval('dice_arr'+preset));
 createCookie('favouriteroll' + preset, json_str, 365);
 //Прибавляем 1, чтобы нормально отрисовывалось
-document.getElementsByClassName('preset')[preset].innerHTML = ' '+(preset+1)+'. Пусто';
+document.getElementsByClassName('preset')[preset].innerHTML = '<span style="color:orange">'+(preset+1)+'</span>'+'. Пусто    ';
 }
 
 function eraseLog() {
