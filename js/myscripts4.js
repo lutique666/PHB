@@ -109,6 +109,9 @@ var h3 = document.getElementsByTagName('h3')
 //Вспомогательная переменная для определение уровня спелла
 var l
 
+//Переменная для вывода номера ролла в результатах
+var roll_number = 1
+
 //объявленные переменные для куков спеллов
 var arr0 = [];
 var arr1 = [];
@@ -339,7 +342,7 @@ function removeDice(dice) {
 function roll()
 {
 	var result = 0;
-	var result_string = '';
+	var result_string = roll_number + '. ';
 //В массиве записывается количество дайсов. 4-ка в нулевом элементе, 6-ка в первом и т.д.
 	for (i=0; i<dice_array.length; i++) {
 		for (j=0; j<dice_array[i]; j++) 
@@ -349,9 +352,9 @@ function roll()
 	   		result_string += single_roll.toString()+'[d'+ dDice[i] +'] '+', ';
 	   	}
   	}
-  	result_string += 'Суммарно ' + result;
-  	document.getElementById('result').innerHTML += '<p color="#000000">' + result_string + '</p>\n'
-
+  	result_string += ' Суммарно ' + result;
+  	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML
+roll_number++
 }
 
 function saveRoll() {
@@ -389,12 +392,19 @@ var preset_string = '';
 function loadRoll(preset) {
 	//Загружаем массив и бахаем
 	dice_array = [];
-	dice_array = eval('dice_arr'+preset);
+	//dDice.length - длина 6, надо бы использовать dice_array, но он зануляется. а он всегда 6, и если я таки добавлю д100
+	for (j=0; j<dDice.length; j++) {
+ 		dice_array.push(eval('dice_arr'+preset)[j]);
+ 	}
+		//Формирование строки, которая уйдет в пресет. Если элемент не пустой в строку добавится количество дайсов и кDice
+		
+
+
 	document.getElementById('roll').innerHTML = '';
 	//Микрокастыль для перерисования роляемых дайсов
 	addDice(0);
 	removeDice(0);
-	 roll()
+	roll()
 }
 function deleteRoll() {
 //Выбираем пресет для удаления и делаем -1 для соотвествия массиву.

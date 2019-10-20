@@ -31,7 +31,7 @@
 #roll {
   table-layout: fixed;
   position: relative;
-  margin: 50px auto;
+  margin: 10px auto;
   top: 1em;
   font-family: Ubunto Mono;
   font-size: 18px;
@@ -49,7 +49,7 @@ font-size: 48px;
 #preset {
   table-layout: fixed;
   position: relative;
-  margin: 50% 20%;
+  margin: 50px auto;
   top: 1em;
   font-family: Amatic SC;
   font-size: 36px;
