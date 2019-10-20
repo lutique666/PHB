@@ -1,3 +1,65 @@
+#addDicePad {
+  table-layout: fixed;
+  position: relative;
+  margin: 0 20%;
+  top: 1em;
+  font-family: Amatic SC;
+  font-size: 36px;
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+
+}
+
+
+#result
+{
+  table-layout: fixed;
+  position: relative;
+  margin: 50px auto;
+  top: 1em;
+  font-family: Ubunto Mono;
+  font-size: 18px;
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+
+}
+
+#roll {
+  table-layout: fixed;
+  position: relative;
+  margin: 50px auto;
+  top: 1em;
+  font-family: Ubunto Mono;
+  font-size: 18px;
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+
+}
+
+#roll span{
+font-size: 48px;
+}
+
+#preset {
+  table-layout: fixed;
+  position: absolute;
+  margin: 40% 20%;
+  top: 1em;
+  font-family: Amatic SC;
+  font-size: 36px;
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+
+}
+
 .search {
   flex: 0 1 auto;
   align-self: flex-start
@@ -408,6 +470,22 @@ html.with-featherlight {
   border-collapse: collapse;
   display: none
 }
+
+#buttons {
+  table-layout: fixed;
+  position: relative;
+  margin: 0 auto;
+  top: 1em;
+  font-family: Amatic SC;
+  font-size: 36px;
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+
+}
+
+
 
 @media only screen and (max-device-width: 1900px) {
   #table {

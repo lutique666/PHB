@@ -307,28 +307,33 @@ function closeSet() {
 
 function addDice(dice) {
 		dice_array[dice]+=1
-		document.getElementById('roll').innerHTML = '';
+		var pad = '<p>';
 		for (i = 0; i < dice_array.length; i++) {
 		if (dice_array[i]>0)
 			{
-			document.getElementById('roll').innerHTML += '<p><span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
+			pad += '<span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
 			}
 
 		}
+		pad += '</p>';
+		document.getElementById('roll').innerHTML = pad
 }
 
 function removeDice(dice) {
-	document.getElementById('roll').innerHTML = '';
 	//dice_array.indexOf(dice) искомый куб для удаления
 	//dice_array.splice(dice_array.indexOf(dice),1) начиная с позиции дайс эррей удалить один элемент
 	//dice_array.splice(dice_array.indexOf(dice), 1)
 	dice_array[dice]-=1
+		var pad = '<p>';
 		for (i = 0; i < dice_array.length; i++) {
 		if (dice_array[i]>0)
 			{
-			document.getElementById('roll').innerHTML += '<p><span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
+			pad += '<span>'+dice_array[i]+'</span><img onclick="removeDice('+i+')" ontouch="removeDice('+i+')" src="img/d'+dDice[i]+'.png"/>'
 			}
+
 		}
+		pad += '</p>';
+		document.getElementById('roll').innerHTML = pad
 }
 
 function roll()
@@ -356,7 +361,7 @@ var preset_string = '';
  {
  	if (eval('dice_arr'+i).length == 0)
  	{
- 		preset_string +=i+1+'. ';
+ 		preset_string +=' '+(i+1)+'. ';
  		for (j=0; j<dice_array.length; j++) {
  		eval('dice_arr'+i).push(dice_array[j]);
 		//Формирование строки, которая уйдет в пресет. Если элемент не пустой в строку добавится количество дайсов и кDice
@@ -399,7 +404,7 @@ eval('dice_arr'+preset).length=0;
 json_str = JSON.stringify(eval('dice_arr'+preset));
 createCookie('favouriteroll' + preset, json_str, 365);
 //Прибавляем 1, чтобы нормально отрисовывалось
-document.getElementsByClassName('preset')[preset].innerHTML = (preset+1)+'. Пусто';
+document.getElementsByClassName('preset')[preset].innerHTML = ' '+(preset+1)+'. Пусто';
 }
 
 function eraseLog() {

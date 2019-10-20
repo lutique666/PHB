@@ -90,27 +90,24 @@
       </div>
     </div>
 
-    <div class="diceroller" onclick=openDicePad() ontouch=openDicePad()><img width="75px" , height="75px" src="img/d20.png" /></div>
+    <div class="diceroller" onclick=openDicePad() ontouch=openDicePad()><img width="75px" , height="75px" src="img/d20icon.png" /></div>
     <div id="dicepad" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeDicePad()">&times;</a>
-      <div><img onclick="addDice(0)" ontouch="addDice(0)" src="img/d4.png" /><img onclick="addDice(1)" ontouch="addDice(1)" src="img/d6.png" /><img onclick="addDice(2)" ontouch="addDice(2)" src="img/d8.png" /><img onclick="addDice(3)" ontouch="addDice(3)" src="img/d10.png" /><img onclick="addDice(4)" ontouch="addDice(4)" src="img/d12.png" /><img onclick="addDice(5)" ontouch="addDice(5)" src="img/d20.png" /></div>
+      <div id="addDicePad"><img onclick="addDice(0)" ontouch="addDice(0)" src="img/d4.png" /><img onclick="addDice(1)" ontouch="addDice(1)" src="img/d6.png" /><img onclick="addDice(2)" ontouch="addDice(2)" src="img/d8.png" /><img onclick="addDice(3)" ontouch="addDice(3)" src="img/d10.png" /><img onclick="addDice(4)" ontouch="addDice(4)" src="img/d12.png" /><img onclick="addDice(5)" ontouch="addDice(5)" src="img/d20.png" /></div>
+
+      <div id="buttons">
+        <p style="font-size: 36px"><span onclick="roll()" ontouch="roll()">Рольнуть</span>
+        <span onclick="eraseLog()" ontouch="roll()">Очистить лог</span>
+        <span onclick="saveRoll()" ontouch="roll()">Сохранить в пресет</span>
+        <span onclick="deleteRoll()" ontouch="roll()">Удалить пресет</span></p>
+      </div>
       <div id="roll">
 
       </div>
-      <div id="buttons">
-        <p onclick="roll()" ontouch="roll()">Рольнуть</p>
-        <p onclick="eraseLog()" ontouch="roll()">Очистить лог</p>
-        <p onclick="saveRoll()" ontouch="roll()">Сохранить в пресет</p>
-        <p onclick="deleteRoll()" ontouch="roll()">Удалить пресет</p>
-      </div>
       <div id="result"></div>
       <div id="preset">
-        <p class="preset" onclick="loadRoll(0)" ontouch="loadRoll(0)">1. Пусто</p>
-        <p class="preset" onclick="loadRoll(1)" ontouch="loadRoll(0)">2. Пусто</p>
-        <p class="preset" onclick="loadRoll(2)" ontouch="loadRoll(0)">3. Пусто</p>
-        <p class="preset" onclick="loadRoll(3)" ontouch="loadRoll(0)">4. Пусто</p>
-        <p class="preset" onclick="loadRoll(4)" ontouch="loadRoll(0)">5. Пусто</p>
-        <p class="preset" onclick="loadRoll(5)" ontouch="loadRoll(0)">6. Пусто</p>
+      	<p style="font-size: 36px"><span class="preset" onclick="loadRoll(0)" ontouch="loadRoll(0)"> 1. Пусто</span><span class="preset" onclick="loadRoll(1)" ontouch="loadRoll(0)"> 2. Пусто</span><span class="preset" onclick="loadRoll(2)" ontouch="loadRoll(0)"> 3. Пусто</span></p>
+        <p style="font-size: 36px"><span class="preset" onclick="loadRoll(3)" ontouch="loadRoll(0)"> 4. Пусто</span><span class="preset" onclick="loadRoll(4)" ontouch="loadRoll(0)"> 5. Пусто</span><span class="preset" onclick="loadRoll(5)" ontouch="loadRoll(0)"> 6. Пусто</span></p>
       </div>
     </div>
 
