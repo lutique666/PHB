@@ -1,4 +1,4 @@
-﻿
+
 var level_number = '0'; //Дефолтное значение
 var class_name = 'bard'; //Дефолтное значение
 var spellname = document.getElementsByClassName('spellname');
@@ -342,10 +342,18 @@ function removeDice(dice) {
 
 function roll()
 {
+	//Переменная для количества рольнутых дайсов после суммы
+	var dice_rolled = '';
+	//Суммарный результат ролла
 	var result = 0;
+	//Результирующая строка, которая добавляется в лог
 	var result_string = roll_number + '. ';
 //В массиве записывается количество дайсов. 4-ка в нулевом элементе, 6-ка в первом и т.д.
 	for (i=0; i<dice_array.length; i++) {
+		if (dice_array[i]>0)
+		{
+			dice_rolled += dice_array[i]+'к'+dDice[i]+' ';
+		}
 		for (j=0; j<dice_array[i]; j++) 
        	{
        		single_roll = Math.floor((Math.random() * dDice[i]) + 1);	
@@ -353,9 +361,10 @@ function roll()
 	   		result_string += single_roll.toString()+'[d'+ dDice[i] +'] '+', ';
 	   	}
   	}
-  	result_string += ' Суммарно <span style="color:orange">' + result + '</span>';
+  	result_string += ' Суммарно <span style="color:orange">' + result + '</span>' + ' [' + dice_rolled + ']';
   	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML
 roll_number++
+console.log(dice_rolled)
 }
 
 function saveRoll() {
@@ -493,6 +502,7 @@ for (i = 0; i < 6; i++) {
 			}
 
     	}
+    	
  	document.getElementsByClassName('preset')[i].innerHTML = preset_string;
 	}
 }
