@@ -474,11 +474,12 @@ for (i = 0; i < 6; i++) {
 	var preset_string = '';
 	preset_string +='<span style="color:orange">'+(i+1)+'.</span> ';
 	//Временная строка. Т.к. длина json_str без парса 13, а с парсом и вообще должна быть 6
-	str=JSON.parse(json_str);
+	
 	
 	//Проверка, что в куках что-то есть.
-	if (str != "")
+	if (json_str != "")
 	{
+	str=JSON.parse(json_str);
 		     if (i == 0) {
 			      dice_arr0 = str || [];
 			 } else if (i == 1) {
