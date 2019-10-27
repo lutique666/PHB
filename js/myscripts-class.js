@@ -18,6 +18,9 @@ function closeNav() {
 
 function pageload() {
 document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
+document.getElementsByClassName('info')[2].style.display = 'block'
+document.getElementsByClassName('optionCell')[2].style.backgroundColor = 'orange'
+
 }
 
 //Верхний переключатель быстрое создание, описание, классовые умения
