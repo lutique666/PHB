@@ -4,7 +4,7 @@
   margin: 0 20%;
   top: 1em;
   font-family: Amatic SC;
-  font-size: 18px;
+  font-size: 12px;
   width: 60%;
   text-align: center;
   vertical-align: middle;
@@ -20,7 +20,7 @@
   margin: 50px auto;
   top: 1em;
   font-family: Ubunto Mono;
-  font-size: 18px;
+  font-size: 12px;
   width: 60%;
   text-align: center;
   vertical-align: middle;
@@ -34,7 +34,7 @@
   margin: 10px auto;
   top: 1em;
   font-family: Ubunto Mono;
-  font-size: 18px;
+  font-size: 12px;
   width: 60%;
   text-align: center;
   vertical-align: middle;
@@ -43,7 +43,7 @@
 }
 
 #roll span{
-font-size: 48px;
+font-size: 18px;
 }
 
 #preset {
@@ -52,7 +52,7 @@ font-size: 48px;
   margin: 50px auto;
   top: 1em;
   font-family: Amatic SC;
-  font-size: 36px;
+  font-size: 18px;
   width: 60%;
   text-align: center;
   vertical-align: middle;
