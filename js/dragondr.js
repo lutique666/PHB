@@ -1,18 +1,22 @@
 var dragon_lvl = 6;
-var str_mod = 5
+var str_mod = 5;
+var con_mod = 3;
 var mastery = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6];
 var breathdamage = [0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8];
 var bitedamage = [8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8];
 var clawdamage = [4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 10, 10, 10, 10];
 var advantage = false;
 var disadvantage = false;
-var result_d
-var result_a
-var dice_to_roll
+var result_d;
+var result_a;
+var dice_to_roll;
 var result = 0;
 var result_string_dmg ='';
 var i_adv =0;
-
+var dmg = [];
+var sum = 0;
+var dc;
+var attacktype;
 	//Переменная для количества рольнутых дайсов после суммы
 	var dice_rolled = '';
 	//Суммарный результат ролла
@@ -20,16 +24,59 @@ var i_adv =0;
 	//Результирующая строка, которая добавляется в лог
 	var result_string='';
 	var result_string_dmg = '';
-function attack(type)
-{
 
 
-console.log(type)
+function pageload() {
+
+}
+
+function breath() {
+	//Переменная для количества рольнутых дайсов после суммы
+	var dice_rolled = '';
+	//Суммарный результат ролла
+	var result = 0;
+	//Результирующая строка, которая добавляется в лог
+	var result_string='';
+	var result_string_dmg = '';	
+	for (j=0; j<breathdamage[dragon_lvl-1]; j++) 
+       	{
+       		single_roll = Math.floor((Math.random() * 10) + 1);
+	
+       		result += single_roll	
+	   		result_string_dmg += single_roll.toString()+'[d'+ 10 +'] '+', ';
+	   		dc = 8 + con_mod + mastery[dragon_lvl-1]
+	   	}
+	   	result_string += 'Я на него дышу на ' + '<span style="color:red"><b>' + result  + '</b></span> огнем. Спасбросок: ' + dc + ' по <b>Ловкости.</b> Кубы: ' + result_string_dmg 
+	   	  	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
+
+}
+
+
+function lvl(input) {
+
+	if (input == '-')
+	{
+		dragon_lvl--;
+	}
+	else
+	{
+		dragon_lvl++;
+	}
+	console.log(dragon_lvl)
+	document.getElementById('drglvl').innerHTML =  dragon_lvl
+
+}
+
+function attack(type) {
+
+
+
 	//определяем тип атаки для рассчета урона
 	if (type=='bite')
 	{
 		dice = bitedamage[dragon_lvl-1];
 		dice_to_roll=1
+		attacktype = 'Укусом'
 		if (dragon_lvl > 10)
 		{
 			dice_to_roll=2
@@ -38,6 +85,7 @@ console.log(type)
 	}
 	else
 	{
+		attacktype = 'Когтем'
 		dice_to_roll=1
 		dice = clawdamage[dragon_lvl-1];
 	}
@@ -78,7 +126,7 @@ console.log(type)
 					result_a = single_roll2a;
 				}
 			}
-	console.log(single_roll1a, single_roll2a)
+
 	}
 	else
 	{
@@ -99,73 +147,86 @@ console.log(type)
 	for (j=0; j<dice_to_roll*crit; j++) 
        	{
        		single_roll = Math.floor((Math.random() * dice) + 1);
-       		console.log(single_roll)	
+	
        		result += single_roll	
 	   		result_string_dmg += single_roll.toString()+'[d'+ dice +'] '+', ';
 	   	}
-	console.log('Урона:', result)
-	console.log(result_string)
+
 	//Результат атаки
 	result_a= result_a+str_mod+mastery[dragon_lvl-1];
 	//Результат урона
 	result=result+str_mod;
 	if (advantage==true || disadvantage==true)
 	{
-  	result_string += 'Атака ' + '<span style="color:orange">' + result_a  + ' </span>(' + single_roll1a + ', ' + single_roll2a + ') в КЛАСС БРОНИ. Урон: <span style="color:orange">' + result + '. </span>Кубы: ' + result_string_dmg 
+  	result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_roll1a + ', ' + single_roll2a + ') в КЛАСС БРОНИ. Урон: <span style="color:orange"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 
   	// +  '<span style="color:red">[' + dice_to_roll*crit + 'd' + dice + ']';
     }
     else
     {
-    result_string += 'Атака ' + '<span style="color:orange">' + result_a  + ' </span>(' + single_rolla + ') в КЛАСС БРОНИ. Урон: <span style="color:orange">' + result + '. </span>Кубы: ' + result_string_dmg 	
+    result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_rolla + ') в КЛАСС БРОНИ. Урон: <span style="color:orange"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 	
     }
     if (crit == 2)
     {
     	result_string = '<span style="color:red">И это КРИТ! Потому что Я ДРАКОН!!!111</span>' + result_string
     }
   	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
+  	dmg.push(result);
 }
 
-function athletic()
-{
+function fullattack() {
+	dmg.length = 0;
+	var sum =0;
+	attack('bite');
+	attack('claw');
+	attack('claw');
+	for (i=0; i<dmg.length;i++)
+	{
+		sum += dmg[i];
+	}
+	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>'
+	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
+	console.log(dmg);
+	dmg.length = 0;
+}
+
+function athletic() {
 result_string ='';
 single_rolla = 0;
 single_rolla = Math.floor((Math.random() * 20) + 1);
 result_a = single_rolla+str_mod+mastery[dragon_lvl-1]
-result_string += 'Проверка атлетики ' + '<span style="color:orange">' + result_a  + ' </span>(' + single_rolla + ').'
+result_string += 'Проверка атлетики ' + '<span style="color:orange"><b>' + result_a  + ' </b></span>(' + single_rolla + ').'
   	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
 }
 
-function something()
-{
+function something() {
 result_string ='';
 single_rolla = 0;
 single_rolla = Math.floor((Math.random() * 20) + 1);
-result_string += 'Проверка какого-то дерьма, модификтор которого надо смотреть на листе' + '<span style="color:orange"> ' + single_rolla  + ' </span>(' + single_rolla + ').'
+result_string += 'Проверка какого-то дерьма, модификтор которого надо смотреть на листе' + '<span style="color:orange"><b> ' + single_rolla  + ' <b></span>(' + single_rolla + ').'
   	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
 }
 
-function adv()
-{
-console.log(i_adv)
+function adv() {
+
 	if (i_adv==0)
 	{
 		advantage=true;
 		disadvantage=false;
-		document.getElementById('adv').innerHTML = 'У меня <span style="color:orange">преимущество на атаку.'
+		document.getElementById('adv').innerHTML = 'У меня <span style="color:orange">преимущество на атаку.</span>'
 		
 	}
 	else if (i_adv==1)
 	{
 		advantage=false;
 		disadvantage=true;
-		document.getElementById('adv').innerHTML = 'У меня <span style="color:orange">помеха на атаку.'
+		document.getElementById('adv').innerHTML = 'У меня <span style="color:orange">помеха на атаку.</span>'
 		
 	}
 	else if (i_adv==2)
 	{
  		advantage=false;
 		disadvantage=false;
-		document.getElementById('adv').innerHTML = 'У меня <span style="color:orange">нет преимущества на атаку.'
+		document.getElementById('adv').innerHTML = 'У меня <span style="color:orange">нет преимущества на атаку.</span>'
 		i_adv=-1
 	}
 
