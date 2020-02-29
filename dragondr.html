@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html lang="ru">
+
+  <script src="js/dragondr.js"></script>
+
+
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu Mono' rel='stylesheet'>
+
+  <link rel="stylesheet" href="css/main.min.css" />
+  <link rel="stylesheet" href="css/chapter11.min.css" />
+
+</head>
+
+<body>
+
+    <div class="title">
+      <p> ДРАКОНИЙ РОЛЛЕР </p>
+    </div>
+
+<p style="font-size: 24px"><span style="color:orange">Я</span> дракон 6 уровня</p>
+<p id="adv" style="font-size: 24px" onclick="adv()" ontouch="adv()">У меня <span style="color:orange">нет преимущества на атаку.</p>
+
+      <div id="buttons">
+        <p style="font-size: 36px"><span onclick="attack('bite')" ontouch="attack('bite')"><span style="color:orange">Я</span> кусаю ему ебало | </span>
+        <span onclick="attack('claw')" ontouch="attack('claw')"><span style="color:orange">Я</span> его когтюю | </span><span onclick="athletic()" ontouch="athletic()"><span style="color:orange">Я</span> роняю/хватаю | </span><span onclick="something()" ontouch="something()"><span style="color:orange">Я</span> прохожу какое-то дерьмо</span></p>
+<span onclick="eraseLog()" ontouch="eraseLog()"><span style="color:orange">О</span>чистить лог</span></p>
+
+
+      </p>
+      </div>
+      
+      <div id="roll">
+
+      </div>
+      
+      <div id="result"></div>
+
+    </div>
+
+</div>
+</body>
