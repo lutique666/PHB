@@ -1,9 +1,11 @@
 ﻿//Драконьи статы, которые идут в куки
 var dragon_lvl = 6;
 var str=20;
-var con=16;
 var dex=14;
-var cha=8;
+var con=16;
+var int=8;
+var wis=10;
+var cha=9;
 
 //Эти считаются при загрузке страницы
 var str_mod;
@@ -80,7 +82,9 @@ function pageload() {
   			str = JSON.parse(json_str)[1];
   			dex = JSON.parse(json_str)[2];
   			con = JSON.parse(json_str)[3];
-  			cha = JSON.parse(json_str)[4];
+  			int = JSON.parse(json_str)[4];
+  			wis = JSON.parse(json_str)[5];
+  			cha = JSON.parse(json_str)[6];
   		}
 
 lvl(0);
@@ -143,6 +147,24 @@ function lvl(input) {
 	{
 		con++;
 	}
+	 else if (input == '+int')
+	{
+		int++;
+	}
+	 else if (input == '-int')
+	{
+		int--;
+	}
+
+	 else if (input == '+wis')
+	{
+		wis++;
+	}
+	 else if (input == '-wis')
+	{
+		wis--;
+	}
+
  	else if (input == '+cha')
 	{
 		cha++;
@@ -156,7 +178,11 @@ function lvl(input) {
 str_mod = Math.floor((str-10)/2);
 dex_mod = Math.floor((dex-10)/2);
 con_mod = Math.floor((con-10)/2);
+int_mod = Math.floor((int-10)/2);
+wis_mod = Math.floor((wis-10)/2);
 cha_mod = Math.floor((cha-10)/2);
+
+
 	drmastery = mastery[dragon_lvl-1];
 	hp = (10+con_mod) + (6+con_mod)*(dragon_lvl-1);
 	ac = 10+con_mod+dex_mod+item_mod;
@@ -171,7 +197,10 @@ cha_mod = Math.floor((cha-10)/2);
 	document.getElementById('drstr').innerHTML =  str + '(+' + str_mod + ')';
 	document.getElementById('drdex').innerHTML =  dex + '(+' + dex_mod + ')';
 	document.getElementById('drcon').innerHTML =  con + '(+' + con_mod + ')';
+	document.getElementById('drint').innerHTML =  int + '(' + int_mod + ')';
+	document.getElementById('drwis').innerHTML =  wis + '(+' + wis_mod + ')';
 	document.getElementById('drcha').innerHTML =  cha + '(' + cha_mod + ')';
+
 	document.getElementById('drdc').innerHTML =  dc + '(Ловкость)';
 	document.getElementById('drfear').innerHTML =  dc_fear + '(Мудрость)';
 	document.getElementById('drglvl').innerHTML =  dragon_lvl;
@@ -228,7 +257,7 @@ cha_mod = Math.floor((cha-10)/2);
 		document.getElementById('dragontail').style.display = 'none';
 	}
   cookie.length=0
-  cookie.push(dragon_lvl, str, dex, con, cha)
+  cookie.push(dragon_lvl, str, dex, con, int, wis, cha)
   console.log(cookie)
   json_str = JSON.stringify(cookie);
   createCookie('stored', json_str, 365);
