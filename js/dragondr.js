@@ -59,7 +59,10 @@ function pageload() {
  document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
   json_str = getCookie('stored');
   if ((json_str == undefined) || (json_str == "")) {
-  	for (i=0; i<stored.length;i++){
+  	
+      } 
+  else {
+  for (i=0; i<stored.length;i++){
   		if (i == 0)
   		{
   			dragon_lvl = JSON.parse(json_str);
@@ -81,10 +84,6 @@ function pageload() {
   			cha = JSON.parse(dex);
   		}
   	}
-
-      } 
-  else {
-  
   }
 lvl(0);
 
@@ -306,7 +305,7 @@ attackres.push(result_a)
 }
 
 else {
-	result_string += 'Атака ' + attacktype + 'промахнулась ' + '<span style="color:orange"><b>(' 
+	result_string += 'Атака ' + attacktype + ' промахнулась ' + '<span style="color:orange"><b>(' 
 		if (advantage==true || disadvantage==true) 
 		{
 				result_string += single_roll1a + ', ' + single_roll2a + '</b></span>) на кубах'
