@@ -67,7 +67,7 @@ function closeNav() {
 
 function pageload() {
  document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
-  json_str = getCookie(stored);
+  json_str = getCookie('stored');
   if ((json_str == undefined) || (json_str == "")) {
   	
   } 
