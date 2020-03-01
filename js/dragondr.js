@@ -1,4 +1,4 @@
-//Драконьи статы, которые идут в куки
+﻿//Драконьи статы, которые идут в куки
 var dragon_lvl = 6;
 var str=20;
 var con=16;
@@ -181,7 +181,7 @@ cha_mod = Math.floor((cha-10)/2);
   console.log(cookie)
   json_str = JSON.stringify(cookie);
   createCookie(stored, json_str, 365);
-  cookie.length=0
+
 }
 
 function attack(type) {
