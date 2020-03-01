@@ -88,11 +88,11 @@ function pageload() {
   			int = JSON.parse(json_str)[4];
   			wis = JSON.parse(json_str)[5];
   			cha = JSON.parse(json_str)[6];
-  			xp = JSON.parse(json_str)[7];
+  			drxp = JSON.parse(json_str)[7];
   		}
 
 lvl(0);
-
+document.getElementById('drgxp').innerHTML =  drxp;
 }
 
 function changexp()
