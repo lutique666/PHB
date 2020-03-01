@@ -1,6 +1,8 @@
 var dragon_lvl = 6;
 var str_mod = 5;
 var con_mod = 3;
+var dex_mod = 2;
+var item_mod = 2;
 var mastery = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6];
 var breathdamage = [0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8];
 var bitedamage = [8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8];
@@ -17,6 +19,8 @@ var dmg = [];
 var sum = 0;
 var dc;
 var attacktype;
+var ac = 0;
+var hp = 0;
 	//Переменная для количества рольнутых дайсов после суммы
 	var dice_rolled = '';
 	//Суммарный результат ролла
@@ -26,8 +30,16 @@ var attacktype;
 	var result_string_dmg = '';
 
 
-function pageload() {
+function openNav() {
+  document.getElementById("navigation").style.width = "100%";
+}
 
+function closeNav() {
+  document.getElementById("navigation").style.width = "0%";
+}
+
+function pageload() {
+ document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
 }
 
 function breath() {
@@ -63,7 +75,13 @@ function lvl(input) {
 		dragon_lvl++;
 	}
 	console.log(dragon_lvl)
+
+	hp = (10+con_mod) + (6+con_mod)*(dragon_lvl-1);
+	ac = 10+con_mod+dex_mod+item_mod;
+
 	document.getElementById('drglvl').innerHTML =  dragon_lvl
+	document.getElementById('drghp').innerHTML =  hp
+	document.getElementById('drgac').innerHTML =  ac
 
 }
 
@@ -139,11 +157,16 @@ function attack(type) {
 	{
 		crit=2
 	}
+	else if (result_a==1)
+	{
+		crit = 0
+	}
 	else
 	{
 		crit=1
 	}
 //Дайс ту ролл определяется в атаке, при крите количество удавивается
+if (crit>0) {
 	for (j=0; j<dice_to_roll*crit; j++) 
        	{
        		single_roll = Math.floor((Math.random() * dice) + 1);
@@ -151,6 +174,7 @@ function attack(type) {
        		result += single_roll	
 	   		result_string_dmg += single_roll.toString()+'[d'+ dice +'] '+', ';
 	   	}
+
 
 	//Результат атаки
 	result_a= result_a+str_mod+mastery[dragon_lvl-1];
@@ -165,12 +189,31 @@ function attack(type) {
     {
     result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_rolla + ') в КЛАСС БРОНИ. Урон: <span style="color:orange"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 	
     }
+
     if (crit == 2)
     {
     	result_string = '<span style="color:red">И это КРИТ! Потому что Я ДРАКОН!!!111</span>' + result_string
     }
-  	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
+
+
   	dmg.push(result);
+}
+
+else {
+	result_string += 'Атака промахнулась ' + '<span style="color:orange"><b>(' 
+		if (advantage==true || disadvantage==true) 
+		{
+				result_string += single_roll1a + ', ' + single_roll2a + '</b></span>) на кубах'
+		}
+		else
+		{
+				result_string += single_rolla + '</b></span>) на кубе'
+		}
+	dmg.push(0);
+}
+
+  	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
+
 }
 
 function fullattack() {

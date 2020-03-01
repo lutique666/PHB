@@ -2,7 +2,7 @@
 <html lang="ru">
   <title>ДРАКОНИЙ РОЛЛЕР</title>
   <script src="js/dragondr.js"></script>
-
+  <script src="js/content-page.js"></script>
 
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
@@ -14,13 +14,31 @@
 </head>
 
 
-<body style="background: black; color: white">
+<body onload="pageload()" style="background: black; color: white">
+ <div id="headTable">
+
+    <div class="menu">
+      <div id="navigation" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+
+        </div>
+
+      </div>
+
+      <span onclick="openNav()"><img src="img/mapP-blacked.png" /></span>
+    </div>
+
 
     <div class="title">
       <p> ДРАКОНИЙ РОЛЛЕР </p>
     </div>
+
+       </div>
 <div style="margin-left: 5%">
-<p style="font-size: 24px"><span style="color:orange">Я</span> дракон <img  onclick="lvl('-')" src="img/-.png" /><span id=drglvl>6</span><img  onclick="lvl('+')"  src="img/+.png" /> уровня.</p>
+<p style="font-size: 24px"><span style="color:orange">Я</span> дракон <img  onclick="lvl('-')" src="img/-.png" /><span id=drglvl>6</span><img  onclick="lvl('+')"  src="img/+.png" /> уровня. У меня <span style="color:red" id=drghp>58</span> ХП и <span style="color:blue" id=drgac>17</span> КЛАСС БРОНИ (AC)</p>
 <p id="adv" style="font-size: 24px" onclick="adv()" ontouch="adv()">У меня <span style="color:orange">нет преимущества на атаку.</span></p>
 </div>
       <div id="buttons">
