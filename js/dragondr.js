@@ -186,7 +186,7 @@ cha_mod = Math.floor((cha-10)/2);
   cookie.push(dragon_lvl, str, dex, con, cha)
   console.log(cookie)
   json_str = JSON.stringify(cookie);
-  createCookie('stored', json_str, 365);
+  createCookie(stored, json_str, 365);
   cookie.length=0
 }
 
