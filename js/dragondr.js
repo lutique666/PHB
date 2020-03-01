@@ -1,7 +1,13 @@
+
 var dragon_lvl = 6;
-var str_mod = 5;
-var con_mod = 3;
-var dex_mod = 2;
+var str=20;
+var con=16;
+var dex=14;
+var cha=8;
+var str_mod;
+var con_mod;
+var dex_mod;
+var cha_mod;
 var item_mod = 2;
 var mastery = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6];
 var breathdamage = [0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8];
@@ -14,13 +20,24 @@ var result_a;
 var dice_to_roll;
 var result = 0;
 var result_string_dmg ='';
+//Отображаемый бонус мастерства
 var i_adv =0;
+var drmastery
+//Переменная для хранения результатов ролла
+var attackres =[];
+//Переменная для хранения результатов урона
 var dmg = [];
+//Суммарный урон с 3-х атак (при 100% попадании)
 var sum = 0;
+//Предсказываемый урон при промахе менее 5
+var prediction=0;
 var dc;
+var dc_fear;
 var attacktype;
 var ac = 0;
 var hp = 0;
+var cookie = [];
+
 	//Переменная для количества рольнутых дайсов после суммы
 	var dice_rolled = '';
 	//Суммарный результат ролла
@@ -40,6 +57,37 @@ function closeNav() {
 
 function pageload() {
  document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
+  json_str = getCookie('stored');
+  if ((json_str == undefined) || (json_str == "")) {
+  	for (i=0; i<stored.length;i++){
+  		if (i == 0)
+  		{
+  			dragon_lvl = JSON.parse(json_str);
+  		}
+  		else if (i = 1)
+  		{
+  			str = JSON.parse(json_str);
+  		}
+  		else if (i = 2)
+  		{
+  			dex = JSON.parse(dex);
+  		}
+  		else if (i = 3)
+  		{
+  			con = JSON.parse(dex);
+  		}
+  		else if (i = 4)
+  		{
+  			cha = JSON.parse(dex);
+  		}
+  	}
+
+      } 
+  else {
+  
+  }
+lvl(0);
+
 }
 
 function breath() {
@@ -54,11 +102,11 @@ function breath() {
        	{
        		single_roll = Math.floor((Math.random() * 10) + 1);
 	
-       		result += single_roll	
+       		result += single_roll;
 	   		result_string_dmg += single_roll.toString()+'[d'+ 10 +'] '+', ';
-	   		dc = 8 + con_mod + mastery[dragon_lvl-1]
+	   		
 	   	}
-	   	result_string += 'Я на него дышу на ' + '<span style="color:red"><b>' + result  + '</b></span> огнем. Спасбросок: ' + dc + ' по <b>Ловкости.</b> Кубы: ' + result_string_dmg 
+	   	result_string += 'Я на него дышу на ' + '<span style="color:red"><b>' + result  + ' огнем.</b></span> Спасбросок:<span style="color:red"><b> ' +  dc + '(Ловкость)</b></span>. Кубы: ' + result_string_dmg 
 	   	  	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
 
 }
@@ -70,19 +118,77 @@ function lvl(input) {
 	{
 		dragon_lvl--;
 	}
-	else
+	else if (input == '+')
 	{
 		dragon_lvl++;
 	}
-	console.log(dragon_lvl)
+	else if (input == '-str')
+	{
+		str--;
+	}
+	else if (input == '+str')
+	{
+		str++;
+	}
+	else if (input == '-dex')
+	{
+		dex--;
+	}
+	else if (input == '+dex')
+	{
+		dex++;
+	}
+	else if (input == '-con')
+	{
+		con--;
+	}
+	else if (input == '+con')
+	{
+		con++;
+	}
+ 	else if (input == '+cha')
+	{
+		cha++;
+	}
+	 else if (input == '-cha')
+	{
+		cha--;
+	}
 
+	console.log(dragon_lvl)
+str_mod = Math.floor((str-10)/2);
+dex_mod = Math.floor((dex-10)/2);
+con_mod = Math.floor((con-10)/2);
+cha_mod = Math.floor((cha-10)/2);
+	drmastery = mastery[dragon_lvl-1];
 	hp = (10+con_mod) + (6+con_mod)*(dragon_lvl-1);
 	ac = 10+con_mod+dex_mod+item_mod;
+ 	dc = 8 + con_mod + mastery[dragon_lvl-1];
+ 	dc_fear = 8 + cha_mod + mastery[dragon_lvl-1];
+	document.getElementById('drstr').innerHTML =  str + '(+' + str_mod + ')';
+	document.getElementById('drdex').innerHTML =  dex + '(+' + dex_mod + ')';
+	document.getElementById('drcon').innerHTML =  con + '(+' + con_mod + ')';
+	document.getElementById('drcha').innerHTML =  cha + '(' + cha_mod + ')';
+	document.getElementById('drdc').innerHTML =  dc + '(Ловкость)';
+	document.getElementById('drfear').innerHTML =  dc_fear + '(Мудрость)';
+	document.getElementById('drglvl').innerHTML =  dragon_lvl;
+	document.getElementById('drgmastery').innerHTML =  '+' + drmastery;
+	document.getElementById('drghp').innerHTML =  hp;
+	document.getElementById('drgac').innerHTML =  ac;
+	if (dragon_lvl>=7)
+	{
+		document.getElementById('fear').style.display = 'block';
+	}
+	else
+	{
+		document.getElementById('fear').style.display = 'none';
+	}
 
-	document.getElementById('drglvl').innerHTML =  dragon_lvl
-	document.getElementById('drghp').innerHTML =  hp
-	document.getElementById('drgac').innerHTML =  ac
-
+  cookie.push(dragon_lvl, str, dex, con, cha)
+  console.log(cookie)
+  json_str = JSON.stringify(cookie);
+  createCookie('stored', json_str, 365);
+  cookie.length=0
 }
 
 function attack(type) {
@@ -174,7 +280,7 @@ if (crit>0) {
        		result += single_roll	
 	   		result_string_dmg += single_roll.toString()+'[d'+ dice +'] '+', ';
 	   	}
-
+attackres.push(result_a)
 
 	//Результат атаки
 	result_a= result_a+str_mod+mastery[dragon_lvl-1];
@@ -200,7 +306,7 @@ if (crit>0) {
 }
 
 else {
-	result_string += 'Атака промахнулась ' + '<span style="color:orange"><b>(' 
+	result_string += 'Атака ' + attacktype + 'промахнулась ' + '<span style="color:orange"><b>(' 
 		if (advantage==true || disadvantage==true) 
 		{
 				result_string += single_roll1a + ', ' + single_roll2a + '</b></span>) на кубах'
@@ -218,18 +324,38 @@ else {
 
 function fullattack() {
 	dmg.length = 0;
-	var sum =0;
+	attackres.length = 0;
+	sum =0;
+	prediction=0;
 	attack('bite');
 	attack('claw');
 	attack('claw');
+	console.log(attackres)
 	for (i=0; i<dmg.length;i++)
 	{
 		sum += dmg[i];
+		if (attackres[i] > 5)
+		{
+			prediction+=dmg[i];
+		}
+		else
+		{
+
+		}
 	}
-	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>'
+	if (sum != prediction)
+	{
+	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>. При бросках атаки 5(d20) или менее, суммарно урона:<span style="color:red"><b> ' + prediction + '</b></span>.'
+	}
+	else
+	{
+	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>.'	
+	}
 	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
 	console.log(dmg);
+	console.log(attackres)
 	dmg.length = 0;
+	attackres.length = 0;
 }
 
 function athletic() {
@@ -237,7 +363,7 @@ result_string ='';
 single_rolla = 0;
 single_rolla = Math.floor((Math.random() * 20) + 1);
 result_a = single_rolla+str_mod+mastery[dragon_lvl-1]
-result_string += 'Проверка атлетики ' + '<span style="color:orange"><b>' + result_a  + ' </b></span>(' + single_rolla + ').'
+result_string += 'Проверка <b>Атлетики</b> ' + '<span style="color:orange"><b>' + result_a  + ' </b></span>(' + single_rolla + ').'
   	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
 }
 
@@ -278,4 +404,35 @@ i_adv+=1
 
 function eraseLog() {
 document.getElementById('result').innerHTML ='';
+}
+
+
+
+//Функция создания печенек
+function createCookie(name, value, days) {
+  var expires;
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+  } else {
+    expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+//Функция получения печенек
+function getCookie(c_name) {
+  if (document.cookie.length > 0) {
+    c_start = document.cookie.indexOf(c_name + "=");
+    if (c_start != -1) {
+      c_start = c_start + c_name.length + 1;
+      c_end = document.cookie.indexOf(";", c_start);
+      if (c_end == -1) {
+        c_end = document.cookie.length;
+      }
+      return unescape(document.cookie.substring(c_start, c_end));
+    }
+  }
+  return "";
 }
