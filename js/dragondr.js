@@ -1,18 +1,26 @@
-
+//Драконьи статы, которые идут в куки
 var dragon_lvl = 6;
 var str=20;
 var con=16;
 var dex=14;
 var cha=8;
+
+//Эти считаются при загрузке страницы
 var str_mod;
 var con_mod;
 var dex_mod;
 var cha_mod;
+//Бонус мастерства
+var drmastery
+//Это мод для АЦ
 var item_mod = 2;
+
+//Это таблички для вычисления урона и бонуса мастерстваа в зависимости от лвла
 var mastery = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6];
 var breathdamage = [0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8];
 var bitedamage = [8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8];
 var clawdamage = [4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 10, 10, 10, 10];
+
 var advantage = false;
 var disadvantage = false;
 var result_d;
@@ -22,7 +30,7 @@ var result = 0;
 var result_string_dmg ='';
 //Отображаемый бонус мастерства
 var i_adv =0;
-var drmastery
+
 //Переменная для хранения результатов ролла
 var attackres =[];
 //Переменная для хранения результатов урона
@@ -37,6 +45,7 @@ var attacktype;
 var ac = 0;
 var hp = 0;
 var cookie = [];
+var stored;
 
 	//Переменная для количества рольнутых дайсов после суммы
 	var dice_rolled = '';
