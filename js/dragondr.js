@@ -82,6 +82,7 @@ function pageload() {
   			str = JSON.parse(json_str)[1];
   			dex = JSON.parse(json_str)[2];
   			con = JSON.parse(json_str)[3];
+  			
   			int = JSON.parse(json_str)[4];
   			wis = JSON.parse(json_str)[5];
   			cha = JSON.parse(json_str)[6];
