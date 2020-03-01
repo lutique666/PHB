@@ -98,18 +98,24 @@ lvl(0);
 function xp()
 {
 var xp  =window.prompt("Сколько экспы дали?")
-drxp+=Number(xp)
-document.getElementById('drgxp').innerHTML =  drxp;
- if (drxp >= xptable[dragon_lvl])
- {
- 	document.getElementById('newlvl').style.display='block';
- }
+	if (isNaN(xp)) {
+	alert("Ты втираешь мне какую-то дичь");
+	}
 
-  cookie.length=0
-  cookie.push(dragon_lvl, str, dex, con, int, wis, cha, drxp)
+	else {
+		drxp+=Number(xp);
+		document.getElementById('drgxp').innerHTML =  drxp;
+ 		if (drxp >= xptable[dragon_lvl]) {
+ 			document.getElementById('newlvl').style.display='block';
+ 		}
 
-  json_str = JSON.stringify(cookie);
-  createCookie('stored', json_str, 365);
+  	 cookie.length=0
+  	 cookie.push(dragon_lvl, str, dex, con, int, wis, cha, drxp)
+	 json_str = JSON.stringify(cookie);
+     createCookie('stored', json_str, 365);
+	
+	}
+
 }
 
 
