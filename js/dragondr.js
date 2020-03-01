@@ -6,6 +6,7 @@ var con=16;
 var int=8;
 var wis=10;
 var cha=9;
+var drxp = 16725;
 
 //Эти считаются при загрузке страницы
 var str_mod;
@@ -22,6 +23,7 @@ var mastery = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6];
 var breathdamage = [0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8];
 var bitedamage = [8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8];
 var clawdamage = [4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 10, 10, 10, 10];
+var xptable =[0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000]
 
 var advantage = false;
 var disadvantage = false;
@@ -86,11 +88,30 @@ function pageload() {
   			int = JSON.parse(json_str)[4];
   			wis = JSON.parse(json_str)[5];
   			cha = JSON.parse(json_str)[6];
+  			xp = JSON.parse(json_str)[7];
   		}
 
 lvl(0);
 
 }
+
+function xp()
+{
+var xp  =window.prompt("Сколько экспы дали?")
+drxp+=Number(xp)
+document.getElementById('drgxp').innerHTML =  drxp;
+ if (drxp >= xptable[dragon_lvl])
+ {
+ 	document.getElementById('newlvl').style.display='block';
+ }
+
+  cookie.length=0
+  cookie.push(dragon_lvl, str, dex, con, int, wis, cha, drxp)
+
+  json_str = JSON.stringify(cookie);
+  createCookie('stored', json_str, 365);
+}
+
 
 function breath() {
 	//Переменная для количества рольнутых дайсов после суммы
@@ -175,7 +196,7 @@ function lvl(input) {
 		cha--;
 	}
 
-	console.log(dragon_lvl)
+
 str_mod = Math.floor((str-10)/2);
 dex_mod = Math.floor((dex-10)/2);
 con_mod = Math.floor((con-10)/2);
@@ -212,7 +233,7 @@ cha_mod = Math.floor((cha-10)/2);
 	document.getElementById('drvigor').innerHTML = vigor;
 	document.getElementById('drspeed').innerHTML =  drgspeed;
 	document.getElementById('drtail').innerHTML =  dctail;
-
+document.getElementById('drgxp').innerHTML =  drxp;
 	if (dragon_lvl>=7)
 	{
 		document.getElementById('fear').style.display = 'block';
@@ -257,9 +278,18 @@ cha_mod = Math.floor((cha-10)/2);
 	{
 		document.getElementById('dragontail').style.display = 'none';
 	}
+
+ if (drxp >= xptable[dragon_lvl])
+ {
+ 	document.getElementById('newlvl').style.display='block';
+ }
+ else
+ {
+ 	document.getElementById('newlvl').style.display='none';
+ }
   cookie.length=0
-  cookie.push(dragon_lvl, str, dex, con, int, wis, cha)
-  console.log(cookie)
+  cookie.push(dragon_lvl, str, dex, con, int, wis, cha, drxp)
+ 
   json_str = JSON.stringify(cookie);
   createCookie('stored', json_str, 365);
 
@@ -404,7 +434,7 @@ function fullattack() {
 	attack('bite');
 	attack('claw');
 	attack('claw');
-	console.log(attackres)
+
 	for (i=0; i<dmg.length;i++)
 	{
 		sum += dmg[i];
@@ -426,8 +456,7 @@ function fullattack() {
 	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>.'	
 	}
 	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
-	console.log(dmg);
-	console.log(attackres)
+
 	dmg.length = 0;
 	attackres.length = 0;
 }
