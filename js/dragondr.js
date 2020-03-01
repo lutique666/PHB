@@ -44,6 +44,9 @@ var dc_fear;
 var attacktype;
 var ac = 0;
 var hp = 0;
+var vigor;
+var drgspeed;
+var dctail;
 var cookie = [];
 //Походу нахуй не нужна
 var stored;
@@ -159,6 +162,12 @@ cha_mod = Math.floor((cha-10)/2);
 	ac = 10+con_mod+dex_mod+item_mod;
  	dc = 8 + con_mod + mastery[dragon_lvl-1];
  	dc_fear = 8 + cha_mod + mastery[dragon_lvl-1];
+
+ vigor=dragon_lvl+con_mod;
+ drgspeed=mastery[dragon_lvl-1]*10;
+ dctail=8+str_mod+mastery[dragon_lvl-1];
+
+
 	document.getElementById('drstr').innerHTML =  str + '(+' + str_mod + ')';
 	document.getElementById('drdex').innerHTML =  dex + '(+' + dex_mod + ')';
 	document.getElementById('drcon').innerHTML =  con + '(+' + con_mod + ')';
@@ -169,6 +178,11 @@ cha_mod = Math.floor((cha-10)/2);
 	document.getElementById('drgmastery').innerHTML =  '+' + drmastery;
 	document.getElementById('drghp').innerHTML =  hp;
 	document.getElementById('drgac').innerHTML =  ac;
+
+	document.getElementById('drvigor').innerHTML = vigor;
+	document.getElementById('drspeed').innerHTML =  drgspeed;
+	document.getElementById('drtail').innerHTML =  dctail;
+
 	if (dragon_lvl>=7)
 	{
 		document.getElementById('fear').style.display = 'block';
@@ -176,6 +190,42 @@ cha_mod = Math.floor((cha-10)/2);
 	else
 	{
 		document.getElementById('fear').style.display = 'none';
+	}
+
+	if (dragon_lvl>=9)
+	{
+		document.getElementById('advbreath').style.display = 'block';
+	}
+	else
+	{
+		document.getElementById('advbreath').style.display = 'none';
+	}
+
+	if (dragon_lvl>=10)
+	{
+		document.getElementById('dragonvigor').style.display = 'block';
+	}
+	else
+	{
+		document.getElementById('dragonvigor').style.display = 'none';
+	}
+
+	if (dragon_lvl>=11)
+	{
+		document.getElementById('dragonsize').style.display = 'block';
+	}
+	else
+	{
+		document.getElementById('dragonsize').style.display = 'none';
+	}
+
+	if (dragon_lvl>=13)
+	{
+		document.getElementById('dragontail').style.display = 'block';
+	}
+	else
+	{
+		document.getElementById('dragontail').style.display = 'none';
 	}
   cookie.length=0
   cookie.push(dragon_lvl, str, dex, con, cha)
