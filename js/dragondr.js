@@ -182,7 +182,7 @@ cha_mod = Math.floor((cha-10)/2);
 	{
 		document.getElementById('fear').style.display = 'none';
 	}
-
+  cookie.length=0
   cookie.push(dragon_lvl, str, dex, con, cha)
   console.log(cookie)
   json_str = JSON.stringify(cookie);
