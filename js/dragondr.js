@@ -381,6 +381,8 @@ function attack(type) {
 	{
 		crit=1
 	}
+attackres.push(result_a)
+
 //Дайс ту ролл определяется в атаке, при крите количество удавивается
 if (crit>0) {
 	for (j=0; j<dice_to_roll*crit; j++) 
@@ -390,7 +392,7 @@ if (crit>0) {
        		result += single_roll	
 	   		result_string_dmg += single_roll.toString()+'[d'+ dice +'] '+', ';
 	   	}
-attackres.push(result_a)
+
 
 	//Результат атаки
 	result_a= result_a+str_mod+mastery[dragon_lvl-1];
