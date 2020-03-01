@@ -67,21 +67,21 @@ function pageload() {
   		{
   			dragon_lvl = JSON.parse(json_str);
   		}
-  		else if (i = 1)
+  		else if (i == 1)
   		{
   			str = JSON.parse(json_str);
   		}
-  		else if (i = 2)
+  		else if (i == 2)
   		{
-  			dex = JSON.parse(dex);
+  			dex = JSON.parse(json_str);
   		}
-  		else if (i = 3)
+  		else if (i == 3)
   		{
-  			con = JSON.parse(dex);
+  			con = JSON.parse(json_str);
   		}
-  		else if (i = 4)
+  		else if (i == 4)
   		{
-  			cha = JSON.parse(dex);
+  			cha = JSON.parse(json_str);
   		}
   	}
   }
