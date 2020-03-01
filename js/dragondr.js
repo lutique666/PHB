@@ -45,6 +45,7 @@ var attacktype;
 var ac = 0;
 var hp = 0;
 var cookie = [];
+//Походу нахуй не нужна
 var stored;
 
 	//Переменная для количества рольнутых дайсов после суммы
@@ -66,7 +67,7 @@ function closeNav() {
 
 function pageload() {
  document.getElementsByClassName('overlay-content')[0].innerHTML = table_of_contents;
-  json_str = getCookie('stored');
+  json_str = getCookie(stored);
   if ((json_str == undefined) || (json_str == "")) {
   	
   } 
@@ -180,7 +181,7 @@ cha_mod = Math.floor((cha-10)/2);
   cookie.push(dragon_lvl, str, dex, con, cha)
   console.log(cookie)
   json_str = JSON.stringify(cookie);
-  createCookie(stored, json_str, 365);
+  createCookie('stored', json_str, 365);
 
 }
 
