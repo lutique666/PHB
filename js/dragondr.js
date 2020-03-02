@@ -410,7 +410,7 @@ if (crit>0) {
 
     if (crit == 2)
     {
-    	result_string = '<span style="color:red">Крит!</span>' + result_string
+    	result_string = '<span style="color:red">Крит! </span>' + result_string
     }
 
 
