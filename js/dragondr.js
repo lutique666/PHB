@@ -229,8 +229,8 @@ cha_mod = Math.floor((cha-10)/2);
 	document.getElementById('drwis').innerHTML =  wis + '(+' + wis_mod + ')';
 	document.getElementById('drcha').innerHTML =  cha + '(' + cha_mod + ')';
 
-	document.getElementById('drdc').innerHTML =  dc + '(Ловкость)';
-	document.getElementById('drfear').innerHTML =  dc_fear + '(Мудрость)';
+	//document.getElementById('drdc').innerHTML =  dc + '(Ловкость)';
+	document.getElementById('drfear').innerHTML =  dc_fear + ' (Мудрость)';
 	document.getElementById('drglvl').innerHTML =  dragon_lvl;
 	document.getElementById('drgmastery').innerHTML =  '+' + drmastery;
 	document.getElementById('drghp').innerHTML =  hp;
@@ -400,17 +400,17 @@ if (crit>0) {
 	result=result+str_mod;
 	if (advantage==true || disadvantage==true)
 	{
-  	result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_roll1a + ', ' + single_roll2a + ') в КЛАСС БРОНИ. Урон: <span style="color:orange"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 
+  	result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_roll1a + ', ' + single_roll2a + ') в АЦ. Урон: <span style="color:red"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 
   	// +  '<span style="color:red">[' + dice_to_roll*crit + 'd' + dice + ']';
     }
     else
     {
-    result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_rolla + ') в КЛАСС БРОНИ. Урон: <span style="color:orange"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 	
+    result_string += 'Атака ' + attacktype + '<span style="color:orange"><b> ' + result_a  + ' </b></span>(' + single_rolla + ') в АЦ. Урон: <span style="color:red"><b>' + result + '. </b></span>Кубы: ' + result_string_dmg 	
     }
 
     if (crit == 2)
     {
-    	result_string = '<span style="color:red">И это КРИТ! Потому что Я ДРАКОН!!!111</span>' + result_string
+    	result_string = '<span style="color:red">Крит!</span>' + result_string
     }
 
 
@@ -435,33 +435,57 @@ else {
 }
 
 function fullattack() {
+	var miss =[];
 	dmg.length = 0;
 	attackres.length = 0;
 	sum =0;
 	prediction=0;
+	var prediction_a='';
 	attack('bite');
 	attack('claw');
 	attack('claw');
 
-	for (i=0; i<dmg.length;i++)
+	for (i=0; i<dmg.length; i++)
 	{
 		sum += dmg[i];
 		if (attackres[i] > 5)
 		{
 			prediction+=dmg[i];
+			
+
 		}
 		else
 		{
+			if (attackres[i]>1)
+			{
+			var tmp = attackres[i]+str_mod+drmastery;
+			miss.push(tmp)
+			}
 
 		}
 	}
+
+		if (miss.length==1)
+		{
+		prediction_a+=miss[0];
+		}
+		else if (miss.length==2)
+		{
+		prediction_a+=miss[0]+', '+ miss[1];
+		}
+		else if (miss.length==3)
+		{
+		prediction_a+=miss[0]+', '+ miss[1] + ' и ' + miss[2];
+		}
+	
+
 	if (sum != prediction)
 	{
-	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>. При бросках атаки 5(d20) или менее, суммарно урона:<span style="color:red"><b> ' + prediction + '</b></span>.'
+	result_string = 'При промахе в <span style="color:orange"><b>' + prediction_a + ' </b></span>АЦ, суммарно урона:<span style="color:red"><b> ' + prediction + '</b></span>. При полном попадании урон <span style="color:red"><b>' + sum + '</b></span>.'
 	}
 	else
 	{
-	result_string = 'Суммарный урон с 3-х атак <span style="color:red"><b>' + sum + '</b></span>.'	
+	result_string = 'При полном попадании урон <span style="color:red"><b>' + sum + '</b></span>.'	
 	}
 	document.getElementById('result').innerHTML = '<p color="#000000">' + result_string + '</p>\n' + document.getElementById('result').innerHTML;
 
