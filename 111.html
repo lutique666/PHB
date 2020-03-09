@@ -1,0 +1,108 @@
+<html>
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бестиарий</title>
+
+
+
+
+  <script src="js/bestiaryjs.js"></script>
+  <script src="js/content-page.js"></script>
+  <script src="data/bestiary.js" ></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu Mono' rel='stylesheet'>
+
+  <link rel="stylesheet" href="css/main.min.css" />
+  <link rel="stylesheet" href="css/chapter11.min.css" />
+
+  <script>
+    window.onkeyup = function(event) {
+      if (event.keyCode == 27)
+        document.getElementById('lightbox').style.display = "none";
+    }
+  </script>
+
+</head>
+
+<body>
+<body onload="pageload()">
+
+  <div id="headTable">
+
+    <div class="menu">
+      <div id="navigation" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+
+        </div>
+
+      </div>
+
+      <span onclick="openNav()"><img src="img/mapP.png" /></span>
+    </div>
+
+    <div class="title">
+      <p> Бестиарий </p>
+    </div>
+
+
+
+<script type="text/css">
+#inputform {
+    position: relative;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    font-family: Ubuntu Mono;
+    display: block;
+}
+ul
+{
+display: flex; 
+}
+
+li.span
+{
+	display:inline-block;
+}
+
+li
+{
+
+display:inline-block;
+
+}
+</script>
+
+  <div id="inputform" style="display: block;">
+    <form onsubmit="SearchString(); return false;">
+
+
+      <div>
+        <p><input size="50" type="search" id="neadlestring" placeholder="Air Elemental" /><input type="button" value="Найти" onclick="SearchString()" ontouch="SearchString()" /></p>
+      </div>
+
+
+     
+
+  
+
+
+
+
+        <div id="table" style="display: table"></div>
+        <p></p>
+  </div>
+  
+
+</body>
+</html>
+
