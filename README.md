@@ -4,7 +4,8 @@
 <p>В работе использованы переводы:</p>
 <p>1) Вся "Книга Игрока" Студия фэнтези «PHantom». https://vk.com/phantom_st http://phantom-studio.ru/</p>
 <p>2) Все материалы из "Руководства Ксанатара по Всему" https://vk.com/dungeons_ru https://www.dungeonsanddragons.ru/</p>
-<p>3) Переводы заклинаний из других источников: Айвендил (https://vk.com/ayvendil) и еще куча людей, которых я добавлю позже.</p>
+<p>3) Все материалы из "Котел Таши со Всякой Всячиной" https://vk.com/dungeons_ru https://www.dungeonsanddragons.ru/</p>
+<p>4) Переводы заклинаний из других источников: Айвендил (https://vk.com/ayvendil) и еще куча людей, которых я добавлю позже.</p>
 <p> P.S. Спасибо Qpheliax за ДИЗИГН и красивые иконки.</p>
 <p><a href="Chapter00.html">Введение</a></p>
 <p><i>Часть 1: Создание Персонажа</i></p>
@@ -20,7 +21,7 @@
 <p><a href="Chapter09.html">Глава 9: Сражение</a></p>
 <p><i>Часть 3: Правила Магии</i></p>
 <p><a href="Chapter10.html">Глава 10: Использование Заклинаний</a></p>
-<p><a href="Chapter11gen.html">Глава 11: Дизигн</a></p>
+<p><a href="Chapter11gen.html">Глава 11: Заклинания</a></p>
 <p><i>Приложения</i></p>
 <p><a href="Attachment01.html">Приложение A: Состояния</a></p>
 <p><a href="Attachment02.html">Приложение Б: Боги Мультивселенной</a></p>

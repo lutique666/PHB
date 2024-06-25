@@ -740,7 +740,7 @@ else
 {
 
 
-  if (classus == 'paladin' || classus == 'ranger') {
+  if (classus == 'paladin' || classus == 'ranger' || classus == 'artificer') {
 
     if (Number(level_number) > 5) {
       level_number = '5';
