@@ -27,18 +27,18 @@ info[i].style.display = 'none';
 }
 optionCell[button.id].style.backgroundColor = 'orange';
 info[button.id].style.display = 'block';
+
 }
 
 //Архетипы. Рядом кнопка того же стиля, поэтому длина массива -2.
 function ChangeArchetype(button) {
-
 if (current_display_archetype != undefined) {
 for (i = 0; i < current_display_archetype.length; i++) {
   current_display_archetype[i].style.display = 'none'
   }
 }
 
-for (i = 0; i < archetypeCell.length-1; i++) {
+for (i = 0; i < archetypeCell.length; i++) {
   {
     if (archetypeCell[i].innerHTML==button)
       {
