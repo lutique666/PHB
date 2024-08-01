@@ -1,0 +1,86 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Дракон</title>
+
+  <script src="js/myscripts-other.js" ></script>
+  <script src="js/content-page.js" ></script>
+  
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu Mono' rel='stylesheet'>
+
+  <link rel="stylesheet" href="css/main03.css" />
+  <link rel="stylesheet" href="css/chapter03.css" />
+
+  <script>
+  window.onkeyup = function(event) {
+  document.getElementById("0").click();
+
+  if (event.keyCode == 27)
+  document.getElementById('lightbox').style.display = "none";
+  }
+
+  </script>
+
+</head>
+
+<body onload="pageload()">
+
+  <div id="headTable">
+
+    <div class="menu">
+      <div id="navigation" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+
+        </div>
+
+      </div>
+
+      <span onclick="openNav()"><img src="img/mapP.png" /></span>    </div>
+          <div class="title">
+      <p>Сводные правила</p>
+    </div>
+
+</div>
+
+
+  <div id="main">
+
+    <div class="option">
+      <div class="optionCell" style="display: none;" id=0 onclick=ChangeDisplay(this) ontouch=ChangeDisplay(this)>Дракон (раса)</div>
+
+
+</div>
+
+  
+
+<div class="infoall">
+
+<div class="info">
+
+      <h1>1) При создании персонажа используем правила "Гештальта" и "Дракон" </h1>
+      <h1><a href="gestalt.html" target="_blank">Гештальт</a></h1>
+      <h1><a href="dragon.html" target="_blank">Дракон</a></h1>
+      <h1>2) Характеристики даваемые расой Дракона можно перераспределить</h1>
+      <h1>3) В партии должно быть 2 кастера, 2 два полукастера, 2 некастера</h1>
+
+<table border=1>
+<tr width=600px><td colspan=4><b>Категории драконьих возрастов</td></tr>
+<tbody>
+<tr><td>Личность</td><td>Класс</td><td>Статус</td><td>Цвет</td></tr>
+<tr><td>-5</td><td>Воин-Мастер боевых исскуств</td><td>Некастер</td><td></td></tr>
+<tr><td>Сергей</td><td>Артифишер</td><td>Полукастер</td><td></td></tr>
+<tr><td>Саша</td><td></td><td></td><td></td></tr>
+<tr><td>Антон</td><td></td><td></td><td></td></tr>
+<tr><td>Соня</td><td></td><td></td><td></td></tr>
+<tr><td>Никита</td><td></td><td></td><td></td></tr>
+</table>
+
+    </div>
+</div>
+
+</div>
