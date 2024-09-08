@@ -989,7 +989,13 @@ function Search(neadle) {
 
      if (spellname[i].innerHTML.toUpperCase().indexOf(html.toUpperCase()) == 0) {	
       des[i].style.display = 'block';	
-      current_display_spell = spellname[i].innerHTML	
+      current_display_spell = spellname[i].innerHTML;
+
+      //перебивание # название спела в ссылке
+      tmp = document.URL.split('#');
+  	  url = decodeURI(tmp[1]);
+  	  window.location = url.replace( url , '#' + current_display_spell);
+
 
      } else {	
       des[i].style.display = 'none';	
